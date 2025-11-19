@@ -1,19 +1,16 @@
-import './App.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Homepage from './components/Homepage'
-import Medical from './pages/Medical'
-import NonMedical from './pages/NonMedical'
+import './app.css';
+import React from 'react'
+import NavBar from './components/navbar/navbar.jsx'
+import Banner from './components/banner/banner.jsx';
+import Footer from './components/footer/Footer.jsx';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/medical" element={<Medical />} />
-        <Route path="/non-medical" element={<NonMedical />} />
-        {/* future routes: add here */}
-      </Routes>
-    </BrowserRouter>
+    <div className='app' >
+      <NavBar/>
+      <Banner/>
+      <Footer/>
+    </div>
   )
 }
 

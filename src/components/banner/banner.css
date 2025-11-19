@@ -1,0 +1,62 @@
+.banner {
+    background-image: url("public/hero.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+    color: white;
+    position: relative;
+}
+
+.content {
+    padding-top: 150px;
+    padding-left: 40px;
+    max-width: 600px;
+}
+
+.title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    font-weight: 400;
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.button {
+    color: white;
+    outline: none;
+    border: none;
+    font-weight: 700;
+    border-radius: 6px;
+    padding: 0.6rem 2rem;
+    background-color: rgba(51, 51, 51, 0.6);
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.button:hover {
+    color: black;
+    background-color: #e6e6e6;
+}
+
+/* Optional fade bottom effect */
+.fade_bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 7rem;
+    background-image: linear-gradient(180deg,
+            transparent,
+            rgba(37, 37, 37, 0.6),
+            #111);
+}
