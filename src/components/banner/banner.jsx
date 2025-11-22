@@ -1,4 +1,5 @@
 import "./Banner.css";
+import { Link } from "react-router-dom";
 
 function Banner() {
     return (
@@ -15,8 +16,13 @@ function Banner() {
                 </h3>
 
                 <div className="button-group">
-                    <button className="button">Medical</button>
-                    <button className="button">Non Medical</button>
+                    <Link to="/medical">
+                        <button className="button">Medical</button>
+                    </Link>
+
+                    <Link to="/non-medical">
+                        <button className="button">Non Medical</button>
+                    </Link>
                 </div>
 
             </div>
