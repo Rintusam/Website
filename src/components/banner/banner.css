@@ -41,13 +41,31 @@
     padding: 0.6rem 2rem;
     background-color: rgba(51, 51, 51, 0.6);
     cursor: pointer;
+    
     transition: 0.2s ease;
+    display:flex;gap:22px;justify-content:center;margin-top:10px;
+    display:flex;align-items:center;gap:16px;padding:22px 26px;border-radius:12px;min-width:320px;text-decoration:none;color:#fff;box-shadow:0 6px 20px rgba(2,6,23,0.08);transition:transform .18s ease, box-shadow .18s ease;
 }
 
 .button:hover {
     color: black;
     background-color: #e6e6e6;
 }
+
+/* Make inline SVG icons fit neatly inside the button */
+.button svg {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 auto;
+    vertical-align: middle;
+}
+
+/* Ensure SVG paths inherit the button text color */
+.button svg path {
+    fill: currentColor;
+}
+
+
 
 /* Optional fade bottom effect */
 .fade_bottom {

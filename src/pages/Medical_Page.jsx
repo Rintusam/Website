@@ -10,14 +10,14 @@ function Medical_page() {
     const description = "Embark on a rewarding journey in healthcare. Select to discover programs, colleges, and admission details.";
 
     const items = [
-        { title: "BSC Nursing", image: "/hero.jpg" },
-        { title: "General Nursing", image: "/hero.jpg" },
-        { title: "Paramedical Sciences", image: "/hero.jpg" },
-        { title: "MBBS (Medicine)", image: "/hero.jpg" },
-        { title: "Physiotherapy", image: "/hero.jpg" },
-        { title: "Lab Technician", image: "/hero.jpg" },
-        { title: "Microbiology", image: "/hero.jpg" },
-        { title: "BDS (Dentistry)", image: "/hero.jpg" },
+        { title: "BSC Nursing", image: "/nursing.jpg" },
+        { title: "General Nursing", image: "/gnursing.jpeg" },
+        { title: "B-Pharm", image: "/bpharm.jpeg" },
+        { title: "MBBS (Medicine)", image: "/doctor.jpg" },
+        { title: "Physiotherapy", image: "/physiotherapy.jpg" },
+        { title: "Lab Technician", image: "/lab.jpeg" },
+        { title: "Microbiology", image: "/microbiology.jpeg" },
+        { title: "BDS (Dentistry)", image: "/dentist.jpeg" },
     ];
 
 
