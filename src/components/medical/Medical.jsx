@@ -1,17 +1,8 @@
 import React from "react";
 import "./Medical.css";
 
-function Medical() {
-    const items = [
-        { title: "BSC Nursing", image: "/hero.jpg" },
-        { title: "General Nursing", image: "/hero.jpg" },
-        { title: "Paramedical Sciences", image: "/hero.jpg" },
-        { title: "MBBS (Medicine)", image: "/hero.jpg" },
-        { title: "Physiotherapy", image: "/hero.jpg" },
-        { title: "Lab Technician", image: "/hero.jpg" },
-        { title: "Microbiology", image: "/hero.jpg" },
-        { title: "BDS (Dentistry)", image: "/hero.jpg" },
-    ];
+function Medical({items , title, description}) {
+    
 
     return (
         <div className="medical-page">
@@ -20,10 +11,9 @@ function Medical() {
 
                 {/* Text Centered */}
                 <div className="medical-header">
-                    <h1>Medical Studies: Explore Your Future in Healthcare</h1>
+                    <h1>{title}</h1>
                     <p>
-                        Embark on a rewarding journey in healthcare. Select to discover
-                        programs, colleges, and admission details.
+                        {description}
                     </p>
                 </div>
 
