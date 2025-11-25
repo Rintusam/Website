@@ -1,5 +1,5 @@
 .banner {
-    background-image: url("public/hero.jpg");
+    background-image: url("public/home.jpg");
     background-size: cover;
     background-position: center;
     height: 600px;
@@ -10,7 +10,7 @@
 .content {
     padding-top: 150px;
     padding-left: 40px;
-    max-width: 600px;
+    max-width: 1200px;
 }
 
 .title {
@@ -28,44 +28,14 @@
 }
 
 .button-group {
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  justify-content: center; 
+  align-items: center;      
+  gap: 20px;                
+  margin-top: 60px; 
+  margin-left: 100px; 
+;       
 }
-
-.button {
-    color: white;
-    outline: none;
-    border: none;
-    font-weight: 700;
-    border-radius: 6px;
-    padding: 0.6rem 2rem;
-    background-color: rgba(51, 51, 51, 0.6);
-    cursor: pointer;
-    
-    transition: 0.2s ease;
-    display:flex;gap:22px;justify-content:center;margin-top:10px;
-    display:flex;align-items:center;gap:16px;padding:22px 26px;border-radius:12px;min-width:320px;text-decoration:none;color:#fff;box-shadow:0 6px 20px rgba(2,6,23,0.08);transition:transform .18s ease, box-shadow .18s ease;
-}
-
-.button:hover {
-    color: black;
-    background-color: #e6e6e6;
-}
-
-/* Make inline SVG icons fit neatly inside the button */
-.button svg {
-    width: 18px;
-    height: 18px;
-    flex: 0 0 auto;
-    vertical-align: middle;
-}
-
-/* Ensure SVG paths inherit the button text color */
-.button svg path {
-    fill: currentColor;
-}
-
-
 
 /* Optional fade bottom effect */
 .fade_bottom {
@@ -77,4 +47,43 @@
             transparent,
             rgba(37, 37, 37, 0.6),
             #111);
+}
+
+
+.box-btn {
+  width: 260px;
+  height: 150px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.box-btn .icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.medical-box {
+  background: #0c2440; /* dark blue */
+  color: white;
+}
+
+.medical-box:hover {
+  background: #173a6b;
+}
+
+.nonmedical-box {
+  background: #d9a628; /* gold color */
+  color: #1c1c1c;
+}
+
+.nonmedical-box:hover {
+  background: #f0b62d;
 }
