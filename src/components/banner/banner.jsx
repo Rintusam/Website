@@ -28,7 +28,7 @@ function Banner() {
 
                 <div className="col-12 col-sm-6 col-md-5 col-lg-4">
                   <Link to="/non-medical" className="box-btn nonmedical-box text-decoration-none d-flex flex-column align-items-center justify-content-center p-4 rounded-3">
-                    <span className="icon fs-1 mb-2">⚛️</span>
+                    <span className="icon fs-1 mb-2">⚙️</span>
                     <span className="fs-5 fw-semibold">Non-Medical Fields</span>
                   </Link>
                 </div>
