@@ -10,11 +10,11 @@ function Non_medical_page() {
 
 
     const items = [
-        { title: "B-Tech/M-Tech", image: "/engineering.jpeg" },
-        { title: "LAW", image: "/law.jpg" },
+        { title: "Engineering(B.Tech)", image: "/engineering.jpeg" },
+        { title: "Bachelor Degree(B.sc)", image: "/bsc.jpeg" },
         { title: "B-Arch", image: "/barch.jpg" },
-        { title: "Aviation ", image: "/aviation.jpg" },
-        { title: "BBA/MBA", image: "/bba.jpg" },
+        { title: "Hotel Management", image: "/hotel.jpg" },
+        { title: "BBA", image: "/bba.jpg" },
         /*{ title: "Lab Technician", image: "/hero.jpg" },
         { title: "Microbiology", image: "/hero.jpg" },
         { title: "BDS (Dentistry)", image: "/hero.jpg" },*/
