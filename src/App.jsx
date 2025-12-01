@@ -1,5 +1,7 @@
 import './app.css';
 import React from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import HomePage from './pages/homePage.jsx';
 import { Route, Routes } from 'react-router-dom';
 import Medical_page from './pages/medical_page.jsx';

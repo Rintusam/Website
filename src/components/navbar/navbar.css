@@ -1,75 +1,27 @@
-/* Main navbar container */
-.div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 30px;
-    background-color: #293021;
-    color: #ffffff;
-    font-family: "Inter", sans-serif;
-    white-space: nowrap;
+/* Navbar custom styles */
+.navbar-nav .nav-link {
+    transition: color 0.2s ease;
 }
 
-/* Brand name */
-.h1 {
-    margin: 0;
-    font-size: 24px;
-    font-weight: 700;
+.navbar-nav .nav-link:hover {
+    color: #4da6ff !important;
 }
 
-/* Navigation links container */
-.h3 {
-    display: flex;
-    gap: 20px;
-}
-
-/* Individual nav links */
-.h3 h3 {
-    margin: 0;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: 0.2s ease;
-}
-
-.h3 h3:hover {
+.btn-outline-info {
+    border-color: #4da6ff;
     color: #4da6ff;
 }
 
-/* Buttons container */
-.Button {
-    display: flex;
-    gap: 15px;
-}
-
-/* All buttons */
-.Button button {
-    padding: 8px 18px;
-    font-size: 15px;
-    cursor: pointer;
-    border-radius: 6px;
-    border: none;
-    transition: 0.2s ease;
-}
-
-/* Sign in button */
-.Button button:nth-of-type(1) {
-    background-color: transparent;
+.btn-outline-info:hover {
+    background-color: #4da6ff;
     color: white;
-    border: 1px solid #4da6ff;
 }
 
-.Button button:nth-of-type(1):hover {
+.btn-info {
     background-color: #4da6ff;
+    border-color: #4da6ff;
 }
 
-/* Sign up button */
-.Button button:nth-of-type(2) {
-    background-color: #4da6ff;
-    color: #000;
-    font-weight: 600;
-}
-
-.Button button:nth-of-type(2):hover {
+.btn-info:hover {
     opacity: 0.85;
 }

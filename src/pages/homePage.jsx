@@ -6,9 +6,13 @@ import Footer from '../components/footer/Footer'
 function HomePage() {
     return (
         <div>
+            <header>
             <NavBar />
+            </header>
             <Banner />
+            <footer>
             <Footer />
+            </footer>
         </div>
     )
 }
