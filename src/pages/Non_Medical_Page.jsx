@@ -1,7 +1,7 @@
 import React from 'react'
 import NavBar from '../components/navbar/navbar'
 import Footer from '../components/footer/Footer'
-import Medical from '../components/medical/medical';
+import Medical from '../components/medical/Medical';
 
 function Non_medical_page() {
 
@@ -11,7 +11,7 @@ function Non_medical_page() {
 
     const items = [
         { title: "Engineering(B.Tech)", image: "/engineering.jpeg" },
-        { title: "Bachelor Degree(B.sc)", image: "/bsc.jpeg" },
+        { title: "Bachelor Degree(B.Sc)", image: "/bsc.jpeg" },
         { title: "B-Arch", image: "/barch.jpg" },
         { title: "Hotel Management", image: "/hotel.jpg" },
         { title: "BBA", image: "/bba.jpg" },

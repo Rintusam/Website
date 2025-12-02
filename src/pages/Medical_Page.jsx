@@ -1,6 +1,6 @@
 import React from 'react'
 import NavBar from '../components/navbar/navbar'
-import Medical from '../components/medical/medical'
+import Medical from '../components/medical/Medical'
 import Footer from '../components/footer/Footer'
 
 
@@ -12,11 +12,11 @@ function Medical_page() {
     const items = [
         { title: "BSC Nursing", image: "/nursing.jpg" },
         { title: "General Nursing", image: "/gnursing.jpeg" },
-        { title: "B-Pharm/Pharm-D", image: "/bpharm.jpeg" },
+        { title: "Bachelor of Pharmacy (B.Pharm)", image: "/bpharm.jpeg" },
         { title: "MBBS (Medicine)", image: "/doctor.jpg" },
         { title: "Bachelor of Physiotherapy(BPT)", image: "/physiotherapy.jpg" },
-        { title: "B.sc Cardiovascular Technology", image: "/cardiology.jpeg" },
-        { title: "B.sc Radiology & Imaging Technology", image: "/radiology.jpg" },
+        { title: "B.Sc Cardiovascular Technology", image: "/cardiology.jpeg" },
+        { title: "B.Sc Radiology & Imaging Technology", image: "/radiology.jpg" },
     ];
 
 

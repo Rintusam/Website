@@ -9,62 +9,47 @@ function Medical({ items, title, description }) {
     const getCourses = (itemTitle) => {
         const coursesData = {
             "BSC Nursing": [
-                { name: "Fundamentals of Nursing", duration: "1 Year", fees: "₹50,000" },
-                { name: "Medical-Surgical Nursing", duration: "1 Year", fees: "₹55,000" },
-                { name: "Community Health Nursing", duration: "6 Months", fees: "₹30,000" },
-                { name: "Pediatric Nursing", duration: "6 Months", fees: "₹35,000" }
+                { name: "BSC Nursing", duration: "4 Years" }
+               
             ],
             "General Nursing": [
-                { name: "Basic Nursing Care", duration: "6 Months", fees: "₹25,000" },
-                { name: "Patient Care Management", duration: "4 Months", fees: "₹20,000" },
-                { name: "Nursing Assistantship", duration: "3 Months", fees: "₹15,000" }
+                { name: "General Nursing ", duration: "3 Years" }
+                
             ],
-            "B-Pharm": [
-                { name: "Pharmaceutical Chemistry", duration: "1 Year", fees: "₹60,000" },
-                { name: "Pharmacology", duration: "1 Year", fees: "₹65,000" },
-                { name: "Pharmaceutics", duration: "1 Year", fees: "₹62,000" },
-                { name: "Clinical Pharmacy", duration: "6 Months", fees: "₹40,000" }
-            ],
+            "Bachelor of Pharmacy (B.Pharm)": [
+                { name: "Bachelor of Pharmacy", duration: "4 Years" },
+                 ],
+
             "MBBS (Medicine)": [
-                { name: "Pre-Medical Foundation", duration: "1 Year", fees: "₹1,50,000" },
-                { name: "Anatomy & Physiology", duration: "1 Year", fees: "₹2,00,000" },
-                { name: "Clinical Medicine", duration: "2 Years", fees: "₹4,00,000" },
-                { name: "Surgery Basics", duration: "1 Year", fees: "₹2,50,000" }
+                { name: "MBBS (Medicine)", duration: "5.5 Years" },
+                
             ],
-            "Physiotherapy": [
-                { name: "Musculoskeletal Therapy", duration: "6 Months", fees: "₹45,000" },
-                { name: "Sports Physiotherapy", duration: "6 Months", fees: "₹50,000" },
-                { name: "Neurological Rehabilitation", duration: "4 Months", fees: "₹40,000" }
+            "Bachelor of Physiotherapy(BPT)": [
+                { name: "Bachelors of Physiotherapy", duration: "4 Years"}
+                
             ],
-            "Lab Technician": [
-                { name: "Clinical Laboratory Techniques", duration: "6 Months", fees: "₹35,000" },
-                { name: "Pathology Lab Training", duration: "4 Months", fees: "₹28,000" },
-                { name: "Microbiology Lab Practices", duration: "3 Months", fees: "₹22,000" }
+            "B.Sc Cardiovascular Technology": [
+                { name: "B.Sc Cardiovascular Technology", duration: "3 Years" },
+                
             ],
-            "Microbiology": [
-                { name: "Medical Microbiology", duration: "1 Year", fees: "₹55,000" },
-                { name: "Industrial Microbiology", duration: "6 Months", fees: "₹40,000" },
-                { name: "Virology & Immunology", duration: "6 Months", fees: "₹45,000" }
+            
+            "B.Sc Radiology & Imaging Technology": [
+                { name: "B.Sc Radiology & Imaging Technology", duration: "3 Years" },
+               ],
+            "Engineering(B.Tech)": [
+                { name: "Computer Science Engineering", duration: "4 Years" },
+                { name: "Mechanical Engineering", duration: "4 Years"},
+                { name: "Electronics & Communication", duration: "4 Years" },
+                { name: "Civil Engineering", duration: "4 Years"},
+                { name: "Electrical Engineering", duration: "4 Years"}
             ],
-            "BDS (Dentistry)": [
-                { name: "Oral Medicine & Radiology", duration: "1 Year", fees: "₹1,20,000" },
-                { name: "Orthodontics", duration: "1 Year", fees: "₹1,50,000" },
-                { name: "Periodontics", duration: "6 Months", fees: "₹80,000" },
-                { name: "Prosthodontics", duration: "1 Year", fees: "₹1,30,000" }
-            ],
-            "B-Tech/M-Tech": [
-                { name: "Computer Science Engineering", duration: "4 Years", fees: "₹4,00,000" },
-                { name: "Mechanical Engineering", duration: "4 Years", fees: "₹3,50,000" },
-                { name: "Electronics & Communication", duration: "4 Years", fees: "₹3,80,000" },
-                { name: "Civil Engineering", duration: "4 Years", fees: "₹3,20,000" },
-                { name: "Electrical Engineering", duration: "4 Years", fees: "₹3,60,000" }
-            ],
-            "LAW": [
-                { name: "Corporate Law", duration: "1 Year", fees: "₹1,50,000" },
-                { name: "Criminal Law", duration: "1 Year", fees: "₹1,40,000" },
-                { name: "International Law", duration: "6 Months", fees: "₹80,000" },
-                { name: "Intellectual Property Law", duration: "6 Months", fees: "₹90,000" },
-                { name: "Constitutional Law", duration: "1 Year", fees: "₹1,30,000" }
+            "Bachelor Degree(B.Sc)": [
+                { name: "B.Sc Computer Science", duration: "3 Years"},
+                { name: "B.Sc  Biotechnology", duration: "3 Years"},
+                { name: "B.Sc Forensic Science", duration: "3 Years"},
+                { name: "B.Sc Costume Design and Fashion", duration: "3 Years"},
+                { name: "B.Sc Digital and Cyber Forensic Science", duration: "3 Years"},
+                { name: "B.Sc Artificial Intelligence & Machine Learning", duration: "3 Years"},
             ],
             "B-Arch": [
                 { name: "Architectural Design", duration: "5 Years", fees: "₹5,00,000" },
@@ -72,13 +57,13 @@ function Medical({ items, title, description }) {
                 { name: "Interior Architecture", duration: "3 Years", fees: "₹3,20,000" },
                 { name: "Landscape Architecture", duration: "2 Years", fees: "₹2,80,000" }
             ],
-            "Aviation": [
-                { name: "Commercial Pilot License", duration: "1.5 Years", fees: "₹25,00,000" },
-                { name: "Aircraft Maintenance Engineering", duration: "3 Years", fees: "₹8,00,000" },
-                { name: "Airport Management", duration: "2 Years", fees: "₹3,50,000" },
-                { name: "Cabin Crew Training", duration: "6 Months", fees: "₹2,50,000" }
+            "Hotel Management": [
+                { name: "Bachelor of Hotel Management(BHM)", duration: "3 Years" },
+                { name: "B.sc Hospitality and Hotel", duration: "3 Years" },
+                { name: "Bachelor in Hotel Management and Catering Technology(BHMCT)", duration: "4 Years"},
             ],
-            "BBA/MBA": [
+            
+            "BBA": [
                 { name: "Marketing Management", duration: "2 Years", fees: "₹3,00,000" },
                 { name: "Financial Management", duration: "2 Years", fees: "₹3,50,000" },
                 { name: "Human Resource Management", duration: "2 Years", fees: "₹2,80,000" },
