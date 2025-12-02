@@ -90,17 +90,32 @@
     font-size: 1rem;
     font-weight: 600;
     text-align: center;
-    color: #333;
+    color: #000000;
 }
 
 /* Off-canvas Customization */
 .offcanvas {
     z-index: 1045 !important;
 }
+.offcanvas-header {
+    background-color: rgb(47, 52, 196);
+}
 
 .offcanvas-backdrop {
     z-index: 1040 !important;
 }
+
+
+
+.popup-card {
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    color: #ffffff;
+    background-color:rgb(59, 56, 56);
+}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {

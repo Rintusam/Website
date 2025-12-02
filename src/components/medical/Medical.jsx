@@ -64,17 +64,28 @@ function Medical({ items, title, description }) {
             ],
             
             "BBA": [
-                { name: "Marketing Management", duration: "2 Years", fees: "₹3,00,000" },
-                { name: "Financial Management", duration: "2 Years", fees: "₹3,50,000" },
-                { name: "Human Resource Management", duration: "2 Years", fees: "₹2,80,000" },
-                { name: "Operations Management", duration: "2 Years", fees: "₹3,20,000" },
-                { name: "International Business", duration: "2 Years", fees: "₹3,80,000" }
+                { name: "Marketing Management", duration: "3 Years", },
+                { name: "Financial Management", duration: "3 Years" },
+                { name: "Human Resource Management", duration: "3 Years"},
+                { name: "Operations Management", duration: "3 Years"},
+                { name: "International Business", duration: "3 Years"},
+            ],
+            
+            "MBA": [
+                { name: "MBA in Marketing Management", duration: "2 Years", },
+                { name: "MBA in Finance", duration: "2 Years" },
+                { name: "MBA in Human Resource Management", duration: "2 Years"},
+                { name: " MBA in Operations Management", duration: "2 Years"},
+                { name: "MBA in International Business", duration: "2 Years"},
+                { name: "MBA in Business Analytics", duration: "2 Years"},
+                { name: "MBA in Logistics & Supply Chain Management", duration: "2 Years"},
+                { name: "MBA in Information Technology", duration: "2 Years"},
             ]
         };
 
         return coursesData[itemTitle] || [
-            { name: "Foundation Course", duration: "6 Months", fees: "₹30,000" },
-            { name: "Advanced Studies", duration: "1 Year", fees: "₹60,000" }
+            { name: "Foundation Course", duration: "6 Months",  },
+            { name: "Advanced Studies", duration: "1 Year",  }
         ];
     };
 
@@ -125,8 +136,8 @@ function Medical({ items, title, description }) {
                     zIndex: 1045
                 }}
             >
-                <div className="offcanvas-header bg-primary text-white">
-                    <h5 className="offcanvas-title fw-bold">
+                <div className="offcanvas-header text-white">
+                    <h5 className="offcanvas-title  fw-bold">
                         {selectedItem?.title} - Available Courses
                     </h5>
                     <button
@@ -143,15 +154,15 @@ function Medical({ items, title, description }) {
                                 <div className="col-12 col-sm-6 col-lg-4" key={idx}>
                                     <div className="card h-100 shadow-sm">
                                         <div className="card-body">
-                                            <h6 className="card-title text-primary fw-bold mb-3">
+                                            <h6 className="popup-card  fw-bold mb-3">
                                                 {course.name}
                                             </h6>
-                                            <div className="d-flex justify-content-between align-items-center mb-2">
-                                                <span className="text-muted small">Duration:</span>
-                                                <span className="badge bg-info">{course.duration}</span>
+                                            <div className="d-flexjustify-content-between align-items-center mb-2">
+                                                <span className="fw-bold ">Duration:</span>
+                                                <span className="badge bg-primary">{course.duration}</span>
                                             </div>
                                             <div className="d-flex justify-content-between align-items-center mb-3">
-                                                <span className="text-muted small">Fees:</span>
+                                                <span className="fw-bold ">Fees:</span>
                                                 <span className="badge bg-success">{course.fees}</span>
                                             </div>
                                             <button className="btn btn-sm btn-outline-primary w-100">
