@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import "./Medical.css";
 
 function Medical({ items, title, description }) {
     const [selectedItem, setSelectedItem] = useState(null);
     const [showOffcanvas, setShowOffcanvas] = useState(false);
+    const navigate = useNavigate();
 
     // Course data for each field
     const getCourses = (itemTitle) => {
@@ -154,10 +156,10 @@ function Medical({ items, title, description }) {
                                 <div className="col-12 col-sm-6 col-lg-4" key={idx}>
                                     <div className="card h-100 shadow-sm">
                                         <div className="card-body">
-                                            <h6 className="popup-card  fw-bold mb-3">
+                                            <h6 className="popup-card fw-bold mb-3">
                                                 {course.name}
                                             </h6>
-                                            <div className="d-flexjustify-content-between align-items-center mb-2">
+                                            <div className="d-flex justify-content-between align-items-center mb-2">
                                                 <span className="fw-bold ">Duration:</span>
                                                 <span className="badge bg-primary">{course.duration}</span>
                                             </div>
@@ -165,7 +167,10 @@ function Medical({ items, title, description }) {
                                                 <span className="fw-bold ">Fees:</span>
                                                 <span className="badge bg-success">{course.fees}</span>
                                             </div>
-                                            <button className="btn btn-sm btn-outline-primary w-100">
+                                            <button
+                                                className="btn btn-sm btn-outline-primary w-100"
+                                                onClick={() => navigate('/college')}
+                                            >
                                                 Enroll Now
                                             </button>
                                         </div>
