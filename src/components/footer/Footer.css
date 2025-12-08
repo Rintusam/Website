@@ -1,9 +1,145 @@
-/* Footer hover links */
-.hover-link {
-    transition: color 0.2s ease;
+/* General Footer Styling */
+.site-footer {
+  background-color: #1a1a1a; /* Dark professional background */
+  color: #b0b0b0; /* Light grey text */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-top: 50px;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
-.hover-link:hover {
-    color: #4da6ff !important;
-    opacity: 1 !important;
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+  gap: 30px;
+}
+
+/* Footer Sections */
+.footer-section {
+  flex: 1;
+  min-width: 200px; /* Ensures columns wrap nicely on mobile */
+}
+
+/* Specific adjustment for the 'About' section to be wider */
+.footer-section.about {
+  flex: 1.5;
+}
+
+/* Headings */
+.footer-logo {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  margin-top: 0;
+}
+
+.footer-section h3 {
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Links Lists */
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section a {
+  color: #b0b0b0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: #fff; /* White on hover */
+  padding-left: 5px; /* Subtle movement effect */
+}
+
+/* Contact List Specifics */
+.contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-list .icon {
+  font-size: 18px;
+  color: #fff;
+}
+
+/* Social Icons */
+.social-icons {
+  margin-top: 15px;
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons a {
+  font-size: 18px;
+  background: #333;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.3s;
+}
+
+.social-icons a:hover {
+  background: #007bff; /* Brand color on hover */
+  padding-left: 0; /* Override the padding effect */
+}
+
+/* Bottom Bar */
+.footer-bottom {
+  background-color: #111;
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+.legal-links a {
+  margin-left: 20px;
+  color: #b0b0b0;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .legal-links a {
+    margin: 0 10px;
+  }
 }

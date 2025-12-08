@@ -1,10 +1,12 @@
 /* Navbar custom styles */
 .navbar-nav .nav-link {
     transition: color 0.2s ease;
+    color: white !important;
+    
 }
 
 .navbar-nav .nav-link:hover {
-    color: #4da6ff !important;
+    color: #1eaa2c !important;
 }
 
 .btn-outline-info {
@@ -25,3 +27,5 @@
 .btn-info:hover {
     opacity: 0.85;
 }
+
+

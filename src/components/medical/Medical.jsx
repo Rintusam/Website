@@ -116,7 +116,7 @@ function Medical({ items, title, description }) {
                 <div className="medical-grid">
                     {items.map((item, index) => (
                         <div
-                            className="medical-card"
+                            className="medical-page-card"
                             key={index}
                             onClick={() => handleCardClick(item)}
                         >

@@ -4,7 +4,7 @@ import "./NavBar.css";
 
 function NavBar() {
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: '#293021' }}>
+        <nav className="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: '#171b1dff' }}>
             <div className="container-fluid px-lg-4">
                 <a className="navbar-brand fw-bold fs-4" href="/">Your Brand</a>
 
@@ -21,28 +21,20 @@ function NavBar() {
                 </button>
 
                 <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li className="nav-item px-2">
-                            <Link className="nav-link" to="/">Home</Link>
+                            <Link className="nav-link fw-bold" to="/">Home</Link>
+                        </li>
+                        
+                        <li className="nav-item px-2">
+                            <Link className="nav-link fw-bold" to="/resources">How it works</Link>
                         </li>
                         <li className="nav-item px-2">
-                            <Link className="nav-link" to="/programs">Explore Programs</Link>
-                        </li>
-                        <li className="nav-item px-2">
-                            <Link className="nav-link" to="/how">How it Works</Link>
-                        </li>
-                        <li className="nav-item px-2">
-                            <Link className="nav-link" to="/resources">Resources</Link>
-                        </li>
-                        <li className="nav-item px-2">
-                            <Link className="nav-link" to="/contact">Contacts</Link>
+                            <Link className="nav-link fw-bold" to="/contact">Contact us</Link>
                         </li>
                     </ul>
 
-                    <div className="d-flex gap-2">
-                        <button className="btn btn-outline-info">Sign in</button>
-                        <button className="btn btn-info text-dark fw-semibold">Sign up</button>
-                    </div>
+                   
                 </div>
             </div>
         </nav>

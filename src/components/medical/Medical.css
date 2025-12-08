@@ -65,21 +65,21 @@
 }
 
 /* Cards */
-.medical-card {
-    background: white;
-    border-radius: 12px;
+.medical-page-card {
+    background:white;
+    border-radius: 19px;
     overflow: hidden;
     cursor: pointer;
     transition: all 0.25s ease;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.medical-card:hover {
+.medical-page-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-.medical-card img {
+.medical-page-card img {
     width: 100%;
     height: 160px;
     object-fit: cover;
@@ -97,6 +97,7 @@
 .offcanvas {
     z-index: 1045 !important;
 }
+
 .offcanvas-header {
     background-color: rgb(47, 52, 196);
 }
@@ -113,7 +114,7 @@
     font-weight: 600;
     text-align: center;
     color: #ffffff;
-    background-color:rgb(59, 56, 56);
+    background-color: rgb(59, 56, 56);
 }
 
 
@@ -136,7 +137,7 @@
         gap: 15px;
     }
 
-    .medical-card img {
+    .medical-page-card img {
         height: 120px;
     }
 

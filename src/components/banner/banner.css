@@ -1,91 +1,149 @@
-/* Banner Section */
+/* --- Base Banner Setup --- */
 .banner-section {
-  background-image: url("public/home.jpg");
+  position: relative;
+  /* Replace this URL with your actual image */
+  background-image: url("/h.jpg");
   background-size: cover;
   background-position: center;
-  min-height: 700px;
+  background-attachment: fixed; /* Creates a cool parallax effect */
+  min-height: 85vh; /* Takes up 85% of the screen height */
   display: flex;
   align-items: center;
+  overflow: hidden;
+}
+
+/* Dark Overlay - Essential for text readability */
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.8));
+  z-index: 1;
+}
+
+/* --- Typography --- */
+.main-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.highlight-text {
+  color: #4facfe; /* Bright Blue Highlight */
+  background: -webkit-linear-gradient(#4facfe, #00f2fe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sub-title {
+  color: #e0e0e0;
+  font-size: 1.2rem;
+  font-weight: 400;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* --- Choice Cards (The Buttons) --- */
+.choice-card {
+  display: block;
+  text-decoration: none;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 40px 20px;
+  transition: all 0.4s ease;
+  height: 100%;
+  color: black;
   position: relative;
+  overflow: hidden;
 }
 
-.banner-content {
-  padding-top: 80px;
-  padding-bottom: 80px;
+.choice-card:hover {
+  transform: translateY(-10px); /* Lifts up on hover */
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
-/* Box Buttons */
-.box-btn {
-  min-height: 150px;
-  transition: all 0.25s ease;
-  cursor: pointer;
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
-.medical-box {
-  background: #0c2440;
-  color: white;
+/* Icons inside cards */
+.icon-circle {
+  width: 70px;
+  height: 70px;
+  background: rgb(255, 255, 255);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  margin-bottom: 15px;
+  transition: transform 0.4s ease;
 }
 
-.medical-box:hover {
-  background: #173a6b;
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+.choice-card:hover .icon-circle {
+  transform: scale(1.1) rotate(5deg);
+  background: white;
 }
 
-.nonmedical-box {
-  background: #d9a628;
-  color: #1c1c1c;
+/* Specific Colors for Medical vs Non-Medical */
+.medical-card:hover .icon-circle {
+  color: #10b238; /* Blue for Medical */
 }
 
-.nonmedical-box:hover {
-  background: #f0b62d;
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+.non-medical-card:hover .icon-circle {
+  color: #4d4b4f; /* Pink/Orange for Non-Medical */
 }
 
-/* Fade bottom effect */
-.fade-bottom {
-  height: 7rem;
-  background-image: linear-gradient(180deg,
-      transparent,
-      rgba(37, 37, 37, 0.6),
-      #111);
-  pointer-events: none;
+.choice-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
 }
 
-/* Mobile Responsive Adjustments */
-@media (max-width: 767px) {
+.choice-card p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 15px;
+}
+
+.cta-link {
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  opacity: 0; /* Hidden by default */
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+/* Show "Explore ->" only on hover */
+.choice-card:hover .cta-link {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Mobile Adjustments --- */
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 2.2rem;
+  }
   .banner-section {
-    min-height: 600px;
+    min-height: auto;
+    padding: 80px 0;
   }
-
-  .banner-content {
-    padding-top: 60px;
-    padding-bottom: 60px;
-    text-align: center;
-  }
-
-  .banner-content h1 {
-    font-size: 2rem;
-  }
-
-  .banner-content h3 {
+  .sub-title {
     font-size: 1rem;
-  }
-
-  .box-btn {
-    min-height: 120px;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  .banner-content h1 {
-    font-size: 2.5rem;
-  }
-}
-
-@media (min-width: 992px) {
-  .banner-content {
-    padding-left: 40px;
+    padding: 0 15px;
   }
 }
