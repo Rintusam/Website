@@ -30,6 +30,9 @@ function NavBar() {
                             <Link className="nav-link fw-bold" to="/resources">How it works</Link>
                         </li>
                         <li className="nav-item px-2">
+                            <Link className="nav-link fw-bold" to="/resources">About us</Link>
+                        </li>
+                        <li className="nav-item px-2">
                             <Link className="nav-link fw-bold" to="/contact">Contact us</Link>
                         </li>
                     </ul>
