@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import "./college.css";
 
 function College({ selectedCourse }) {
-  // default to 'All' so all colleges are shown on initial load
   const [selectedLocation, setSelectedLocation] = useState("All");
-  const [search, setSearch] = useState("");
 
   const colleges = [
     { name: "XYZ College", course: "Computer Science Engineering", duration: "4 Years", location: "Bangalore" },
@@ -33,107 +31,86 @@ function College({ selectedCourse }) {
 
   const filteredColleges = colleges.filter((item) => {
     const locationMatch = selectedLocation === "All" || item.location === selectedLocation;
-    const nameMatch = item.name.toLowerCase().includes(search.toLowerCase());
     const courseMatch = !selectedCourse || item.course === selectedCourse;
-    return locationMatch && nameMatch && courseMatch;
+    return locationMatch && courseMatch;
   });
 
   return (
     <div className="college-wrapper">
-      <div className="location-box">
-        <h3>
-          Choose your location...
-          {selectedCourse && <span style={{ marginLeft: "15px", color: "#0066cc", fontSize: "0.9em" }}>• Course: <strong>{selectedCourse}</strong></span>}
-        </h3>
-
-        <div className="location-grid">
-          {/* 'ALL' tile - selected by default */}
-          <button
-            type="button"
-            className={`location-tile ${selectedLocation === "All" ? "active" : ""}`}
-            onClick={() => setSelectedLocation("All")}
-          >
-            <div className="tile-image">
-              <img src="/all_location.jpg" alt="All locations" />
-            </div>
-            <div className="tile-label"></div>
-          </button>
-
-          {/* Location tiles: display square image with label below */}
-          <button
-            type="button"
-            className={`location-tile ${selectedLocation === "Kochi" ? "active" : ""}`}
-            onClick={() => setSelectedLocation("Kochi")}
-          >
-            <div className="tile-image">
-              <img src="/kerala.jpeg" alt="Kerala" />
-            </div>
-            <div className="tile-label">Kerala</div>
-          </button>
-
-          <button
-            type="button"
-            className={`location-tile ${selectedLocation === "Coimbatore" ? "active" : ""}`}
-            onClick={() => setSelectedLocation("Coimbatore")}
-          >
-            <div className="tile-image">
-              <img src="/coimbatore.jpeg" alt="Coimbatore" />
-            </div>
-            <div className="tile-label">Coimbatore</div>
-          </button>
-
-          <button
-            type="button"
-            className={`location-tile ${selectedLocation === "Bangalore" ? "active" : ""}`}
-            onClick={() => setSelectedLocation("Bangalore")}
-          >
-            <div className="tile-image">
-              <img src="/bangalore.jpeg" alt="Bangalore" />
-            </div>
-            <div className="tile-label">Bangalore</div>
-          </button>
+      <div className="container">
+        {/* Header Section */}
+        <div className="text-center mb-5 header-section">
+          <h1 className="main-title">
+            Non-Medical Studies: Explore Your Future in Diverse Fields
+          </h1>
+          <p className="main-subtitle">
+            Embark on a rewarding journey in non-medical careers. Select to discover programs, colleges, and admission details.
+          </p>
         </div>
 
-        <input
-          type="text"
-          placeholder="Search your college name here…"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="college-search"
-        />
-      </div>
-
-      <div className="table-container">
-        <h2>College List</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>College Name</th>
-              <th>Course</th>
-              <th>Duration</th>
-              <th>Location</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {filteredColleges.length > 0 ? (
-              filteredColleges.map((item, index) => (
-                <tr key={index}>
-                  <td>{item.name}</td>
-                  <td>{item.course}</td>
-                  <td>{item.duration}</td>
-                  <td>{item.location}</td>
-                </tr>
-              ))
-            ) : (
-              <tr>
-                <td colSpan="4" className="no-data">
-                  No Colleges Found
-                </td>
-              </tr>
+        {/* Location Selection */}
+        <div className="text-center mb-4">
+          <h3 className="page-title">
+            Choose your location...
+            {selectedCourse && (
+              <span className="course-info">
+                {' '} • Course: <strong>{selectedCourse}</strong>
+              </span>
             )}
-          </tbody>
-        </table>
+          </h3>
+          <select
+            className="form-select form-select-lg location-dropdown"
+            value={selectedLocation}
+            onChange={(e) => setSelectedLocation(e.target.value)}
+          >
+            <option value="All">All Locations</option>
+            <option value="Kochi">Kochi</option>
+            <option value="Coimbatore">Coimbatore</option>
+            <option value="Bangalore">Bangalore</option>
+          </select>
+        </div>
+
+        {/* College Cards Grid */}
+        <div className="row g-4 mt-4">
+          {filteredColleges.length > 0 ? (
+            filteredColleges.map((item, index) => (
+              <div className="col-12 col-sm-6 col-lg-4 col-xl-3" key={index}>
+                <div className="college-card">
+                  {/* Dummy Image */}
+                  <div className={`college-image gradient-${index % 5}`}>
+                    <div className="college-icon">
+                      🎓
+                    </div>
+                  </div>
+
+                  <div className="card-body p-4">
+                    <h5 className="college-name">
+                      {item.name}
+                    </h5>
+                    <div className="mb-2">
+                      <span className="badge bg-primary me-2 college-badge">
+                        {item.duration}
+                      </span>
+                      <span className="badge bg-success college-badge">
+                        {item.location}
+                      </span>
+                    </div>
+                    <p className="college-detail">
+                      <strong>Course:</strong> {item.course}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className="col-12">
+              <div className="no-colleges">
+                <div className="no-colleges-icon">🔍</div>
+                No colleges match your selection.
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
