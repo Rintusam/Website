@@ -1,119 +1,160 @@
-import React, { useState } from "react";
-import "./college.css";
+import React, { useState } from 'react';
+import './college.css';
 
-function College({ selectedCourse }) {
-  const [selectedLocation, setSelectedLocation] = useState("All");
+// --- Mock Data: In a real app, this would come from your backend/API ---
+const collegesData = [
+  {
+    id: 1,
+    name: "Rajagiri School of Engineering & Technology",
+    location: "Kochi",
+    rating: "4.8",
+    fees: "₹95,000/yr",
+    imgUrl: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=1000",
+    tags: ["Autonomous", "NAAC A++"]
+  },
+  {
+    id: 2,
+    name: "Model Engineering College",
+    location: "Kochi",
+    rating: "4.6",
+    fees: "₹45,000/yr",
+    imgUrl: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=1000",
+    tags: ["Govt Aided", "Top Placement"]
+  },
+  {
+    id: 3,
+    name: "PSG College of Technology",
+    location: "Coimbatore",
+    rating: "4.9",
+    fees: "₹85,000/yr",
+    imgUrl: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&q=80&w=1000",
+    tags: ["Top Ranked", "Research Hub"]
+  },
+  {
+    id: 4,
+    name: "Coimbatore Institute of Technology (CIT)",
+    location: "Coimbatore",
+    rating: "4.5",
+    fees: "₹60,000/yr",
+    imgUrl: "https://images.unsplash.com/photo-1592280771800-bcf9fe730623?auto=format&fit=crop&q=80&w=1000",
+    tags: ["Historic", "Green Campus"]
+  },
+  {
+    id: 5,
+    name: "R.V. College of Engineering",
+    location: "Bangalore",
+    rating: "4.9",
+    fees: "₹2,50,000/yr",
+    imgUrl: "https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&q=80&w=1000",
+    tags: ["Premium", "Bangalore Top"]
+  },
+  {
+    id: 6,
+    name: "BMS College of Engineering",
+    location: "Bangalore",
+    rating: "4.7",
+    fees: "₹2,20,000/yr",
+    imgUrl: "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&q=80&w=1000",
+    tags: ["Oldest Private", "City Center"]
+  },
+  {
+    id: 7,
+    name: "Christ University (Kengeri Campus)",
+    location: "Bangalore",
+    rating: "4.5",
+    fees: "₹1,80,000/yr",
+    imgUrl: "https://images.unsplash.com/photo-1525921429624-479b6a26d84d?auto=format&fit=crop&q=80&w=1000",
+    tags: ["Liberal Arts", "Modern"]
+  },
+  {
+    id: 8,
+    name: "SCMS School of Engineering",
+    location: "Kochi",
+    rating: "4.3",
+    fees: "₹80,000/yr",
+    imgUrl: "https://images.unsplash.com/photo-1492538368677-f6e0afe31dcc?auto=format&fit=crop&q=80&w=1000",
+    tags: ["Strict Academic", "Hostel"]
+  }
+];
 
-  const colleges = [
-    { name: "XYZ College", course: "Computer Science Engineering", duration: "4 Years", location: "Bangalore" },
-    { name: "XBC College", course: "Computer Science Engineering", duration: "4 Years", location: "Bangalore" },
-    { name: "BRS College", course: "Mechanical Engineering", duration: "4 Years", location: "Bangalore" },
-    { name: "XRA College", course: "Electronics & Communication", duration: "4 Years", location: "Bangalore" },
-    { name: "BHA College", course: "Civil Engineering", duration: "4 Years", location: "Bangalore" },
-    { name: "ABC College", course: "Marketing Management", duration: "2 Years", location: "Bangalore" },
-    { name: "XYZ Institute", course: "Financial Management", duration: "2 Years", location: "Bangalore" },
-    { name: "Premier College", course: "Bachelor of Pharmacy", duration: "4 Years", location: "Bangalore" },
-    { name: "Health Institute", course: "MBBS (Medicine)", duration: "5.5 Years", location: "Bangalore" },
-    { name: "Tech Hub College", course: "Computer Science Engineering", duration: "4 Years", location: "Coimbatore" },
-    { name: "Coimbatore Institute", course: "Human Resource Management", duration: "2 Years", location: "Coimbatore" },
-    { name: "Kochi Tech", course: "Mechanical Engineering", duration: "4 Years", location: "Kochi" },
-    { name: "Kochi Business School", course: "Operations Management", duration: "2 Years", location: "Kochi" },
-    { name: "Hospitality Grand", course: "Bachelor of Hotel Management(BHM)", duration: "3 Years", location: "Bangalore" },
-    { name: "Hotel Management Academy", course: "Bachelor of Hotel Management(BHM)", duration: "3 Years", location: "Bangalore" },
-    { name: "Culinary Institute", course: "B.sc Hospitality and Hotel", duration: "3 Years", location: "Bangalore" },
-    { name: "Professional Hotel School", course: "Bachelor in Hotel Management and Catering Technology(BHMCT)", duration: "4 Years", location: "Coimbatore" },
-    { name: "Hospitality Plus", course: "Bachelor of Hotel Management(BHM)", duration: "3 Years", location: "Coimbatore" },
-    { name: "Kochi Hotel Institute", course: "B.sc Hospitality and Hotel", duration: "3 Years", location: "Kochi" },
-    { name: "BSC Nursing Academy", course: "BSC Nursing", duration: "4 Years", location: "Bangalore" },
-    { name: "Nursing Care Institute", course: "General Nursing ", duration: "3 Years", location: "Bangalore" },
-    { name: "Physiotherapy Center", course: "Bachelors of Physiotherapy", duration: "4 Years", location: "Bangalore" }
-  ];
+const Colleges = () => {
+  const [filter, setFilter] = useState('All');
 
-  const filteredColleges = colleges.filter((item) => {
-    const locationMatch = selectedLocation === "All" || item.location === selectedLocation;
-    const courseMatch = !selectedCourse || item.course === selectedCourse;
-    return locationMatch && courseMatch;
-  });
+  // Logic to filter colleges based on selection
+  const filteredColleges = filter === 'All' 
+    ? collegesData 
+    : collegesData.filter(college => college.location === filter);
 
   return (
-    <div className="college-wrapper">
-      <div className="container">
-        {/* Header Section */}
-        <div className="text-center mb-5 header-section">
-          <h1 className="main-title">
-            Non-Medical Studies: Explore Your Future in Diverse Fields
-          </h1>
-          <p className="main-subtitle">
-            Embark on a rewarding journey in non-medical careers. Select to discover programs, colleges, and admission details.
-          </p>
+    <div className="college-page-container">
+      
+      {/* 1. Hero / Header Section */}
+      <header className="college-hero">
+        <div className="hero-content">
+          <span className="breadcrumb">Home &gt; Non-Medical &gt; Engineering &gt; CSE</span>
+          <h1>Computer Science Engineering</h1>
+          <p>Explore the best campuses offering world-class CSE programs.</p>
         </div>
+      </header>
 
-        {/* Location Selection */}
-        <div className="text-center mb-4">
-          <h3 className="page-title">
-            Choose your location...
-            {selectedCourse && (
-              <span className="course-info">
-                {' '} • Course: <strong>{selectedCourse}</strong>
-              </span>
-            )}
-          </h3>
-          <select
-            className="form-select form-select-lg location-dropdown"
-            value={selectedLocation}
-            onChange={(e) => setSelectedLocation(e.target.value)}
-          >
-            <option value="All">All Locations</option>
-            <option value="Kochi">Kochi</option>
-            <option value="Coimbatore">Coimbatore</option>
-            <option value="Bangalore">Bangalore</option>
-          </select>
+      {/* 2. Filter Bar */}
+      <div className="filter-bar">
+        <div className="filter-container">
+          <span className="filter-label">Filter by City:</span>
+          {['All', 'Kochi', 'Coimbatore', 'Bangalore'].map((city) => (
+            <button 
+              key={city}
+              className={`filter-btn ${filter === city ? 'active' : ''}`}
+              onClick={() => setFilter(city)}
+            >
+              {city}
+            </button>
+          ))}
         </div>
+      </div>
 
-        {/* College Cards Grid */}
-        <div className="row g-4 mt-4">
+      {/* 3. The Grid of Colleges */}
+      <div className="college-grid-wrapper">
+        <div className="college-grid">
           {filteredColleges.length > 0 ? (
-            filteredColleges.map((item, index) => (
-              <div className="col-12 col-sm-6 col-lg-4 col-xl-3" key={index}>
-                <div className="college-card">
-                  {/* Dummy Image */}
-                  <div className={`college-image gradient-${index % 5}`}>
-                    <div className="college-icon">
-                      🎓
-                    </div>
-                  </div>
+            filteredColleges.map((college) => (
+              <div key={college.id} className="college-card">
+                
+                {/* Image Area */}
+                <div className="card-image">
+                  <img src={college.imgUrl} alt={college.name} />
+                  <span className="location-badge">📍 {college.location}</span>
+                </div>
 
-                  <div className="card-body p-4">
-                    <h5 className="college-name">
-                      {item.name}
-                    </h5>
-                    <div className="mb-2">
-                      <span className="badge bg-primary me-2 college-badge">
-                        {item.duration}
-                      </span>
-                      <span className="badge bg-success college-badge">
-                        {item.location}
-                      </span>
-                    </div>
-                    <p className="college-detail">
-                      <strong>Course:</strong> {item.course}
-                    </p>
+                {/* Content Area */}
+                <div className="card-content">
+                  <div className="card-tags">
+                    {college.tags.map((tag, index) => (
+                      <span key={index} className="tag">{tag}</span>
+                    ))}
                   </div>
+                  
+                  <h3>{college.name}</h3>
+                  
+                  <div className="card-meta">
+                    <span className="rating">⭐ {college.rating}/5</span>
+                    <span className="fees">{college.fees}</span>
+                  </div>
+                  
+                  <button className="view-btn">View Details</button>
                 </div>
               </div>
             ))
           ) : (
-            <div className="col-12">
-              <div className="no-colleges">
-                <div className="no-colleges-icon">🔍</div>
-                No colleges match your selection.
-              </div>
+            <div className="no-results">
+              <h3>No colleges found in this location.</h3>
             </div>
           )}
         </div>
       </div>
+
     </div>
   );
-}
+};
 
-export default College;
+export default Colleges;
