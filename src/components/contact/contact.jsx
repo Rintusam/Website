@@ -1,109 +1,101 @@
 import React, { useState } from 'react';
-import './Contact.css';
-import {
-  FaPhone,
-  FaEnvelope,
-  FaLinkedin,
-  FaTwitter,
-  FaInstagram,
-  FaGithub
-} from "react-icons/fa";
+import './contact.css';
 
-
+// Optional: Import icons if you are using react-icons (npm install react-icons)
+// import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  // Simple state to handle form submission feedback
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Add your backend submission logic here
-    alert("Message sent! (Check console for data)");
+    // Here you would usually send data to a backend service
+    console.log("Form submitted!");
+    setSubmitted(true);
+    // Reset after a few seconds for demo purposes
+    setTimeout(() => setSubmitted(false), 5000);
   };
 
   return (
-    <div className="contact-wrapper">
+    <div className="admission-contact-wrapper">
+       {/* The background image is handled in the CSS class .admission-contact-wrapper */}
+      <div className="overlay-tint">
+        <div className="contact-card">
+          
+          {/* Left Side: The Application Inquiry Form */}
+          <div className="form-side">
+            <div className="form-header">
+              <h2>Start Your Journey</h2>
+              <p>Have questions about the BBA program? Fill out the form below and an admissions counselor will reach out.</p>
+            </div>
 
-      {/* Left Side: Image & Text */}
-      <div className="contact-image-section">
-        <div className="image-overlay">
-          <div className="icon-wrapper">
-            <FaEnvelope className="envelope-icon" />
+            {submitted ? (
+              <div className="success-message">
+                 Thank you for your interest! We will be in touch shortly.
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit}>
+                <div className="floating-label-group">
+                  <input type="text" id="fullname" required placeholder=" " />
+                  <label htmlFor="fullname">Full Name Student</label>
+                </div>
+
+                <div className="floating-label-group">
+                  <input type="email" id="email" required placeholder=" " />
+                  <label htmlFor="email">Email Address</label>
+                </div>
+
+                <div className="floating-label-group">
+                  <input type="tel" id="phone" placeholder=" " />
+                  <label htmlFor="phone">Phone Number (Optional)</label>
+                </div>
+
+                <div className="floating-label-group">
+                  <textarea id="message" rows="4" required placeholder=" "></textarea>
+                  <label htmlFor="message">Admissions Query</label>
+                </div>
+
+                <button type="submit" className="submit-btn">Inquire Now</button>
+              </form>
+            )}
           </div>
-          <h2>Let's<br />Connect!</h2>
+
+          {/* Right Side: Contact Information */}
+          <div className="info-side">
+            <h3>Admissions Office</h3>
+            <p className="info-intro">We are available Monday - Friday, 9am - 5pm to answer your questions.</p>
+
+            <div className="info-item">
+              <span className="icon">📞</span> 
+              {/* If using react-icons: <FaPhoneAlt className="icon"/> */}
+              <div>
+                <h4>Call Us</h4>
+                <p>+1 (555) 019-2837</p>
+              </div>
+            </div>
+
+            <div className="info-item">
+              <span className="icon">✉️</span>
+               {/* If using react-icons: <FaEnvelope className="icon"/> */}
+              <div>
+                <h4>Email Admissions</h4>
+                <p>bba.admissions@university.edu</p>
+              </div>
+            </div>
+
+            <div className="info-item">
+              <span className="icon">📍</span>
+               {/* If using react-icons: <FaMapMarkerAlt className="icon"/> */}
+              <div>
+                <h4>Visit Campus</h4>
+                <p>Building B, Room 101<br/>University Campus Drive</p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
-
-      {/* Right Side: Form & Info */}
-      <div className="contact-form-section">
-        <h3>Contact Us</h3>
-
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              placeholder="Name"
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              placeholder="Email"
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="message">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              rows="4"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              placeholder="Message"
-            ></textarea>
-          </div>
-
-          {/* Contact Info Footer within Form Section */}
-          <div className="contact-footer-info">
-            <div className="footer-item">
-              <FaPhone className="footer-icon" /> <span>555-1234</span>
-            </div>
-            <div className="footer-item">
-              <FaEnvelope className="footer-icon" /> <span>hello@company.com</span>
-            </div>
-            <div className="footer-socials">
-              <FaLinkedin className="social-icon" />
-              <FaTwitter className="social-icon" />
-              <FaInstagram className="social-icon" />
-            </div>
-          </div>
-        </form>
-      </div>
-
     </div>
   );
 };
