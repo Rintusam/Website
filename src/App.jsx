@@ -8,6 +8,8 @@ import Medical_page from './pages/medical_page.jsx';
 import Non_medical_page from './pages/non_medical_page.jsx';
 import College_detail from './pages/College_detail.jsx';
 import Contact_page from './pages/Contact_page.jsx';
+import About_page from './pages/About_page.jsx';
+
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Route path='/non-medical' element={<Non_medical_page />} />
         <Route path='/college' element={<College_detail />} />
         <Route path='/contact' element={<Contact_page />} />
+        <Route path='/about' element={<About_page />} />
+        
       </Routes>
     </div>
   )

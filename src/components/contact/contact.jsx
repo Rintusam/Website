@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './Contact.css';
 import {
-  FaMapMarkerAlt,
   FaPhone,
   FaEnvelope,
   FaLinkedin,
@@ -34,41 +33,23 @@ const Contact = () => {
   return (
     <div className="contact-wrapper">
 
-      {/* Left Side: Contact Info */}
-      <div className="contact-info">
-        <div>
-          <h3>Contact Info</h3>
-
-          <div className="info-item">
-            <FaMapMarkerAlt className="icon" />
-            <p>123 Business Street,<br /> Tech City, TC 90210</p>
+      {/* Left Side: Image & Text */}
+      <div className="contact-image-section">
+        <div className="image-overlay">
+          <div className="icon-wrapper">
+            <FaEnvelope className="envelope-icon" />
           </div>
-
-          <div className="info-item">
-            <FaPhone className="icon" />
-            <p>+1 (555) 123-4567</p>
-          </div>
-
-          <div className="info-item">
-            <FaEnvelope className="icon" />
-            <p>support@yourwebsite.com</p>
-          </div>
-        </div>
-
-        <div className="social-links">
-          <FaLinkedin className="social-icon" />
-          <FaTwitter className="social-icon" />
-          <FaInstagram className="social-icon" />
-          <FaGithub className="social-icon" />
+          <h2>Let's<br />Connect!</h2>
         </div>
       </div>
 
-      {/* Right Side: Form */}
+      {/* Right Side: Form & Info */}
       <div className="contact-form-section">
-        <h3>Send a Message</h3>
+        <h3>Contact Us</h3>
+
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="name">Full Name</label>
+            <label htmlFor="name">Name</label>
             <input
               type="text"
               id="name"
@@ -76,12 +57,12 @@ const Contact = () => {
               value={formData.name}
               onChange={handleChange}
               required
-              placeholder="John Doe"
+              placeholder="Name"
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="email">Email Address</label>
+            <label htmlFor="email">Email</label>
             <input
               type="email"
               id="email"
@@ -89,20 +70,7 @@ const Contact = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              placeholder="john@example.com"
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="subject">Subject</label>
-            <input
-              type="text"
-              id="subject"
-              name="subject"
-              value={formData.subject}
-              onChange={handleChange}
-              required
-              placeholder="Project Inquiry"
+              placeholder="Email"
             />
           </div>
 
@@ -111,15 +79,28 @@ const Contact = () => {
             <textarea
               id="message"
               name="message"
-              rows="5"
+              rows="4"
               value={formData.message}
               onChange={handleChange}
               required
-              placeholder="Write your message here..."
+              placeholder="Message"
             ></textarea>
           </div>
 
-          <button type="submit" className="submit-btn">Send Message</button>
+          {/* Contact Info Footer within Form Section */}
+          <div className="contact-footer-info">
+            <div className="footer-item">
+              <FaPhone className="footer-icon" /> <span>555-1234</span>
+            </div>
+            <div className="footer-item">
+              <FaEnvelope className="footer-icon" /> <span>hello@company.com</span>
+            </div>
+            <div className="footer-socials">
+              <FaLinkedin className="social-icon" />
+              <FaTwitter className="social-icon" />
+              <FaInstagram className="social-icon" />
+            </div>
+          </div>
         </form>
       </div>
 
