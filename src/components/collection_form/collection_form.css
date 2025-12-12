@@ -1,0 +1,151 @@
+/* Main Wrapper */
+.college-wrapper {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 40px 20px;
+}
+
+/* Header Section */
+.header-section {
+    margin-bottom: 3rem;
+}
+
+.main-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.main-subtitle {
+    font-size: 1.25rem;
+    color: white;
+    opacity: 0.95;
+}
+
+/* Page Title */
+.page-title {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.course-info {
+    color: #ffd700;
+    font-size: 0.85em;
+}
+
+/* Location Dropdown */
+.location-dropdown {
+    max-width: 300px;
+    margin: 0 auto;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.95);
+    font-weight: 500;
+}
+
+/* College Cards */
+.college-card {
+    height: 100%;
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: white;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.college-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* College Image with Gradients */
+.college-image {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gradient-0 {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gradient-1 {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.gradient-2 {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.gradient-3 {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.gradient-4 {
+    background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+}
+
+.college-icon {
+    font-size: 48px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* College Name */
+.college-name {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+/* Badges */
+.college-badge {
+    font-size: 0.75rem;
+}
+
+/* College Details */
+.college-detail {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+/* No Colleges Message */
+.no-colleges {
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    color: #666;
+    text-align: center;
+    padding: 3rem;
+}
+
+.no-colleges-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2rem;
+    }
+
+    .main-subtitle {
+        font-size: 1rem;
+    }
+
+    .page-title {
+        font-size: 1.25rem;
+    }
+
+    .college-wrapper {
+        padding: 20px 10px;
+    }
+}

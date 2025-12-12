@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './college.css';
+import { Link } from 'react-router-dom';
 
 // --- Mock Data: In a real app, this would come from your backend/API ---
 const collegesData = [
@@ -81,13 +82,13 @@ const Colleges = () => {
   const [filter, setFilter] = useState('All');
 
   // Logic to filter colleges based on selection
-  const filteredColleges = filter === 'All' 
-    ? collegesData 
+  const filteredColleges = filter === 'All'
+    ? collegesData
     : collegesData.filter(college => college.location === filter);
 
   return (
     <div className="college-page-container">
-      
+
       {/* 1. Hero / Header Section */}
       <header className="college-hero">
         <div className="hero-content">
@@ -102,7 +103,7 @@ const Colleges = () => {
         <div className="filter-container">
           <span className="filter-label">Filter by City:</span>
           {['All', 'Kochi', 'Coimbatore', 'Bangalore'].map((city) => (
-            <button 
+            <button
               key={city}
               className={`filter-btn ${filter === city ? 'active' : ''}`}
               onClick={() => setFilter(city)}
@@ -115,42 +116,44 @@ const Colleges = () => {
 
       {/* 3. The Grid of Colleges */}
       <div className="college-grid-wrapper">
-        <div className="college-grid">
-          {filteredColleges.length > 0 ? (
-            filteredColleges.map((college) => (
-              <div key={college.id} className="college-card">
-                
-                {/* Image Area */}
-                <div className="card-image">
-                  <img src={college.imgUrl} alt={college.name} />
-                  <span className="location-badge">📍 {college.location}</span>
-                </div>
+        <Link to={"/collect_form"}>
+          <div className="college-grid">
+            {filteredColleges.length > 0 ? (
+              filteredColleges.map((college) => (
+                <div key={college.id} className="college-card">
 
-                {/* Content Area */}
-                <div className="card-content">
-                  <div className="card-tags">
-                    {college.tags.map((tag, index) => (
-                      <span key={index} className="tag">{tag}</span>
-                    ))}
+                  {/* Image Area */}
+                  <div className="card-image">
+                    <img src={college.imgUrl} alt={college.name} />
+                    <span className="location-badge">📍 {college.location}</span>
                   </div>
-                  
-                  <h3>{college.name}</h3>
-                  
-                  <div className="card-meta">
-                    <span className="rating">⭐ {college.rating}/5</span>
-                    <span className="fees">{college.fees}</span>
+
+                  {/* Content Area */}
+                  <div className="card-content">
+                    <div className="card-tags">
+                      {college.tags.map((tag, index) => (
+                        <span key={index} className="tag">{tag}</span>
+                      ))}
+                    </div>
+
+                    <h3>{college.name}</h3>
+
+                    <div className="card-meta">
+                      <span className="rating">⭐ {college.rating}/5</span>
+                      <span className="fees">{college.fees}</span>
+                    </div>
+
+                    <button className="view-btn">View Details</button>
                   </div>
-                  
-                  <button className="view-btn">View Details</button>
                 </div>
+              ))
+            ) : (
+              <div className="no-results">
+                <h3>No colleges found in this location.</h3>
               </div>
-            ))
-          ) : (
-            <div className="no-results">
-              <h3>No colleges found in this location.</h3>
-            </div>
-          )}
-        </div>
+            )}
+          </div>
+        </Link>
       </div>
 
     </div>

@@ -9,6 +9,7 @@ import Non_medical_page from './pages/non_medical_page.jsx';
 import College_detail from './pages/College_detail.jsx';
 import Contact_page from './pages/Contact_page.jsx';
 import About_page from './pages/About_page.jsx';
+import Collect_Details from './pages/Collect_Details.jsx';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path='/college' element={<College_detail />} />
         <Route path='/contact' element={<Contact_page />} />
         <Route path='/about' element={<About_page />} />
+        <Route path='/collect_form' element={<Collect_Details />} /> 
         
       </Routes>
     </div>
