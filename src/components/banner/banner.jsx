@@ -13,7 +13,7 @@ function Banner() {
       <div className="container position-relative z-2">
         <div className="row justify-content-center text-center">
           <div className="col-lg-10">
-            
+
             {/* Main Headlines */}
             <div className="banner-header animate-up">
               <h1 className="main-title mb-3">
@@ -29,31 +29,31 @@ function Banner() {
 
             {/* The Choice Cards */}
             <div className="row g-4 justify-content-center">
-              
+
               {/* Medical Option */}
-              <div className="col-md-5 col-lg-4">
-                <Link to="/medical" className="choice-card bg-primary medical-card">
+              <div className="col-md-6">
+                <Link to="/medical" className="choice-card medical-card">
                   <div className="card-content">
                     <div className="icon-circle">
                       <FaStethoscope />
                     </div>
                     <h3>Medical Fields</h3>
                     <p>MBBS, BDS, Nursing & more</p>
-                    <span className="cta-link">Explore <FaArrowRight className="ms-1"/></span>
+                    <span className="cta-link">Explore <FaArrowRight className="ms-1" /></span>
                   </div>
                 </Link>
               </div>
 
               {/* Non-Medical Option */}
-              <div className="col-md-5 col-lg-4">
-                <Link to="/non-medical" className="choice-card bg-warning non-medical-card">
+              <div className="col-md-6">
+                <Link to="/non-medical" className="choice-card non-medical-card">
                   <div className="card-content">
                     <div className="icon-circle">
                       <FaCogs />
                     </div>
                     <h3>Non-Medical Fields</h3>
                     <p>Engineering, Management, Arts</p>
-                    <span className="cta-link">Explore <FaArrowRight className="ms-1"/></span>
+                    <span className="cta-link">Explore <FaArrowRight className="ms-1" /></span>
                   </div>
                 </Link>
               </div>

@@ -2,11 +2,13 @@
 .banner-section {
   position: relative;
   /* Replace this URL with your actual image */
-  background-image: url("/h.jpg");
+  background-image: url("/w.jpg");
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* Creates a cool parallax effect */
-  min-height: 85vh; /* Takes up 85% of the screen height */
+  background-attachment: fixed;
+  /* Creates a cool parallax effect */
+  min-height: 85vh;
+  /* Takes up 85% of the screen height */
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -19,7 +21,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.8));
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8));
   z-index: 1;
 }
 
@@ -33,9 +35,11 @@
 }
 
 .highlight-text {
-  color: #4facfe; /* Bright Blue Highlight */
+  color: #4facfe;
+  /* Bright Blue Highlight */
   background: -webkit-linear-gradient(#4facfe, #00f2fe);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -52,29 +56,40 @@
   display: block;
   text-decoration: none;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 20px;
   padding: 40px 20px;
   transition: all 0.4s ease;
   height: 100%;
-  color: black;
   position: relative;
   overflow: hidden;
 }
 
-.choice-card:hover {
+.medical-card:hover {
   transform: translateY(-10px); /* Lifts up on hover */
-  background: rgba(255, 255, 255, 0.15);
   box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-  border-color: rgba(255, 255, 255, 0.5);
 }
+.non-medical-card:hover {
+  transform: translateY(-10px); /* Lifts up on hover */
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
 
 .card-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   gap: 10px;
+  height: 100%;
+}
+
+.medical-card .card-content {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.non-medical-card .card-content {
+  align-items: flex-start;
+  text-align: left;
 }
 
 /* Icons inside cards */
@@ -97,18 +112,40 @@
 }
 
 /* Specific Colors for Medical vs Non-Medical */
-.medical-card:hover .icon-circle {
-  color: #10b238; /* Blue for Medical */
+/* Specific Colors for Medical vs Non-Medical */
+.medical-card .icon-circle {
+  color: #0d6efd;
+  /* Blue for Medical */
 }
 
-.non-medical-card:hover .icon-circle {
-  color: #4d4b4f; /* Pink/Orange for Non-Medical */
+.non-medical-card .icon-circle {
+  color: #3a3733;
+  /* Orange/Yellow for Non-Medical */
 }
 
 .choice-card h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: .5rem;
+  
+  font-weight: 900;
   margin: 0;
+}
+
+.medical-card {
+  background: linear-gradient(to right, transparent 30%, rgba(0, 80, 200, 0.95) 85%), url("/micon.jpeg");
+  background-size: cover;
+  background-position: center;
+  color: #f6efef;
+  border: 9px solid #0050c8;
+  /* Blue Border */
+}
+
+.non-medical-card {
+  background: linear-gradient(to left, transparent 30%, rgba(255, 193, 7, 0.95) 90%), url("/eicon.jpeg");
+  background-size: cover;
+  background-position: center;
+  color: #1a1a1a;
+  border: 9px solid #ffc107;
+  /* Orange Border */
 }
 
 .choice-card p {
@@ -116,6 +153,7 @@
   opacity: 0.8;
   margin-bottom: 15px;
 }
+
 
 .cta-link {
   font-weight: 600;
@@ -133,15 +171,19 @@
   transform: translateY(0);
 }
 
+
+
 /* --- Mobile Adjustments --- */
 @media (max-width: 768px) {
   .main-title {
     font-size: 2.2rem;
   }
+
   .banner-section {
     min-height: auto;
     padding: 80px 0;
   }
+
   .sub-title {
     font-size: 1rem;
     padding: 0 15px;
