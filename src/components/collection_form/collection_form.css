@@ -1,151 +1,116 @@
-/* Main Wrapper */
-.college-wrapper {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    padding: 40px 20px;
+/* Basic Page Layout for the component wrapper */
+.admission-form-wrapper {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #2f74db;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
 }
 
-/* Header Section */
-.header-section {
-    margin-bottom: 3rem;
+
+.form-row {
+  display: flex;
+  gap: 20px;
 }
 
-.main-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: white;
-    margin-bottom: 1rem;
+.form-row .form-group {
+  flex: 1;
 }
 
-.main-subtitle {
-    font-size: 1.25rem;
-    color: white;
-    opacity: 0.95;
+/* The main form container */
+.form-container {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  width: 700px;
+  max-width: 1000px;
 }
 
-/* Page Title */
-.page-title {
-    font-size: 1.5rem;
-    color: white;
-    margin-bottom: 1rem;
-    font-weight: 600;
+.form-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 25px;
 }
 
-.course-info {
-    color: #ffd700;
-    font-size: 0.85em;
+/* Styling for individual form fields */
+.form-group {
+  margin-bottom: 20px;
 }
 
-/* Location Dropdown */
-.location-dropdown {
-    max-width: 300px;
-    margin: 0 auto;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    background: rgba(255, 255, 255, 0.95);
-    font-weight: 500;
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #555;
 }
 
-/* College Cards */
-.college-card {
-    height: 100%;
-    border: none;
-    border-radius: 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background: white;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* Red asterisk for required fields */
+.required-mark {
+  color: #d93025;
+  margin-left: 4px;
 }
 
-.college-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"] {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+  font-size: 16px;
 }
 
-/* College Image with Gradients */
-.college-image {
-    height: 180px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* Style when input is focused */
+.form-group input:focus {
+  outline: none;
+  border-color: #007bff;
 }
 
-.gradient-0 {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+/* --- Error Handling Styles --- */
+
+/* Class added conditionally in JSX for error state */
+.form-group input.input-error {
+  border-color: #d93025 !important;
+  background-color: #fff8f8;
 }
 
-.gradient-1 {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+/* The error text below the input */
+.error-message {
+  color: #d93025;
+  font-size: 0.85rem;
+  margin-top: 6px;
 }
 
-.gradient-2 {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+/* --- Submit Button Styling --- */
+.submit-btn {
+  width: 100%;
+  padding: 15px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
-.gradient-3 {
-    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+.submit-btn:hover {
+  background-color: #0056b3;
 }
 
-.gradient-4 {
-    background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
-}
-
-.college-icon {
-    font-size: 48px;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-/* College Name */
-.college-name {
-    font-weight: bold;
-    color: #333;
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-}
-
-/* Badges */
-.college-badge {
-    font-size: 0.75rem;
-}
-
-/* College Details */
-.college-detail {
-    color: #6c757d;
-    font-size: 0.9rem;
-    margin-bottom: 0;
-}
-
-/* No Colleges Message */
-.no-colleges {
-    background: rgba(255, 255, 255, 0.95);
-    border: none;
-    border-radius: 15px;
-    font-size: 1.2rem;
-    color: #666;
-    text-align: center;
-    padding: 3rem;
-}
-
-.no-colleges-icon {
-    font-size: 64px;
-    margin-bottom: 20px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .main-title {
-        font-size: 2rem;
-    }
-
-    .main-subtitle {
-        font-size: 1rem;
-    }
-
-    .page-title {
-        font-size: 1.25rem;
-    }
-
-    .college-wrapper {
-        padding: 20px 10px;
-    }
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  text-align: center;
+  border: 1px solid #c3e6cb;
 }

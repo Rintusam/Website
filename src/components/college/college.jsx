@@ -1,90 +1,242 @@
 import React, { useState } from 'react';
 import './college.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 // --- Mock Data: In a real app, this would come from your backend/API ---
 const collegesData = [
   {
     id: 1,
-    name: "Rajagiri School of Engineering & Technology",
-    location: "Kochi",
-    rating: "4.8",
-    fees: "₹95,000/yr",
-    imgUrl: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=1000",
-    tags: ["Autonomous", "NAAC A++"]
+    name: "XYZ College",
+    location: "Bangalore",
+    rating: "4.5",
+    fees: "₹1,00,000/yr",
+    imgUrl: "bba.jpg",
+    tags: ["Best Value", "Top Rated"],
+    courses: ["Computer Science Engineering"]
   },
   {
     id: 2,
-    name: "Model Engineering College",
-    location: "Kochi",
-    rating: "4.6",
-    fees: "₹45,000/yr",
-    imgUrl: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=1000",
-    tags: ["Govt Aided", "Top Placement"]
+    name: "XBC College",
+    location: "Bangalore",
+    rating: "4.5",
+    fees: "₹1,00,000/yr",
+    imgUrl: "bba.jpg",
+    tags: ["Best Value", "Top Rated"],
+    courses: ["Computer Science Engineering"]
   },
   {
     id: 3,
-    name: "PSG College of Technology",
-    location: "Coimbatore",
-    rating: "4.9",
-    fees: "₹85,000/yr",
-    imgUrl: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&q=80&w=1000",
-    tags: ["Top Ranked", "Research Hub"]
+    name: "BRS College",
+    location: "Bangalore",
+    rating: "4.5",
+    fees: "₹1,00,000/yr",
+    imgUrl: "bba.jpg",
+    tags: ["Best Value", "Top Rated"],
+    courses: ["Mechanical Engineering"]
   },
   {
     id: 4,
-    name: "Coimbatore Institute of Technology (CIT)",
-    location: "Coimbatore",
+    name: "XRA College",
+    location: "Bangalore",
     rating: "4.5",
-    fees: "₹60,000/yr",
-    imgUrl: "https://images.unsplash.com/photo-1592280771800-bcf9fe730623?auto=format&fit=crop&q=80&w=1000",
-    tags: ["Historic", "Green Campus"]
+    fees: "₹1,00,000/yr",
+    imgUrl: "bba.jpg",
+    tags: ["Best Value", "Top Rated"],
+    courses: ["Electronics & Communication"]
   },
   {
     id: 5,
-    name: "R.V. College of Engineering",
+    name: "BHA College",
     location: "Bangalore",
-    rating: "4.9",
-    fees: "₹2,50,000/yr",
-    imgUrl: "https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&q=80&w=1000",
-    tags: ["Premium", "Bangalore Top"]
+    rating: "4.5",
+    fees: "₹1,00,000/yr",
+    imgUrl: "bba.jpg",
+    tags: ["Best Value", "Top Rated"],
+    courses: ["Civil Engineering"]
   },
   {
     id: 6,
-    name: "BMS College of Engineering",
+    name: "ABC College",
     location: "Bangalore",
-    rating: "4.7",
-    fees: "₹2,20,000/yr",
-    imgUrl: "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&q=80&w=1000",
-    tags: ["Oldest Private", "City Center"]
+    rating: "4.5",
+    fees: "₹1,00,000/yr",
+    imgUrl: "bba.jpg",
+    tags: ["Best Value", "Top Rated"],
+    courses: ["Marketing Management"]
   },
   {
     id: 7,
-    name: "Christ University (Kengeri Campus)",
+    name: "XYZ Institute",
     location: "Bangalore",
     rating: "4.5",
-    fees: "₹1,80,000/yr",
-    imgUrl: "https://images.unsplash.com/photo-1525921429624-479b6a26d84d?auto=format&fit=crop&q=80&w=1000",
-    tags: ["Liberal Arts", "Modern"]
+    fees: "₹1,00,000/yr",
+    imgUrl: "bba.jpg",
+    tags: ["Best Value", "Top Rated"],
+    courses: ["Financial Management"]
   },
   {
     id: 8,
-    name: "SCMS School of Engineering",
+    name: "Premier College",
+    location: "Bangalore",
+    rating: "4.5",
+    fees: "₹1,00,000/yr",
+    imgUrl: "bba.jpg",
+    tags: ["Best Value", "Top Rated"],
+    courses: ["Bachelor of Pharmacy"]
+  },
+  {
+    id: 9,
+    name: "Health Institute",
+    location: "Bangalore",
+    rating: "4.5",
+    fees: "₹1,00,000/yr",
+    imgUrl: "bba.jpg",
+    tags: ["Best Value", "Top Rated"],
+    courses: ["MBBS (Medicine)"]
+  },
+  {
+    id: 10,
+    name: "Tech Hub College",
+    location: "Coimbatore",
+    rating: "4.5",
+    fees: "₹1,00,000/yr",
+    imgUrl: "bba.jpg",
+    tags: ["Best Value", "Top Rated"],
+    courses: ["Computer Science Engineering"]
+  },
+  {
+    id: 11,
+    name: "Coimbatore Institute",
+    location: "Coimbatore",
+    rating: "4.5",
+    fees: "₹1,00,000/yr",
+    imgUrl: "bba.jpg",
+    tags: ["Best Value", "Top Rated"],
+    courses: ["Human Resource Management"]
+  },
+  {
+    id: 12,
+    name: "Kochi Tech",
     location: "Kochi",
-    rating: "4.3",
-    fees: "₹80,000/yr",
-    imgUrl: "https://images.unsplash.com/photo-1492538368677-f6e0afe31dcc?auto=format&fit=crop&q=80&w=1000",
-    tags: ["Strict Academic", "Hostel"]
+    rating: "4.5",
+    fees: "₹1,00,000/yr",
+    imgUrl: "bba.jpg",
+    tags: ["Best Value", "Top Rated"],
+    courses: ["Mechanical Engineering"]
+  },
+  {
+    id: 13,
+    name: "Kochi Business School",
+    location: "Kochi",
+    rating: "4.5",
+    fees: "₹1,00,000/yr",
+    imgUrl: "bba.jpg",
+    tags: ["Best Value", "Top Rated"],
+    courses: ["Operations Management"]
+  },
+  {
+    id: 14,
+    name: "Hospitality Grand",
+    location: "Bangalore",
+    rating: "4.5",
+    fees: "₹1,00,000/yr",
+    imgUrl: "bba.jpg",
+    tags: ["Best Value", "Top Rated"],
+    courses: ["Bachelor of Hotel Management(BHM)"]
+  },
+  {
+    id: 15,
+    name: "Hotel Management Academy",
+    location: "Bangalore",
+    rating: "4.5",
+    fees: "₹1,00,000/yr",
+    imgUrl: "bba.jpg",
+    tags: ["Best Value", "Top Rated"],
+    courses: ["Bachelor of Hotel Management(BHM)"]
+  },
+  {
+    id: 16,
+    name: "Culinary Institute",
+    location: "Bangalore",
+    rating: "4.5",
+    fees: "₹1,00,000/yr",
+    imgUrl: "bba.jpg",
+    tags: ["Best Value", "Top Rated"],
+    courses: ["B.sc Hospitality and Hotel"]
+  },
+  {
+    id: 17,
+    name: "Professional Hotel School",
+    location: "Coimbatore",
+    rating: "4.5",
+    fees: "₹1,00,000/yr",
+    imgUrl: "bba.jpg",
+    tags: ["Best Value", "Top Rated"],
+    courses: ["Bachelor in Hotel Management and Catering Technology(BHMCT)"]
+  },
+  {
+    id: 18,
+    name: "Hospitality Plus",
+    location: "Coimbatore",
+    rating: "4.5",
+    fees: "₹1,00,000/yr",
+    imgUrl: "bba.jpg",
+    tags: ["Best Value", "Top Rated"],
+    courses: ["Bachelor of Hotel Management(BHM)"]
+  },
+  {
+    id: 19,
+    name: "Kochi Hotel Institute",
+    location: "Kochi",
+    rating: "4.5",
+    fees: "₹1,00,000/yr",
+    imgUrl: "bba.jpg",
+    tags: ["Best Value", "Top Rated"],
+    courses: ["B.sc Hospitality and Hotel"]
+  },
+  {
+    id: 20,
+    name: "BSC Nursing Academy",
+    location: "Bangalore",
+    rating: "4.5",
+    fees: "₹1,00,000/yr",
+    imgUrl: "bba.jpg",
+    tags: ["Best Value", "Top Rated"],
+    courses: ["BSC Nursing"]
+  },
+  {
+    id: 21,
+    name: "Nursing Care Institute",
+    location: "Bangalore",
+    rating: "4.5",
+    fees: "₹1,00,000/yr",
+    imgUrl: "bba.jpg",
+    tags: ["Best Value", "Top Rated"],
+    courses: ["General Nursing"]
+  },
+  {
+    id: 22,
+    name: "Physiotherapy Center",
+    location: "Bangalore",
+    rating: "4.5",
+    fees: "₹1,00,000/yr",
+    imgUrl: "bba.jpg",
+    tags: ["Best Value", "Top Rated"],
+    courses: ["Bachelors of Physiotherapy"]
   }
 ];
 
 const Colleges = () => {
   const [filter, setFilter] = useState('All');
+  const location = useLocation();
+  const selectedCourse = location.state?.course;
 
   // Logic to filter colleges based on selection
-  const filteredColleges = filter === 'All'
-    ? collegesData
-    : collegesData.filter(college => college.location === filter);
+  const filteredColleges = collegesData.filter(college => {
+    const matchesCity = filter === 'All' || college.location === filter;
+    const matchesCourse = selectedCourse ? college.courses?.includes(selectedCourse) : true;
+    return matchesCity && matchesCourse;
+  });
 
   return (
     <div className="college-page-container">
@@ -92,9 +244,9 @@ const Colleges = () => {
       {/* 1. Hero / Header Section */}
       <header className="college-hero">
         <div className="hero-content">
-          <span className="breadcrumb">Home &gt; Non-Medical &gt; Engineering &gt; CSE</span>
-          <h1>Computer Science Engineering</h1>
-          <p>Explore the best campuses offering world-class CSE programs.</p>
+          <span className="breadcrumb">Home &gt; Colleges &gt; {selectedCourse || "All Courses"}</span>
+          <h1>{selectedCourse || "Top Colleges"}</h1>
+          <p>Explore the best campuses offering world-class {selectedCourse || "education"} programs.</p>
         </div>
       </header>
 
@@ -148,8 +300,8 @@ const Colleges = () => {
                 </div>
               ))
             ) : (
-              <div className="no-results">
-                <h3>No colleges found in this location.</h3>
+              <div className="no-results" style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '40px', color: '#666' }}>
+                <h3>No colleges found in this location. 😢</h3>
               </div>
             )}
           </div>
