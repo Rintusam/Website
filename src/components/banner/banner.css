@@ -65,12 +65,15 @@
 }
 
 .medical-card:hover {
-  transform: translateY(-10px); /* Lifts up on hover */
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  transform: translateY(-10px);
+  /* Lifts up on hover */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
+
 .non-medical-card:hover {
-  transform: translateY(-10px); /* Lifts up on hover */
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  transform: translateY(-10px);
+  /* Lifts up on hover */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 
@@ -124,8 +127,7 @@
 }
 
 .choice-card h3 {
-  font-size: .5rem;
-  
+  font-size: 1.5rem;
   font-weight: 900;
   margin: 0;
 }
@@ -160,7 +162,8 @@
   font-size: 1rem;
   display: flex;
   align-items: center;
-  opacity: 0; /* Hidden by default */
+  opacity: 0;
+  /* Hidden by default */
   transform: translateY(10px);
   transition: all 0.3s ease;
 }

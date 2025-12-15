@@ -1,0 +1,199 @@
+.college-details-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Inter', sans-serif;
+    color: #333;
+}
+
+.details-header {
+    margin-bottom: 20px;
+}
+
+.back-btn {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.back-btn:hover {
+    color: #0056b3;
+}
+
+.details-image-section {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.college-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.details-image-section:hover .college-hero-img {
+    transform: scale(1.05);
+}
+
+.college-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    padding: 40px;
+    color: white;
+}
+
+.college-overlay h1 {
+    font-size: 3rem;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+}
+
+.college-location {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.college-badges {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.rating-badge {
+    background: #ffc107;
+    color: #000;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.details-main-info {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+}
+
+.info-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+    border: 1px solid #f0f0f0;
+}
+
+.info-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #222;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+.description {
+    line-height: 1.8;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+.courses-list {
+    list-style: none;
+    padding: 0;
+}
+
+.course-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    color: #444;
+}
+
+.course-item:last-child {
+    border-bottom: none;
+}
+
+.course-icon {
+    margin-right: 10px;
+}
+
+.highlights-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.highlight-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.highlight-item .label {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.highlight-item .value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.demo-writings {
+    grid-column: 1 / -1;
+}
+
+.review {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border-left: 4px solid #007bff;
+}
+
+.review p {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.review .author {
+    font-weight: 600;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .details-main-info {
+        grid-template-columns: 1fr;
+    }
+
+    .college-overlay h1 {
+        font-size: 2rem;
+    }
+
+    .details-image-section {
+        height: 300px;
+    }
+}

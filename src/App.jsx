@@ -6,10 +6,11 @@ import HomePage from './pages/homePage.jsx';
 import { Route, Routes } from 'react-router-dom';
 import Medical_page from './pages/medical_page.jsx';
 import Non_medical_page from './pages/non_medical_page.jsx';
-import College_detail from './pages/College_detail.jsx';
+import College_detail from './pages/college_select.jsx';
 import Contact_page from './pages/Contact_page.jsx';
 import About_page from './pages/About_page.jsx';
 import Collect_Details from './pages/Collect_Details.jsx';
+import CollegeDetailsPage from './pages/CollegeDetailsPage.jsx';
 
 
 function App() {
@@ -22,8 +23,9 @@ function App() {
         <Route path='/college' element={<College_detail />} />
         <Route path='/contact' element={<Contact_page />} />
         <Route path='/about' element={<About_page />} />
-        <Route path='/collect_form' element={<Collect_Details />} /> 
-        
+        <Route path='/collect_form' element={<Collect_Details />} />
+        <Route path='/college-details/:id' element={<CollegeDetailsPage />} />
+
       </Routes>
     </div>
   )

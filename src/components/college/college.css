@@ -23,11 +23,7 @@
   font-weight: 700;
 }
 
-.breadcrumb {
-  font-size: 0.9rem;
-  opacity: 0.8;
-  margin-bottom: 5px;
-}
+
 
 .header-content p {
   font-size: 1rem;
@@ -102,7 +98,7 @@
 }
 
 .college-card {
-  background: white;
+  background: rgb(249, 249, 249);
   border: 1px solid #eee;
   border-radius: 12px;
   overflow: hidden;
@@ -217,6 +213,10 @@
   color: #777;
 }
 
+.search-container {
+  margin-left: 20px;
+}
+
 @media (max-width: 768px) {
   .college-header {
     padding-top: 80px;
@@ -235,5 +235,167 @@
   .filter-btn {
     padding: 6px 12px;
     font-size: 0.85rem;
+  }
+}
+
+/* --- Search Bar --- */
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: 1px solid #eee;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  width: 250px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #1565c0;
+  box-shadow: 0 4px 20px rgba(21, 101, 192, 0.15);
+}
+
+@media (max-width: 768px) {
+  .filter-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .search-input {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* --- Card Actions --- */
+.card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.select-btn {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #1565c0;
+  background-color: transparent;
+  color: #1565c0;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Outfit', sans-serif;
+}
+
+.select-btn:hover {
+  background-color: rgba(21, 101, 192, 0.05);
+}
+
+.select-btn.selected {
+  background-color: #2e7d32;
+  /* Green */
+  border-color: #2e7d32;
+  color: white;
+}
+
+.view-details-btn {
+  flex: 1;
+  margin-top: 0;
+  /* Reset margin since it's in flex container */
+}
+
+
+/* --- Proceed Button / Floating Bar --- */
+/* --- Proceed Button / Floating Bar --- */
+.proceed-container {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  min-width: 320px;
+  background: rgba(17, 34, 64, 0.95);
+  /* Dark Blue branding with transparency */
+  color: white;
+  padding: 10px 10px 10px 25px;
+  border-radius: 50px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: slideUpFloating 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.proceed-info {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+.proceed-btn {
+  background-color: #ffffff;
+  color: #112240;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Outfit', sans-serif;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.proceed-btn:hover {
+  background-color: #f8f9fa;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+}
+
+.proceed-btn:active {
+  transform: translateY(0);
+}
+
+@keyframes slideUpFloating {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@media (max-width: 768px) {
+  .proceed-container {
+    bottom: 20px;
+    width: 90%;
+    min-width: unset;
+    padding: 12px 12px 12px 20px;
+  }
+
+  .proceed-info {
+    font-size: 0.95rem;
+  }
+
+  .proceed-btn {
+    padding: 10px 20px;
+  }
+
+  .card-actions {
+    flex-direction: column;
   }
 }
