@@ -2,7 +2,7 @@
 .navbar-nav .nav-link {
     transition: color 0.2s ease;
     color: white !important;
-    
+
 }
 
 .navbar-nav .nav-link:hover {
@@ -30,22 +30,34 @@
 
 
 .enquiry-btn {
-  background-color: #FF0000; /* Bright red matching the screenshot */
-  color: #ffffff;
-  border: none;
-  border-radius: 5px; /* Slight rounding on corners */
-  font-size: 15px;
-  font-weight: 700; /* Bold text */
-  font-family: sans-serif; /* Use your project's main font (e.g., Roboto, Poppins) */
-  cursor: pointer;
-  text-transform: uppercase; /* Ensures text is always capitalized */
-  letter-spacing: 0.5px;
-  transition: background-color 0.3s ease;
-  margin-left: 10px;
-  padding: 3px;
+    background-color: #FF0000;
+    /* Bright red matching the screenshot */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    /* Slight rounding on corners */
+    font-size: 15px;
+    font-weight: 700;
+    /* Bold text */
+    font-family: sans-serif;
+    /* Use your project's main font (e.g., Roboto, Poppins) */
+    cursor: pointer;
+    text-transform: uppercase;
+    /* Ensures text is always capitalized */
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+    padding: 3px;
 }
 
 /* Optional: Hover effect for better UX */
 .enquiry-btn:hover {
-  background-color: #cc0000; /* Slightly darker red on hover */
+    background-color: #cc0000;
+    /* Slightly darker red on hover */
+}
+
+@media (max-width: 991px) {
+    .enquiry-btn {
+        display: none !important;
+    }
 }

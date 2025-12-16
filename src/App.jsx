@@ -12,6 +12,7 @@ import About_page from './pages/About_page.jsx';
 import Collect_Details from './pages/Collect_Details.jsx';
 import CollegeDetailsPage from './pages/CollegeDetailsPage.jsx';
 import WhatsAppButton from './components/whatsapp_button/WhatsAppButton.jsx';
+import FloatingEnquiry from './components/floating_enquiry/FloatingEnquiry.jsx';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
 
       </Routes>
       <WhatsAppButton />
+      <FloatingEnquiry />
     </div>
   )
 }
