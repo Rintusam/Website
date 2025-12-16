@@ -11,6 +11,7 @@ import Contact_page from './pages/Contact_page.jsx';
 import About_page from './pages/About_page.jsx';
 import Collect_Details from './pages/Collect_Details.jsx';
 import CollegeDetailsPage from './pages/CollegeDetailsPage.jsx';
+import WhatsAppButton from './components/whatsapp_button/WhatsAppButton.jsx';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path='/college-details/:id' element={<CollegeDetailsPage />} />
 
       </Routes>
+      <WhatsAppButton />
     </div>
   )
 }
