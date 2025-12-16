@@ -1,5 +1,5 @@
 import React from 'react'
-import Collection_Form from '../components/collection_form/collection_form '
+import Collection_Form from '../components/collection_form/collection_form'
 
 function Collect_Details() {
   return (

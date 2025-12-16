@@ -16,9 +16,7 @@ function Non_medical_page() {
         { title: "Hotel Management", image: "/hotel.jpg" },
         { title: "BBA", image: "/bba.jpg" },
         { title: "MBA", image: "/mba.jpg" },
-        /*{ title: "Lab Technician", image: "/hero.jpg" },
-        { title: "Microbiology", image: "/hero.jpg" },
-        { title: "BDS (Dentistry)", image: "/hero.jpg" },*/
+
     ];
 
 

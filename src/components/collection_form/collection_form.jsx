@@ -21,7 +21,7 @@ const CollectionForm = () => {
   // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
-    
+
     // Clear the error for this specific field when user starts typing
     if (errors[name]) {
       setErrors({
@@ -94,9 +94,9 @@ const CollectionForm = () => {
 
     if (validateForm()) {
       // Form is valid
-      console.log('Form Submission Data:', formData);
+      // console.log('Form Submission Data:', formData);
       setIsSubmitted(true);
-      
+
       // Optional: Reset form
       setFormData({
         firstName: '',
@@ -106,11 +106,11 @@ const CollectionForm = () => {
         percentage: '',
         city: ''
       });
-      
+
       // Scroll to top to show success message
       window.scrollTo(0, 0);
     } else {
-      console.log('Validation Failed');
+      // console.log('Validation Failed');
     }
   };
 
@@ -126,7 +126,7 @@ const CollectionForm = () => {
         )}
 
         <form onSubmit={handleSubmit} noValidate>
-          
+
           <div className="form-row">
             {/* First Name */}
             <div className="form-group">
