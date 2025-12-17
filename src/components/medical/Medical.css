@@ -66,7 +66,7 @@
 
 /* Cards */
 .medical-page-card {
-    background:white;
+    background: white;
     border-radius: 19px;
     overflow: hidden;
     cursor: pointer;
@@ -95,18 +95,21 @@
 
 /* Off-canvas Customization */
 .custom-offcanvas {
-    height: 80vh !important; /* Taller to fit content */
+    height: 80vh !important;
+    /* Taller to fit content */
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
     box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.2);
     transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
     z-index: 1045;
-    background-color: #f8f9fa; /* Light grey bg for contrast with white cards */
+    background-color: #f8f9fa;
+    /* Light grey bg for contrast with white cards */
 }
 
 /* 2. Offcanvas Header */
 .custom-offcanvas-header {
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); /* Deep Blue Gradient */
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    /* Deep Blue Gradient */
     color: white;
     border-top-left-radius: 24px;
     border-top-right-radius: 24px;
@@ -132,14 +135,13 @@
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
     height: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.04);
+    border: 1px solid black;
     display: flex;
     flex-direction: column;
 }
 
 .course-modern-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
 }
 
 /* Card Header Area */
@@ -149,7 +151,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    background: linear-gradient(to right, #ffffff, #fafafa);
+    background: linear-gradient(to right, #517ae2, #32a2b8);
 }
 
 .course-name {
@@ -220,7 +222,8 @@
 
 /* Modern Button */
 .enroll-btn-modern {
-    margin-top: auto; /* Pushes button to bottom */
+    margin-top: auto;
+    /* Pushes button to bottom */
     width: 100%;
     padding: 10px 0;
     background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
