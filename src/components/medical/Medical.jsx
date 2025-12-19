@@ -370,7 +370,7 @@ function Medical({ items, title, description }) {
 
                                             <button
                                                 className="enroll-btn-modern"
-                                                onClick={() => navigate('/college', { state: { course: course.name } })}
+                                                onClick={() => navigate('/college', { state: { course: course.name, fromCategoryPage: true } })}
                                             >
                                                 Check Availability <span className="arrow">→</span>
                                             </button>

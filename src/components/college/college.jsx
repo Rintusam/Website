@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './college.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { collegesData } from '../../data/collegesData';
@@ -6,13 +6,29 @@ import { collegesData } from '../../data/collegesData';
 
 const Colleges = ({ selectedCourse: propCourse }) => {
   const [filter, setFilter] = useState('All');
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedColleges, setSelectedColleges] = useState([]);
-  const [noPreference, setNoPreference] = useState(false);
-  const [showPreferenceModal, setShowPreferenceModal] = useState(true);
   const navigate = useNavigate();
   const location = useLocation();
   const selectedCourse = propCourse || location.state?.course || null;
+
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedColleges, setSelectedColleges] = useState([]);
+  const [noPreference, setNoPreference] = useState(false);
+
+  // Initialize modal ONLY if navigating from a category page
+  const [showPreferenceModal, setShowPreferenceModal] = useState(() => {
+    return !!location.state?.fromCategoryPage;
+  });
+
+  // Consume the flag immediately so it doesn't persist on back navigation
+  useEffect(() => {
+    if (location.state?.fromCategoryPage) {
+      // Replace the current history entry with the flag removed
+      navigate('.', {
+        replace: true,
+        state: { ...location.state, fromCategoryPage: false }
+      });
+    }
+  }, [location.state, navigate]);
 
   const filteredColleges = collegesData.filter(college => {
     const matchesCity = filter === 'All' || college.location === filter;
@@ -41,12 +57,14 @@ const Colleges = ({ selectedCourse: propCourse }) => {
   };
 
   const handleModalProceed = () => {
+    // sessionStorage.setItem('preferenceModalSeen', 'true'); // Removed legacy logic
     setNoPreference(true);
     setSelectedColleges([]);
     navigate('/collect_form', { state: { selectedColleges: [], noPreference: true } });
   };
 
   const handleCloseModal = () => {
+    // sessionStorage.setItem('preferenceModalSeen', 'true'); // Removed legacy logic
     setShowPreferenceModal(false);
   };
 
