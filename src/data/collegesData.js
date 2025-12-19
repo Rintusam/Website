@@ -1,7 +1,7 @@
 export const collegesData = [
-    { id: 1, name: "XYZ College", location: "Bangalore", rating: "4.5/5", fees: "₹1,00,000/yr", imgUrl: "bba.jpg", tags: ["Best Value", "Top Rated"], courses: ["Computer Science Engineering"] },
-    { id: 2, name: "XBC College", location: "Coimbatore", rating: "4.5/5", fees: "₹1,00,000/yr", imgUrl: "mba.jpg", tags: ["Best Value", "Top Rated"], courses: ["Computer Science Engineering"] },
-    { id: 3, name: "Tech Hub College", location: "Bangalore", rating: "4.5/5", fees: "₹1,00,000/yr", imgUrl: "bba.jpg", tags: ["Best Value", "Top Rated"], courses: ["Computer Science Engineering"] },
+    { id: 1, name: "Rajadhani Institute of Science and Technology ", location: "Bangalore", rating: "4.5/5", fees: "₹1,00,000/yr", imgUrl: "co.jpg", tags: ["Best Value", "Top Rated"], courses: ["Computer Science Engineering"] },
+    { id: 2, name: "Ahalia College of Engineering and Technology", location: "Coimbatore", rating: "4.5/5", fees: "₹1,00,000/yr", imgUrl: "mba.jpg", tags: ["Best Value", "Top Rated"], courses: ["Computer Science Engineering"] },
+    { id: 3, name: "malabar College", location: "Bangalore", rating: "4.5/5", fees: "₹1,00,000/yr", imgUrl: "bba.jpg", tags: ["Best Value", "Top Rated"], courses: ["Computer Science Engineering"] },
     { id: 4, name: "BRS College", location: "Bangalore", rating: "4.5/5", fees: "₹1,00,000/yr", imgUrl: "bba.jpg", tags: ["Best Value", "Top Rated"], courses: ["Mechanical Engineering"] },
     { id: 5, name: "XRA College", location: "Bangalore", rating: "4.5/5", fees: "₹1,00,000/yr", imgUrl: "mba.jpg", tags: ["Best Value", "Top Rated"], courses: ["Electronics & Communication"] },
     { id: 6, name: "BHA College", location: "Bangalore", rating: "4.5/5", fees: "₹1,00,000/yr", imgUrl: "bba.jpg", tags: ["Best Value", "Top Rated"], courses: ["Civil Engineering"] },

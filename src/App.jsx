@@ -3,7 +3,7 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import HomePage from './pages/homePage.jsx';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Medical_page from './pages/medical_page.jsx';
 import Non_medical_page from './pages/non_medical_page.jsx';
 import College_detail from './pages/college_select.jsx';
@@ -16,6 +16,10 @@ import FloatingEnquiry from './components/floating_enquiry/FloatingEnquiry.jsx';
 
 
 function App() {
+  const location = useLocation();
+  const isCollegeDetails = location.pathname.startsWith('/college-details/');
+  const isCollegePage = location.pathname === '/college';
+
   return (
     <div className='app' >
       <Routes>
@@ -29,8 +33,12 @@ function App() {
         <Route path='/college-details/:id' element={<CollegeDetailsPage />} />
 
       </Routes>
-      <WhatsAppButton />
-      <FloatingEnquiry />
+      {!isCollegeDetails && (
+        <div className={isCollegePage ? 'desktop-only-whatsapp' : ''}>
+          <WhatsAppButton />
+        </div>
+      )}
+      {!isCollegeDetails && !isCollegePage && <FloatingEnquiry />}
     </div>
   )
 }
