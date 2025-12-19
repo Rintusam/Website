@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './collection_form.css';
+import axios from "axios";
 
 const CollectionForm = () => {
   // State to hold form values
@@ -88,16 +89,26 @@ const CollectionForm = () => {
   };
 
   // Handle Form Submission
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitted(false);
 
-    if (validateForm()) {
-      // Form is valid
-      // console.log('Form Submission Data:', formData);
-      setIsSubmitted(true);
+    if (!validateForm()) return;
 
-      // Optional: Reset form
+    try {
+      const payload = {
+        first_name: formData.firstName,
+        last_name: formData.lastName,
+        email: formData.email,
+        phone_number: formData.phone,
+        plus_two_percentage: formData.percentage,
+        city: formData.city,
+      };
+
+      await axios.post("http://127.0.0.1:8000/api/submit/", payload);
+
+      setIsSubmitted(true);
       setFormData({
         firstName: '',
         lastName: '',
@@ -107,12 +118,13 @@ const CollectionForm = () => {
         city: ''
       });
 
-      // Scroll to top to show success message
       window.scrollTo(0, 0);
-    } else {
-      // console.log('Validation Failed');
+
+    } catch (error) {
+      console.error("Submission failed:", error.response?.data || error.message);
     }
   };
+
 
   return (
     <div className="admission-form-wrapper">
