@@ -60,7 +60,7 @@ const Colleges = ({ selectedCourse: propCourse }) => {
     // sessionStorage.setItem('preferenceModalSeen', 'true'); // Removed legacy logic
     setNoPreference(true);
     setSelectedColleges([]);
-    navigate('/collect_form', { state: { selectedColleges: [], noPreference: true } });
+    navigate('/collect_form', { state: { selectedColleges: [], noPreference: true, selectedCourse } });
   };
 
   const handleCloseModal = () => {
@@ -69,7 +69,7 @@ const Colleges = ({ selectedCourse: propCourse }) => {
   };
 
   const handleProceed = () => {
-    navigate('/collect_form', { state: { selectedColleges, noPreference } });
+    navigate('/collect_form', { state: { selectedColleges, noPreference, selectedCourse } });
   };
 
   return (

@@ -18,10 +18,11 @@ const CollectionForm = () => {
   const [errors, setErrors] = useState({});
 
   const location = useLocation();
-  const { selectedColleges = [], noPreference = false } = location.state || {};
+  const { selectedColleges = [], noPreference = false, selectedCourse = '' } = location.state || {};
 
   // State to handle submission success message
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   // Handle input changes
   const handleChange = (e) => {
@@ -97,10 +98,15 @@ const CollectionForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitted(false);
+    setSubmitError('');
 
     if (!validateForm()) return;
 
     try {
+      const collegesChoice = (noPreference || selectedColleges.length === 0)
+        ? "No College Preference"
+        : selectedColleges.map(c => c.name).join(", ");
+
       const payload = {
         first_name: formData.firstName,
         last_name: formData.lastName,
@@ -108,6 +114,8 @@ const CollectionForm = () => {
         phone_number: formData.phone,
         plus_two_percentage: formData.percentage,
         city: formData.city,
+        course_selected: selectedCourse,
+        colleges_selected: collegesChoice,
       };
 
       await axios.post("/api/submit/", payload);
@@ -126,6 +134,17 @@ const CollectionForm = () => {
 
     } catch (error) {
       console.error("Submission failed:", error.response?.data || error.message);
+      let errMsg = "Something went wrong. Please try again.";
+      if (error.response?.data) {
+        if (typeof error.response.data === 'object') {
+          // Extract first error message from values
+          const firstError = Object.values(error.response.data).flat()[0];
+          if (firstError) errMsg = firstError;
+        } else {
+          errMsg = error.response.data; // fallback
+        }
+      }
+      setSubmitError(errMsg);
     }
   };
 
@@ -138,6 +157,12 @@ const CollectionForm = () => {
         {isSubmitted && (
           <div className="success-message">
             Thanks! Your details have been submitted.
+          </div>
+        )}
+
+        {submitError && (
+          <div className="error-message" style={{ color: 'red', textAlign: 'center', marginBottom: '1rem' }}>
+            {submitError}
           </div>
         )}
 
