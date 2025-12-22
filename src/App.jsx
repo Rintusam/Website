@@ -1,5 +1,5 @@
 import './app.css';
-import React from 'react'
+import React, { useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import HomePage from './pages/homePage.jsx';
@@ -19,6 +19,10 @@ function App() {
   const location = useLocation();
   const isCollegeDetails = location.pathname.startsWith('/college-details/');
   const isCollegePage = location.pathname === '/college';
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   return (
     <div className='app' >

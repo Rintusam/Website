@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './collection_form.css';
 import axios from "axios";
+import { useLocation } from 'react-router-dom';
 
 const CollectionForm = () => {
   // State to hold form values
@@ -15,6 +16,9 @@ const CollectionForm = () => {
 
   // State to hold error messages
   const [errors, setErrors] = useState({});
+
+  const location = useLocation();
+  const { selectedColleges = [], noPreference = false } = location.state || {};
 
   // State to handle submission success message
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -106,7 +110,7 @@ const CollectionForm = () => {
         city: formData.city,
       };
 
-      await axios.post("http://127.0.0.1:8000/api/submit/", payload);
+      await axios.post("/api/submit/", payload);
 
       setIsSubmitted(true);
       setFormData({
@@ -238,6 +242,34 @@ const CollectionForm = () => {
               value={formData.city}
               onChange={handleChange}
             />
+          </div>
+
+          {/* Selected Colleges Field */}
+          <div className="form-group">
+            <label>Colleges Selected</label>
+            {noPreference || selectedColleges.length === 0 ? (
+              <input
+                type="text"
+                value="No College Preference"
+                readOnly
+                className="read-only-input"
+              />
+            ) : selectedColleges.length === 1 ? (
+              <input
+                type="text"
+                value={selectedColleges[0].name}
+                readOnly
+                className="read-only-input"
+              />
+            ) : (
+              <select className="college-select-dropdown">
+                {selectedColleges.map((college) => (
+                  <option key={college.id} value={college.name}>
+                    {college.name}
+                  </option>
+                ))}
+              </select>
+            )}
           </div>
 
           <button type="submit" className="submit-btn">
