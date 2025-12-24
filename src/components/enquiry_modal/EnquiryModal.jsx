@@ -1,39 +1,78 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './EnquiryModal.css';
 
 const EnquiryModal = ({ show, onClose }) => {
-    const [phone, setPhone] = useState('');
-    const [phoneError, setPhoneError] = useState('');
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        location: '',
+        message: ''
+    });
+
+    const [errors, setErrors] = useState({});
 
     // Only render if show is true
     if (!show) {
         return null;
     }
 
-    const handlePhoneChange = (e) => {
-        const value = e.target.value;
-        // Allow only numbers
-        if (/^\d*$/.test(value)) {
-            setPhone(value);
-            // Clear error if user is typing and length is <= 10
-            if (value.length <= 10) {
-                setPhoneError('');
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+
+        // Mobile number validation (only numbers)
+        if (name === 'phone') {
+            if (/^\d*$/.test(value) && value.length <= 10) {
+                setFormData(prev => ({ ...prev, [name]: value }));
+                // Clear error if valid length
+                if (value.length === 10) {
+                    setErrors(prev => ({ ...prev, phone: '' }));
+                }
+            }
+        } else {
+            setFormData(prev => ({ ...prev, [name]: value }));
+            // Clear error on change
+            if (errors[name]) {
+                setErrors(prev => ({ ...prev, [name]: '' }));
             }
         }
+    };
+
+    const validate = () => {
+        const newErrors = {};
+        if (!formData.name.trim()) newErrors.name = "Full Name is required";
+        if (!formData.phone) {
+            newErrors.phone = "Mobile Number is required";
+        } else if (formData.phone.length !== 10) {
+            newErrors.phone = "Mobile Number must be exactly 10 digits";
+        }
+        return newErrors;
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (phone.length !== 10) {
-            setPhoneError("Phone number must be exactly 10 digits");
+        const validationErrors = validate();
+        if (Object.keys(validationErrors).length > 0) {
+            setErrors(validationErrors);
             return;
         }
 
         // Handle form submission logic here
-        console.log("Enquiry submitted", { phone }); // Log value to verify
+        console.log("Enquiry submitted", formData);
         alert("Thank you for your enquiry!");
         onClose();
+
+        // Reset form
+        setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            location: '',
+            message: ''
+        });
+        setErrors({});
     };
 
     return (
@@ -48,10 +87,25 @@ const EnquiryModal = ({ show, onClose }) => {
                 <form className="enquiry-form" onSubmit={handleSubmit}>
                     <div className="form-row">
                         <div className="form-group">
-                            <input type="text" className="form-input" placeholder="Name*" required />
+                            <input
+                                type="text"
+                                className={`form-input ${errors.name ? 'input-error' : ''}`}
+                                placeholder="Full Name *"
+                                name="name"
+                                value={formData.name}
+                                onChange={handleChange}
+                            />
+                            {errors.name && <span className="error-message">{errors.name}</span>}
                         </div>
                         <div className="form-group">
-                            <input type="email" className="form-input" placeholder="Email*" required />
+                            <input
+                                type="email"
+                                className="form-input"
+                                placeholder="Email Address"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                            />
                         </div>
                     </div>
 
@@ -59,41 +113,33 @@ const EnquiryModal = ({ show, onClose }) => {
                         <div className="form-group">
                             <input
                                 type="tel"
-                                className={`form-input ${phoneError ? 'input-error' : ''}`}
-                                placeholder="Phone Number*"
-                                required
-                                value={phone}
-                                onChange={handlePhoneChange}
-                                maxLength="10"
+                                className={`form-input ${errors.phone ? 'input-error' : ''}`}
+                                placeholder="Mobile Number *"
+                                name="phone"
+                                value={formData.phone}
+                                onChange={handleChange}
                             />
-                            {phoneError && <span className="error-message">{phoneError}</span>}
+                            {errors.phone && <span className="error-message">{errors.phone}</span>}
                         </div>
                         <div className="form-group">
-                            <input type="text" className="form-input" placeholder="Qualification" />
+                            <input
+                                type="text"
+                                className="form-input"
+                                placeholder="Location"
+                                name="location"
+                                value={formData.location}
+                                onChange={handleChange}
+                            />
                         </div>
-                    </div>
-
-                    <div className="form-row">
-                        <div className="form-group">
-                            <input type="text" className="form-input" placeholder="Place*" required />
-                        </div>
-                        <div className="form-group">
-                            <input type="text" className="form-input" placeholder="District" />
-                        </div>
-                    </div>
-
-                    <div className="form-group">
-                        <select className="form-select">
-                            <option value="">Select Interest</option>
-                            <option value="study_abroad">Medical Fields</option>
-                            <option value="language_training">Non-Medical Fields</option>
-                        </select>
                     </div>
 
                     <div className="form-group">
                         <textarea
                             className="form-textarea"
-                            placeholder="Feedback / Suggestion / Query"
+                            placeholder="Query / Message"
+                            name="message"
+                            value={formData.message}
+                            onChange={handleChange}
                         ></textarea>
                     </div>
 
