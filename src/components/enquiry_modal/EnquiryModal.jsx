@@ -60,19 +60,25 @@ const EnquiryModal = ({ show, onClose }) => {
         }
 
         // Handle form submission logic here
-        console.log("Enquiry submitted", formData);
-        alert("Thank you for your enquiry!");
-        onClose();
-
-        // Reset form
-        setFormData({
-            name: '',
-            email: '',
-            phone: '',
-            location: '',
-            message: ''
-        });
-        setErrors({});
+        axios.post('http://127.0.0.1:8000/api/enquiries/', formData)
+            .then(response => {
+                console.log("Enquiry submitted", response.data);
+                alert("Enquiry submitted successfully!");
+                onClose();
+                // Reset form
+                setFormData({
+                    name: '',
+                    email: '',
+                    phone: '',
+                    location: '',
+                    message: ''
+                });
+                setErrors({});
+            })
+            .catch(error => {
+                console.error("Error submitting enquiry:", error);
+                alert("Failed to submit enquiry. Please try again.");
+            });
     };
 
     return (
