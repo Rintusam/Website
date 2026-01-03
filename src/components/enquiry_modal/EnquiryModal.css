@@ -8,10 +8,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1050;
+    z-index: 9999;
     /* Higher than navbar */
-    opacity: 0;
-    animation: fadeIn 0.3s forwards;
+    /* opacity: 0; */
+    /* animation: fadeIn 0.3s forwards; */
 }
 
 @keyframes fadeIn {
@@ -30,6 +30,12 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     transform: translateY(-20px);
     animation: slideIn 0.3s forwards;
+    transition: all 0.3s ease;
+}
+
+.enquiry-modal-content.success-mode {
+    max-width: 500px;
+    text-align: center;
 }
 
 @keyframes slideIn {
@@ -150,6 +156,57 @@
 
 .submit-btn:hover {
     background-color: #e0e0e0;
+}
+
+/* Success Message Styles */
+.enquiry-success-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.success-icon {
+    font-size: 60px;
+    color: #28a745;
+    margin-bottom: 20px;
+    animation: scaleIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.enquiry-success-message h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+    font-family: serif;
+}
+
+.enquiry-success-message p {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.success-close-btn {
+    align-self: center;
+    background-color: #3b6e8f;
+    color: white;
+}
+
+.success-close-btn:hover {
+    background-color: #2a526b;
 }
 
 /* Responsive adjustments */
