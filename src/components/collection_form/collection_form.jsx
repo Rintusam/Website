@@ -339,6 +339,7 @@ const CollectionForm = () => {
             </div>
           </div>
 
+
           {/* Aggregate Percentage/CGPA */}
           <div className="form-group">
             <label htmlFor="aggregatePercentage">Aggregate Percentage% / CGPA <span className="required-mark">*</span></label>
