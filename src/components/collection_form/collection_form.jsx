@@ -3,18 +3,17 @@ import './collection_form.css';
 import axios from "axios";
 import { useLocation } from 'react-router-dom';
 
+const PHONE_REGEX = /^\d{10}$/;
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const CURRENT_YEAR = new Date().getFullYear();
+const YEARS = Array.from(new Array(30), (val, index) => CURRENT_YEAR - index);
+const TODAY = new Date().toISOString().split('T')[0];
+
 const CollectionForm = () => {
   // State to hold form values
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    dob: '',
-    gender: '',
-    mobile: '',
-    email: '',
-    qualification: '',
-    yearOfPassing: '',
-    aggregatePercentage: '',
+    firstName: '', lastName: '', dob: '', gender: '', mobile: '', email: '',
+    qualification: '', yearOfPassing: '', aggregatePercentage: '',
   });
 
   // State to hold error messages
@@ -49,72 +48,46 @@ const CollectionForm = () => {
   const validateForm = () => {
     let newErrors = {};
     let isValid = true;
+    const { firstName, lastName, dob, gender, mobile, email, qualification, yearOfPassing, aggregatePercentage } = formData;
 
-    // First Name Validation
-    if (!formData.firstName.trim()) {
-      newErrors.firstName = 'First name is required.';
-      isValid = false;
-    }
+    if (!firstName.trim()) newErrors.firstName = 'First name is required.';
+    if (!lastName.trim()) newErrors.lastName = 'Last name is required.';
+    if (!dob) newErrors.dob = 'Date of Birth is required.';
+    if (!gender) newErrors.gender = 'Gender is required.';
 
-    // Last Name Validation
-    if (!formData.lastName.trim()) {
-      newErrors.lastName = 'Last name is required.';
-      isValid = false;
-    }
+    if (!mobile.trim()) newErrors.mobile = 'Mobile number is required.';
+    else if (!PHONE_REGEX.test(mobile.replace(/[\s-]/g, ''))) newErrors.mobile = 'Please enter a valid 10-digit mobile number.';
 
-    // DOB Validation
-    if (!formData.dob) {
-      newErrors.dob = 'Date of Birth is required.';
-      isValid = false;
-    }
+    if (!email.trim()) newErrors.email = 'Email is required.';
+    else if (!EMAIL_REGEX.test(email)) newErrors.email = 'Please enter a valid email format.';
 
-    // Gender Validation
-    if (!formData.gender) {
-      newErrors.gender = 'Gender is required.';
-      isValid = false;
-    }
+    if (!qualification) newErrors.qualification = 'Highest qualification is required.';
+    if (!yearOfPassing) newErrors.yearOfPassing = 'Year of passing is required.';
+    if (!aggregatePercentage.trim()) newErrors.aggregatePercentage = 'Aggregate Percentage/CGPA is required.';
 
-    // Mobile Validation
-    const phoneRegex = /^\d{10}$/;
-    if (!formData.mobile.trim()) {
-      newErrors.mobile = 'Mobile number is required.';
-      isValid = false;
-    } else if (!phoneRegex.test(formData.mobile.replace(/[\s-]/g, ''))) {
-      newErrors.mobile = 'Please enter a valid 10-digit mobile number.';
-      isValid = false;
-    }
-
-    // Email Validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required.';
-      isValid = false;
-    } else if (!emailRegex.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email format.';
-      isValid = false;
-    }
-
-    // Qualification Validation
-    if (!formData.qualification) {
-      newErrors.qualification = 'Highest qualification is required.';
-      isValid = false;
-    }
-
-    // Year of Passing Validation
-    if (!formData.yearOfPassing) {
-      newErrors.yearOfPassing = 'Year of passing is required.';
-      isValid = false;
-    }
-
-    // Aggregate Percentage Validation
-    if (!formData.aggregatePercentage.trim()) {
-      newErrors.aggregatePercentage = 'Aggregate Percentage/CGPA is required.';
-      isValid = false;
-    }
-
+    if (Object.keys(newErrors).length > 0) isValid = false;
     setErrors(newErrors);
     return isValid;
   };
+
+  const renderInput = (name, label, type = 'text', placeholder = '', options = null) => (
+    <div className="form-group">
+      <label htmlFor={name}>{label} <span className="required-mark">*</span></label>
+      {type === 'select' ? (
+        <select id={name} name={name} value={formData[name]} onChange={handleChange} className={errors[name] ? 'input-error' : ''}>
+          <option value="">Select {label}</option>
+          {options.map(o => <option key={o} value={o}>{o}</option>)}
+        </select>
+      ) : (
+        <input
+          type={type} id={name} name={name} placeholder={placeholder} value={formData[name]}
+          onChange={handleChange} className={errors[name] ? 'input-error' : ''}
+          max={type === 'date' ? TODAY : undefined}
+        />
+      )}
+      {errors[name] && <div className="error-message">{errors[name]}</div>}
+    </div>
+  );
 
   // Handle Form Submission
 
@@ -162,7 +135,6 @@ const CollectionForm = () => {
       window.scrollTo(0, 0);
 
     } catch (error) {
-      console.error("Submission failed:", error.response?.data || error.message);
       let errMsg = "Something went wrong. Please try again.";
       if (error.response?.data) {
         if (typeof error.response.data === 'object') {
@@ -197,163 +169,26 @@ const CollectionForm = () => {
         <form onSubmit={handleSubmit} noValidate>
 
           <div className="form-row">
-            {/* First Name */}
-            <div className="form-group">
-              <label htmlFor="firstName">First Name <span className="required-mark">*</span></label>
-              <input
-                type="text"
-                id="firstName"
-                name="firstName"
-                placeholder="John"
-                value={formData.firstName}
-                onChange={handleChange}
-                className={errors.firstName ? 'input-error' : ''}
-              />
-              {errors.firstName && <div className="error-message">{errors.firstName}</div>}
-            </div>
-
-            {/* Last Name */}
-            <div className="form-group">
-              <label htmlFor="lastName">Last Name <span className="required-mark">*</span></label>
-              <input
-                type="text"
-                id="lastName"
-                name="lastName"
-                placeholder="Doe"
-                value={formData.lastName}
-                onChange={handleChange}
-                className={errors.lastName ? 'input-error' : ''}
-              />
-              {errors.lastName && <div className="error-message">{errors.lastName}</div>}
-            </div>
+            {renderInput('firstName', 'First Name', 'text', 'John')}
+            {renderInput('lastName', 'Last Name', 'text', 'Doe')}
           </div>
 
           <div className="form-row">
-            {/* Date of Birth */}
-            <div className="form-group">
-              <label>Date of Birth <span className="required-mark">*</span></label>
-              <input
-                type="date"
-                id="dob"
-                name="dob"
-                value={formData.dob}
-                onChange={handleChange}
-                max={today}
-                className={errors.dob ? 'input-error' : ''}
-              />
-              {errors.dob && <div className="error-message">{errors.dob}</div>}
-            </div>
-
-            {/* Gender */}
-            <div className="form-group">
-              <label htmlFor="gender">Gender <span className="required-mark">*</span></label>
-              <select
-                id="gender"
-                name="gender"
-                value={formData.gender}
-                onChange={handleChange}
-                className={errors.gender ? 'input-error' : ''}
-              >
-                <option value="">Select Gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Others">Others</option>
-              </select>
-              {errors.gender && <div className="error-message">{errors.gender}</div>}
-            </div>
+            {renderInput('dob', 'Date of Birth', 'date')}
+            {renderInput('gender', 'Gender', 'select', '', ['Male', 'Female', 'Others'])}
           </div>
 
           <div className="form-row">
-            {/* Mobile Number */}
-            <div className="form-group">
-              <label htmlFor="mobile">Mobile Number <span className="required-mark">*</span></label>
-              <input
-                type="tel"
-                id="mobile"
-                name="mobile"
-                placeholder="10 digit mobile number"
-                value={formData.mobile}
-                onChange={handleChange}
-                className={errors.mobile ? 'input-error' : ''}
-              />
-              {errors.mobile && <div className="error-message">{errors.mobile}</div>}
-            </div>
-
-            {/* Email */}
-            <div className="form-group">
-              <label htmlFor="email">Email Address <span className="required-mark">*</span></label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="john.doe@example.com"
-                value={formData.email}
-                onChange={handleChange}
-                className={errors.email ? 'input-error' : ''}
-              />
-              {errors.email && <div className="error-message">{errors.email}</div>}
-            </div>
+            {renderInput('mobile', 'Mobile Number', 'tel', '10 digit mobile number')}
+            {renderInput('email', 'Email Address', 'email', 'john.doe@example.com')}
           </div>
-
-
 
           <div className="form-row">
-            {/* Highest Qualification */}
-            <div className="form-group">
-              <label htmlFor="qualification">Highest Qualification <span className="required-mark">*</span></label>
-              <select
-                id="qualification"
-                name="qualification"
-                value={formData.qualification}
-                onChange={handleChange}
-                className={errors.qualification ? 'input-error' : ''}
-              >
-                <option value="">Select Qualification</option>
-                <option value="10th Standard">10th Standard</option>
-                <option value="12th Standard">12th Standard</option>
-                <option value="Diploma">Diploma</option>
-                <option value="Bachelor's Degree">Bachelor's Degree</option>
-                <option value="Master's Degree">Master's Degree</option>
-                <option value="Others
-                ">Others</option>
-              </select>
-              {errors.qualification && <div className="error-message">{errors.qualification}</div>}
-            </div>
-
-            {/* Year of Passing */}
-            <div className="form-group">
-              <label htmlFor="yearOfPassing">Year of Passing <span className="required-mark">*</span></label>
-              <select
-                id="yearOfPassing"
-                name="yearOfPassing"
-                value={formData.yearOfPassing}
-                onChange={handleChange}
-                className={errors.yearOfPassing ? 'input-error' : ''}
-              >
-                <option value="">Select Year</option>
-                {years.map(year => (
-                  <option key={year} value={year}>{year}</option>
-                ))}
-              </select>
-              {errors.yearOfPassing && <div className="error-message">{errors.yearOfPassing}</div>}
-            </div>
+            {renderInput('qualification', 'Highest Qualification', 'select', '', ['10th Standard', '12th Standard', 'Diploma', "Bachelor's Degree", "Master's Degree", "Others"])}
+            {renderInput('yearOfPassing', 'Year of Passing', 'select', '', YEARS)}
           </div>
 
-
-          {/* Aggregate Percentage/CGPA */}
-          <div className="form-group">
-            <label htmlFor="aggregatePercentage">Aggregate Percentage% / CGPA <span className="required-mark">*</span></label>
-            <input
-              type="text"
-              id="aggregatePercentage"
-              name="aggregatePercentage"
-              placeholder="e.g. 85% or 8.5 CGPA"
-              value={formData.aggregatePercentage}
-              onChange={handleChange}
-              className={errors.aggregatePercentage ? 'input-error' : ''}
-            />
-            {errors.aggregatePercentage && <div className="error-message">{errors.aggregatePercentage}</div>}
-          </div>
+          {renderInput('aggregatePercentage', 'Aggregate Percentage% / CGPA', 'text', 'e.g. 85% or 8.5 CGPA')}
 
           {/* Selected Course (Read-only if passed) */}
           {selectedCourse && (
