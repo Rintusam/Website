@@ -77,7 +77,7 @@ const EnquiryModal = ({ show, onClose }) => {
         }
 
         // Handle form submission logic here
-        axios.post('http://127.0.0.1:8000/api/enquiries/', formData)
+        axios.post('/api/enquiries/', formData)
             .then(response => {
                 console.log("Enquiry submitted", response.data);
                 setIsSubmitted(true);

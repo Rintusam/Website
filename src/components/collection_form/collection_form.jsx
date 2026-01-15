@@ -30,11 +30,25 @@ const CollectionForm = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    if (errors[name]) {
-      setErrors({ ...errors, [name]: '' });
-    }
+    if (name === 'mobile') {
+      // Allow only numbers
+      const numericValue = value.replace(/\D/g, '');
 
-    setFormData({ ...formData, [name]: value });
+      // Limit to 10 digits
+      if (numericValue.length > 10) return;
+
+      if (errors[name]) {
+        setErrors({ ...errors, [name]: '' });
+      }
+
+      setFormData({ ...formData, [name]: numericValue });
+    } else {
+      if (errors[name]) {
+        setErrors({ ...errors, [name]: '' });
+      }
+
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
   // Generate Year Options (e.g., last 30 years)
@@ -151,14 +165,30 @@ const CollectionForm = () => {
 
   return (
     <div className="admission-form-wrapper">
+      {/* Thank You Popup Modal */}
+      {isSubmitted && (
+        <div className="popup-overlay">
+          <div className="popup-modal">
+            <div className="popup-icon">
+              <svg viewBox="0 0 52 52" className="checkmark">
+                <circle className="checkmark-circle" cx="26" cy="26" r="25" fill="none" />
+                <path className="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+              </svg>
+            </div>
+            <h2 className="popup-title">Thank You!</h2>
+            <p className="popup-message">We will reach you sooner</p>
+            <button
+              className="popup-close-btn"
+              onClick={() => setIsSubmitted(false)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+
       <div className="form-container">
         <h2>Admission Enquiry Form</h2>
-
-        {isSubmitted && (
-          <div className="success-message">
-            Thanks! Your details have been submitted.
-          </div>
-        )}
 
         {submitError && (
           <div className="error-message" style={{ color: 'red', textAlign: 'center', marginBottom: '1rem' }}>
