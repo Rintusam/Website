@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './collection_form.css';
 import axios from "axios";
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const PHONE_REGEX = /^\d{10}$/;
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -20,6 +20,7 @@ const CollectionForm = () => {
   const [errors, setErrors] = useState({});
 
   const location = useLocation();
+  const navigate = useNavigate();
   const { selectedColleges = [], noPreference = false, selectedCourse = '' } = location.state || {};
 
   // State to handle submission success message
@@ -179,7 +180,10 @@ const CollectionForm = () => {
             <p className="popup-message">We will reach you sooner</p>
             <button
               className="popup-close-btn"
-              onClick={() => setIsSubmitted(false)}
+              onClick={() => {
+                setIsSubmitted(false);
+                navigate('/');
+              }}
             >
               Close
             </button>
