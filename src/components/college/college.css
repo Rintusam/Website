@@ -18,19 +18,19 @@
 }
 
 .header-content h1 {
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 4vw + 1rem, 2.5rem);
   margin: 10px 0;
   font-weight: 700;
+  line-height: 1.3;
 }
 
-
-
 .header-content p {
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 1.5vw + 0.5rem, 1rem);
   opacity: 0.9;
   font-weight: 300;
   max-width: 600px;
   margin: 0 auto;
+  line-height: 1.6;
 }
 
 /* --- Filter Bar --- */
@@ -217,31 +217,94 @@
   margin-left: 20px;
 }
 
-@media (max-width: 768px) {
+/* Small Mobile (320px - 480px) */
+@media (max-width: 480px) {
   .college-header {
-    padding-top: 80px;
-    /* Make space for search bar if needed, or adjust layout */
+    padding: 40px 15px 70px;
   }
 
-  .header-content h1 {
-    font-size: 2rem;
+  .filter-wrapper {
+    margin-top: -25px;
+    margin-bottom: 30px;
   }
 
   .filter-container {
-    padding: 10px 15px;
-    gap: 10px;
+    padding: 8px 15px;
+    gap: 8px;
   }
 
   .filter-btn {
-    padding: 6px 12px;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+
+  .search-input {
+    width: 100%;
+    max-width: none;
+    font-size: 0.9rem;
+    padding: 9px 18px;
+  }
+
+  .colleges-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .card-image-container {
+    height: 180px;
+  }
+
+  .proceed-container {
+    bottom: 15px;
+    width: 95%;
+    padding: 10px 10px 10px 18px;
+  }
+
+  .proceed-info {
+    font-size: 0.9rem;
+  }
+
+  .proceed-btn {
+    padding: 9px 18px;
     font-size: 0.85rem;
   }
 }
 
-/* --- Search Bar --- */
+/* Large Mobile (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .college-header {
+    padding: 45px 20px 75px;
+  }
+
+  .filter-container {
+    padding: 10px 20px;
+  }
+
+  .filter-btn {
+    padding: 7px 15px;
+    font-size: 0.9rem;
+  }
+
+  .search-input {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .colleges-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 25px;
+  }
+
+  .card-image-container {
+    height: 190px;
+  }
+}
+
+/* --- Search Bar Styles --- */
 .search-container {
   display: flex;
   align-items: center;
+  margin-left: 20px;
 }
 
 .search-input {
@@ -261,6 +324,7 @@
   box-shadow: 0 4px 20px rgba(21, 101, 192, 0.15);
 }
 
+/* Mobile search adjustments */
 @media (max-width: 768px) {
   .filter-wrapper {
     flex-direction: column;
@@ -268,9 +332,8 @@
     gap: 15px;
   }
 
-  .search-input {
-    width: 100%;
-    max-width: 300px;
+  .search-container {
+    margin-left: 0;
   }
 }
 

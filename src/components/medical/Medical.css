@@ -41,14 +41,14 @@
 }
 
 .medical-header h1 {
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 4vw + 1rem, 2.5rem);
     font-weight: 700;
     margin-bottom: 15px;
     line-height: 1.2;
 }
 
 .medical-header p {
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 2vw + 0.5rem, 1.1rem);
     opacity: 0.95;
     line-height: 1.6;
 }
@@ -254,47 +254,115 @@
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+
+/* Small Mobile (320px - 480px) */
+@media (max-width: 480px) {
     .grid-banner-wrapper {
-        padding: 40px 15px;
+        padding: 35px 12px;
     }
 
-    .medical-header h1 {
-        font-size: 1.8rem;
-    }
-
-    .medical-header p {
-        font-size: 1rem;
+    .medical-header {
+        margin-bottom: 30px;
+        width: 95%;
     }
 
     .medical-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 15px;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 12px;
+        width: 95%;
     }
 
     .medical-page-card img {
-        height: 120px;
+        height: 110px;
     }
 
     .card-title {
-        font-size: 0.9rem;
-        padding: 12px;
+        font-size: 0.85rem;
+        padding: 10px 8px;
     }
 
-    .offcanvas-bottom {
+    .custom-offcanvas {
+        height: 90vh !important;
+    }
+
+    .custom-offcanvas-body {
+        padding: 1.5rem 1rem;
+    }
+
+    .course-name {
+        font-size: 1rem;
+        width: 65%;
+    }
+
+    .duration-pill {
+        font-size: 0.7rem;
+        padding: 3px 10px;
+    }
+
+    .enroll-btn-modern {
+        font-size: 0.85rem;
+        padding: 9px 0;
+    }
+}
+
+/* Large Mobile (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .grid-banner-wrapper {
+        padding: 45px 18px;
+    }
+
+    .medical-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+
+    .medical-page-card img {
+        height: 140px;
+    }
+
+    .card-title {
+        font-size: 0.95rem;
+        padding: 13px 10px;
+    }
+
+    .custom-offcanvas {
         height: 85vh !important;
     }
 }
 
+/* Tablet (769px - 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
+    .grid-banner-wrapper {
+        padding: 55px 25px;
+    }
+
     .medical-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+    }
+
+    .medical-page-card img {
+        height: 150px;
     }
 }
 
+/* Desktop (1025px+) */
 @media (min-width: 1025px) {
     .medical-grid {
         grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Ensure proper touch targets on mobile */
+@media (max-width: 768px) {
+    .medical-page-card {
+        min-height: 44px;
+    }
+
+    .card-title {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }

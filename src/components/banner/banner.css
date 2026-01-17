@@ -25,9 +25,9 @@
   z-index: 1;
 }
 
-/* --- Typography --- */
+/* --- Typography with Fluid Scaling --- */
 .main-title {
-  font-size: 3.5rem;
+  font-size: clamp(2rem, 5vw + 1rem, 3.5rem);
   font-weight: 800;
   color: #ffffff;
   line-height: 1.2;
@@ -45,10 +45,11 @@
 
 .sub-title {
   color: #e0e0e0;
-  font-size: 1.2rem;
+  font-size: clamp(0.95rem, 2vw + 0.5rem, 1.2rem);
   font-weight: 400;
   max-width: 700px;
   margin: 0 auto;
+  line-height: 1.6;
 }
 
 /* --- Choice Cards (The Buttons) --- */
@@ -177,18 +178,105 @@
 
 
 /* --- Mobile Adjustments --- */
-@media (max-width: 768px) {
-  .main-title {
-    font-size: 2.2rem;
-  }
 
+/* Small Mobile Devices (320px - 480px) */
+@media (max-width: 480px) {
   .banner-section {
     min-height: auto;
-    padding: 80px 0;
+    padding: 60px 15px;
+    background-attachment: scroll;
+    /* Better performance on mobile */
+  }
+
+  .banner-header {
+    margin-bottom: 30px;
   }
 
   .sub-title {
-    font-size: 1rem;
-    padding: 0 15px;
+    padding: 0 10px;
+  }
+
+  /* Single column cards on very small screens */
+  .choice-card {
+    padding: 20px 15px;
+    max-height: 200px;
+    min-height: 180px;
+  }
+
+  .icon-circle {
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+
+  .choice-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .choice-card p {
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+  }
+
+  .card-content {
+    gap: 6px;
+  }
+}
+
+/* Large Mobile Devices (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .banner-section {
+    min-height: auto;
+    padding: 70px 20px;
+    background-attachment: scroll;
+  }
+
+  .choice-card {
+    padding: 35px 18px;
+  }
+
+  .icon-circle {
+    width: 65px;
+    height: 65px;
+    font-size: 28px;
+  }
+}
+
+/* Tablet Devices (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .banner-section {
+    min-height: 80vh;
+    padding: 60px 30px;
+  }
+
+  .main-title {
+    font-size: 3rem;
+  }
+
+  .sub-title {
+    font-size: 1.1rem;
+  }
+
+  .choice-card {
+    padding: 38px 20px;
+  }
+}
+
+/* Ensure cards stack properly on mobile */
+@media (max-width: 768px) {
+  .row.g-4 {
+    gap: 20px !important;
+  }
+
+  .col-md-6 {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Always show CTA on mobile for better UX */
+  .cta-link {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

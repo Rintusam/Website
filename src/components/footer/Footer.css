@@ -1,7 +1,9 @@
 /* General Footer Styling */
 .site-footer {
-  background-color: #1a1a1a; /* Dark professional background */
-  color: #b0b0b0; /* Light grey text */
+  background-color: #1a1a1a;
+  /* Dark professional background */
+  color: #b0b0b0;
+  /* Light grey text */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding-top: 50px;
   font-size: 14px;
@@ -21,7 +23,8 @@
 /* Footer Sections */
 .footer-section {
   flex: 1;
-  min-width: 200px; /* Ensures columns wrap nicely on mobile */
+  min-width: 200px;
+  /* Ensures columns wrap nicely on mobile */
 }
 
 /* Specific adjustment for the 'About' section to be wider */
@@ -63,8 +66,10 @@
 }
 
 .footer-section a:hover {
-  color: #fff; /* White on hover */
-  padding-left: 5px; /* Subtle movement effect */
+  color: #fff;
+  /* White on hover */
+  padding-left: 5px;
+  /* Subtle movement effect */
 }
 
 /* Contact List Specifics */
@@ -99,8 +104,10 @@
 }
 
 .social-icons a:hover {
-  background: #007bff; /* Brand color on hover */
-  padding-left: 0; /* Override the padding effect */
+  background: #007bff;
+  /* Brand color on hover */
+  padding-left: 0;
+  /* Override the padding effect */
 }
 
 /* Bottom Bar */
@@ -127,17 +134,75 @@
 }
 
 /* Mobile Responsiveness */
-@media (max-width: 768px) {
+
+/* Small Mobile (320px - 480px) */
+@media (max-width: 480px) {
   .footer-content {
     flex-direction: column;
+    padding: 0 15px 30px;
+    gap: 25px;
   }
-  
+
+  .footer-logo {
+    font-size: 20px;
+  }
+
+  .footer-section h3 {
+    font-size: 15px;
+    margin-bottom: 15px;
+  }
+
+  .footer-section a,
+  .contact-list li {
+    font-size: 13px;
+  }
+
+  .social-icons a {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    padding: 15px;
+  }
+
+  .footer-bottom p {
+    font-size: 12px;
+  }
+
+  .legal-links a {
+    margin: 0 8px;
+  }
+}
+
+/* Large Mobile and Tablet (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 28px;
+  }
+
   .footer-bottom {
     flex-direction: column;
     gap: 10px;
   }
-  
+
   .legal-links a {
     margin: 0 10px;
+  }
+}
+
+/* Ensure touch targets on mobile */
+@media (max-width: 768px) {
+
+  .footer-section a,
+  .social-icons a,
+  .legal-links a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
   }
 }

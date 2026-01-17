@@ -54,15 +54,17 @@
 }
 
 .college-overlay h1 {
-    font-size: 3rem;
+    font-size: clamp(1.8rem, 4vw + 1rem, 3rem);
     margin: 0 0 10px 0;
     font-weight: 700;
+    line-height: 1.2;
 }
 
 .college-location {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2vw + 0.5rem, 1.2rem);
     margin-bottom: 15px;
     opacity: 0.9;
+    line-height: 1.4;
 }
 
 .college-badges {
@@ -184,16 +186,98 @@
     color: #333;
 }
 
-@media (max-width: 768px) {
-    .details-main-info {
-        grid-template-columns: 1fr;
-    }
-
-    .college-overlay h1 {
-        font-size: 2rem;
+/* Small Mobile (320px - 480px) */
+@media (max-width: 480px) {
+    .college-details-container {
+        padding: 15px 12px;
     }
 
     .details-image-section {
-        height: 300px;
+        height: 250px;
+        border-radius: 12px;
+        margin-bottom: 30px;
+    }
+
+    .college-overlay {
+        padding: 25px 20px;
+    }
+
+    .details-main-info {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .info-card {
+        padding: 20px 15px;
+        margin-bottom: 20px;
+    }
+
+    .info-card h2 {
+        font-size: 1.3rem;
+    }
+
+    .description {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .highlights-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
+
+/* Large Mobile (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .college-details-container {
+        padding: 18px 16px;
+    }
+
+    .details-image-section {
+        height: 280px;
+    }
+
+    .college-overlay {
+        padding: 30px 25px;
+    }
+
+    .details-main-info {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .info-card {
+        padding: 25px 20px;
+    }
+
+    .highlights-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+}
+
+/* Tablet (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .details-image-section {
+        height: 350px;
+    }
+
+    .details-main-info {
+        gap: 25px;
+    }
+}
+
+/* Ensure proper touch targets on mobile */
+@media (max-width: 768px) {
+    .back-btn {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    .course-item {
+        min-height: 44px;
+        padding: 16px 0;
     }
 }

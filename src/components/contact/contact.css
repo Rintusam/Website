@@ -311,16 +311,79 @@
 }
 
 /* --- Responsive Tweaks --- */
-@media (max-width: 900px) {
+
+/* Small Mobile (320px - 480px) */
+@media (max-width: 480px) {
+    .overlay-tint {
+        padding: 8px;
+    }
+
     .contact-card {
-        flex-direction: column;
-        max-width: 90%;
-        margin: 40px auto;
+        margin: 15px auto;
+        width: 98%;
+        border-radius: 12px;
     }
 
     .form-side,
     .info-side {
-        padding: 50px 40px;
+        padding: 25px 15px;
+    }
+
+    .form-header h2 {
+        font-size: 1.6rem;
+    }
+
+    .form-header p {
+        font-size: 0.9rem;
+        margin-bottom: 22px;
+    }
+
+    .floating-label-group input,
+    .floating-label-group textarea {
+        padding: 12px 16px;
+        font-size: 15px;
+    }
+
+    .icon {
+        margin-right: 12px;
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+    }
+
+    .info-item h4 {
+        font-size: 0.95rem;
+    }
+
+    .info-item p {
+        font-size: 0.85rem;
+    }
+
+    .submit-btn {
+        padding: 13px;
+        font-size: 15px;
+    }
+
+    .info-content h3 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Large Mobile (481px - 900px) */
+@media (min-width: 481px) and (max-width: 900px) {
+    .overlay-tint {
+        padding: 25px;
+    }
+
+    .contact-card {
+        flex-direction: column;
+        max-width: 90%;
+        margin: 35px auto;
+    }
+
+    .form-side,
+    .info-side {
+        padding: 45px 35px;
     }
 
     .info-side {
@@ -328,48 +391,27 @@
     }
 }
 
-@media (max-width: 480px) {
+/* Tablet (901px - 1200px) */
+@media (min-width: 901px) and (max-width: 1200px) {
     .contact-card {
-        margin: 20px auto;
-        width: 95%;
-        border-radius: 15px;
+        max-width: 95%;
     }
 
-    .form-side,
+    .form-side {
+        padding: 50px 45px;
+    }
+
     .info-side {
-        padding: 30px 20px;
+        padding: 50px 45px;
     }
+}
 
-    .form-header h2 {
-        font-size: 1.8rem;
-    }
+/* Ensure touch targets on mobile */
+@media (max-width: 900px) {
 
-    .form-header p {
-        font-size: 0.95rem;
-        margin-bottom: 25px;
-    }
-
-    .icon {
-        margin-right: 15px;
-        width: 38px;
-        height: 38px;
-        font-size: 20px;
-    }
-
-    .info-item h4 {
-        font-size: 1rem;
-    }
-
-    .info-item p {
-        font-size: 0.9rem;
-    }
-
+    .floating-label-group input,
+    .floating-label-group textarea,
     .submit-btn {
-        padding: 14px;
-        font-size: 16px;
-    }
-
-    .overlay-tint {
-        padding: 10px;
+        min-height: 44px;
     }
 }

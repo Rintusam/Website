@@ -5,7 +5,8 @@
   color: #333;
   line-height: 1.6;
   padding: 60px 20px;
-  background-color: #ffffff; /* Fixed typo from #ffff */
+  background-color: #ffffff;
+  /* Fixed typo from #ffff */
 }
 
 .about-container {
@@ -20,14 +21,17 @@
 }
 
 .about-header h1 {
-  font-size: 2.5rem;
-  color: #2c3e50; /* Dark Blue */
+  font-size: clamp(1.8rem, 4vw + 1rem, 2.5rem);
+  color: #2c3e50;
+  /* Dark Blue */
   margin-bottom: 10px;
+  line-height: 1.3;
 }
 
 .about-tagline {
-  font-size: 1.2rem;
-  color: #3498db; /* Accent Blue */
+  font-size: clamp(1rem, 2vw + 0.5rem, 1.2rem);
+  color: #3498db;
+  /* Accent Blue */
   font-weight: 600;
 }
 
@@ -37,25 +41,28 @@
 }
 
 .about-content h2 {
-  font-size: 1.8rem;
+  font-size: clamp(1.4rem, 3vw + 0.5rem, 1.8rem);
   color: #2c3e50;
   margin-bottom: 20px;
   border-left: 5px solid #3498db;
   padding-left: 15px;
+  line-height: 1.4;
 }
 
 .about-content p {
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 1.5vw + 0.5rem, 1.1rem);
   margin-bottom: 20px;
   color: #555;
-  text-align: justify; /* Looks cleaner for long text */
+  text-align: justify;
+  /* Looks cleaner for long text */
+  line-height: 1.7;
 }
 
 /* Steps Grid */
 .steps-grid {
   display: grid;
   /* Auto-fit creates responsive columns without media queries */
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
   margin-top: 30px;
 }
@@ -64,7 +71,7 @@
   background: #f8f9fa;
   padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
   border: 1px solid #eee;
@@ -72,7 +79,7 @@
 
 .step-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .step-number {
@@ -95,7 +102,8 @@
 }
 
 .step-card p {
-  text-align: center; /* Reset justify for cards */
+  text-align: center;
+  /* Reset justify for cards */
   font-size: 1rem;
 }
 
@@ -112,30 +120,87 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+
+/* Small Mobile (320px - 480px) */
+@media (max-width: 480px) {
   .about-section {
-    padding: 30px 15px;
+    padding: 25px 12px;
   }
 
-  .about-header h1 {
-    font-size: 2rem;
+  .about-header {
+    margin-bottom: 35px;
   }
-  
-  .about-tagline {
-    font-size: 1rem;
-  }
-  
+
   .about-content h2 {
-    font-size: 1.5rem;
     padding-left: 10px;
     border-left-width: 4px;
+    margin-bottom: 15px;
   }
-  
+
   .about-content p {
-    text-align: left; /* Easier to read on mobile */
+    text-align: left;
+    /* Easier to read on mobile */
   }
 
   .steps-grid {
-    gap: 20px;
+    gap: 18px;
+    grid-template-columns: 1fr;
+    /* Single column on small screens */
+  }
+
+  .step-card {
+    padding: 25px 20px;
+  }
+
+  .step-number {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+  }
+
+  .privacy-note {
+    padding: 20px 15px;
+    margin-top: 45px;
+  }
+}
+
+/* Large Mobile (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .about-section {
+    padding: 35px 18px;
+  }
+
+  .about-content p {
+    text-align: left;
+  }
+
+  .steps-grid {
+    gap: 22px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .step-card {
+    padding: 28px 22px;
+  }
+}
+
+/* Tablet (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .about-section {
+    padding: 50px 25px;
+  }
+
+  .steps-grid {
+    gap: 25px;
+  }
+}
+
+/* Ensure proper touch targets on mobile */
+@media (max-width: 768px) {
+  .step-card {
+    min-height: 44px;
+    cursor: default;
+    /* Remove pointer cursor on mobile if not clickable */
   }
 }
