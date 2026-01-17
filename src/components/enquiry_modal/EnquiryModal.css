@@ -4,14 +4,16 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background: linear-gradient(135deg, rgba(20, 30, 48, 0.95) 0%, rgba(36, 59, 85, 0.95) 100%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    /* Higher than navbar */
-    /* opacity: 0; */
-    /* animation: fadeIn 0.3s forwards; */
+    opacity: 0;
+    animation: fadeIn 0.4s ease forwards;
+    padding: 20px;
 }
 
 @keyframes fadeIn {
@@ -21,141 +23,266 @@
 }
 
 .enquiry-modal-content {
-    background-color: white;
-    padding: 30px;
-    border-radius: 8px;
-    width: 90%;
-    max-width: 800px;
+    background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+    padding: 45px;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 850px;
     position: relative;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transform: translateY(-20px);
-    animation: slideIn 0.3s forwards;
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    transform: translateY(-30px) scale(0.95);
+    animation: slideIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
     transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.enquiry-modal-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+    background-size: 200% 100%;
+    animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
 }
 
 .enquiry-modal-content.success-mode {
-    max-width: 500px;
+    max-width: 550px;
     text-align: center;
+    padding: 60px 45px;
 }
 
 @keyframes slideIn {
     to {
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
     }
 }
 
 .close-button {
     position: absolute;
-    top: 15px;
+    top: 20px;
     right: 20px;
-    background: #3b6e8f;
-    /* Approximate blue from image */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     border: none;
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
+    font-size: 24px;
+    font-weight: 300;
     cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    z-index: 10;
 }
 
 .close-button:hover {
-    background-color: #2a526b;
+    transform: rotate(90deg) scale(1.1);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.close-button:active {
+    transform: rotate(90deg) scale(0.95);
 }
 
 .enquiry-modal-title {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 25px;
-    color: #333;
-    font-family: serif;
-    /* Matches "Quick Enquiry" font style in image */
+    font-size: clamp(26px, 5vw, 36px);
+    font-weight: 700;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    letter-spacing: -0.5px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.enquiry-modal-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    border-radius: 2px;
+}
+
+.enquiry-modal-subtitle {
+    color: #666;
+    font-size: 15px;
+    margin-bottom: 30px;
+    font-weight: 400;
 }
 
 .enquiry-form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 }
 
 .form-row {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 }
 
 .form-group {
-    flex: 1;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .form-input,
 .form-select,
 .form-textarea {
     width: 100%;
-    padding: 10px 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
-    color: #555;
+    padding: 14px 18px;
+    border: 2px solid #e1e8ed;
+    border-radius: 12px;
+    font-size: 15px;
+    color: #2d3748;
     outline: none;
-    background: #fff;
+    background: #ffffff;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
 }
 
 .form-input::placeholder,
 .form-textarea::placeholder {
-    color: #999;
+    color: #a0aec0;
+    font-weight: 400;
 }
 
 .form-input:focus,
 .form-select:focus,
 .form-textarea:focus {
-    border-color: #aaa;
+    border-color: #667eea;
+    background: #ffffff;
+    box-shadow:
+        0 0 0 4px rgba(102, 126, 234, 0.1),
+        0 4px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+.form-input:hover,
+.form-textarea:hover {
+    border-color: #cbd5e0;
 }
 
 .input-error {
-    border-color: #dc3545;
+    border-color: #fc8181 !important;
+    background: #fff5f5;
+}
+
+.input-error:focus {
+    box-shadow:
+        0 0 0 4px rgba(252, 129, 129, 0.1),
+        0 4px 12px rgba(252, 129, 129, 0.2);
 }
 
 .error-message {
-    color: #dc3545;
-    font-size: 12px;
-    margin-top: 5px;
+    color: #e53e3e;
+    font-size: 13px;
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 500;
+}
+
+.error-message::before {
+    content: '⚠';
+    font-size: 14px;
 }
 
 .form-select {
     appearance: none;
-    /* Custom arrow if needed, mostly browser default looks okay or use wrapper */
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23667eea' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
     background-repeat: no-repeat;
     background-position: right 1rem center;
-    background-size: 1em;
+    background-size: 1.2em;
+    cursor: pointer;
 }
 
 .form-textarea {
-    min-height: 100px;
+    min-height: 120px;
     resize: vertical;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
 }
 
 .submit-btn {
-    background-color: #f0f0f0;
-    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
     border: none;
-    padding: 10px 30px;
-    font-weight: 700;
-    font-size: 14px;
+    padding: 15px 40px;
+    font-weight: 600;
+    font-size: 15px;
     cursor: pointer;
     align-self: flex-start;
-    border-radius: 4px;
+    border-radius: 12px;
     margin-top: 10px;
     text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow:
+        0 8px 16px rgba(102, 126, 234, 0.3),
+        0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.submit-btn:hover::before {
+    left: 100%;
 }
 
 .submit-btn:hover {
-    background-color: #e0e0e0;
+    transform: translateY(-2px);
+    box-shadow:
+        0 12px 24px rgba(102, 126, 234, 0.4),
+        0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+    box-shadow:
+        0 4px 8px rgba(102, 126, 234, 0.3),
+        0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 /* Success Message Styles */
@@ -167,59 +294,173 @@
 }
 
 .success-icon {
-    font-size: 60px;
-    color: #28a745;
-    margin-bottom: 20px;
-    animation: scaleIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-size: 80px;
+    color: #48bb78;
+    margin-bottom: 24px;
+    animation: successPop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: drop-shadow(0 4px 12px rgba(72, 187, 120, 0.3));
 }
 
-@keyframes scaleIn {
-    from {
-        transform: scale(0);
+@keyframes successPop {
+    0% {
+        transform: scale(0) rotate(-180deg);
         opacity: 0;
     }
 
-    to {
-        transform: scale(1);
+    50% {
+        transform: scale(1.1) rotate(10deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(0deg);
         opacity: 1;
     }
 }
 
 .enquiry-success-message h3 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 10px;
-    font-family: serif;
+    font-size: clamp(28px, 5vw, 36px);
+    color: #2d3748;
+    margin-bottom: 12px;
+    font-weight: 700;
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
 
 .enquiry-success-message p {
-    color: #666;
-    margin-bottom: 20px;
+    color: #718096;
+    margin-bottom: 30px;
     font-size: 16px;
-    line-height: 1.5;
+    line-height: 1.6;
+    max-width: 400px;
 }
 
 .success-close-btn {
     align-self: center;
-    background-color: #3b6e8f;
-    color: white;
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    box-shadow:
+        0 8px 16px rgba(72, 187, 120, 0.3),
+        0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .success-close-btn:hover {
-    background-color: #2a526b;
+    background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+    box-shadow:
+        0 12px 24px rgba(72, 187, 120, 0.4),
+        0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Input Icons (Optional Enhancement) */
+.form-group::before {
+    pointer-events: none;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .form-row {
-        flex-direction: column;
-        gap: 15px;
+    .enquiry-modal-overlay {
+        padding: 10px;
+        align-items: flex-start;
+        overflow-y: auto;
+    }
+
+    /* Center the success message on mobile */
+    .enquiry-modal-overlay:has(.success-mode) {
+        align-items: center;
     }
 
     .enquiry-modal-content {
-        padding: 20px;
-        width: 95%;
-        margin-top: 20px;
-        margin-bottom: 20px;
+        padding: 30px 25px;
+        margin: 20px 0;
+        border-radius: 20px;
+        max-height: calc(100vh - 40px);
+        overflow-y: auto;
     }
+
+    .enquiry-modal-content.success-mode {
+        padding: 50px 30px;
+        margin: auto 0;
+    }
+
+    .enquiry-modal-title {
+        font-size: 26px;
+        margin-bottom: 10px;
+    }
+
+    .close-button {
+        width: 36px;
+        height: 36px;
+        font-size: 20px;
+        top: 15px;
+        right: 15px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 14px 30px;
+        align-self: stretch;
+    }
+
+    .success-icon {
+        font-size: 64px;
+    }
+}
+
+@media (max-width: 480px) {
+    .enquiry-modal-content {
+        padding: 25px 20px;
+        border-radius: 16px;
+    }
+
+    .enquiry-modal-title {
+        font-size: 24px;
+    }
+
+    .form-input,
+    .form-textarea {
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+
+    .enquiry-modal-subtitle {
+        font-size: 14px;
+        margin-bottom: 24px;
+    }
+}
+
+/* Smooth scrollbar for modal content on mobile */
+.enquiry-modal-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.enquiry-modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.enquiry-modal-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+}
+
+.enquiry-modal-content::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+/* Additional micro-interactions */
+@media (hover: hover) {
+
+    .form-input:not(:focus):hover,
+    .form-textarea:not(:focus):hover {
+        transform: translateY(-1px);
+    }
+}
+
+/* Loading state for submit button (optional) */
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
 }

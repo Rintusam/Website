@@ -129,6 +129,7 @@ const EnquiryModal = ({ show, onClose }) => {
                 ) : (
                     <>
                         <h2 className="enquiry-modal-title">Quick Enquiry</h2>
+                        <p className="enquiry-modal-subtitle">We're here to help! Fill out the form below and we'll get back to you soon.</p>
 
                         <form className="enquiry-form" onSubmit={handleSubmit}>
                             <div className="form-row">
