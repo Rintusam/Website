@@ -344,37 +344,40 @@ function Medical({ items, title, description }) {
                         <div className="row g-4">
                             {selectedItem && getCourses(selectedItem.title).map((course, idx) => (
                                 <div className="col-12 col-md-6 col-lg-4" key={idx}>
-                                    {/* New Modern Card Design */}
-                                    <div className="course-modern-card">
-                                        <div className="course-card-top">
-                                            <h3 className="course-name">{course.name}</h3>
-                                            <span className="duration-pill">{course.duration}</span>
+                                    {/* Professional Course Card */}
+                                    <div className="professional-course-card">
+                                        {/* Course Header */}
+                                        <div className="course-header-section">
+                                            <h3 className="course-title">{course.name}</h3>
+                                            <p className="course-subtitle">Professional Program</p>
                                         </div>
 
-                                        <div className="course-card-content">
-                                            <div className="info-block">
-                                                <span className="info-label">Eligibility</span>
-                                                <p className="info-value">{course.eligibility}</p>
-                                            </div>
-
-                                            <div className="info-block">
-                                                <span className="info-label">Career Opportunities</span>
-                                                <div className="career-tags">
-                                                    {course.careers && course.careers.map((career, cIdx) => (
-                                                        <span key={cIdx} className="career-tag">
-                                                            {career}
-                                                        </span>
-                                                    ))}
-                                                </div>
-                                            </div>
-
-                                            <button
-                                                className="enroll-btn-modern"
-                                                onClick={() => navigate('/college', { state: { course: course.name, fromCategoryPage: true } })}
-                                            >
-                                                Check Availability <span className="arrow">→</span>
-                                            </button>
+                                        {/* Course Meta Info Pills */}
+                                        <div className="course-meta-pills">
+                                            <span className="meta-pill">
+                                                <i className="fas fa-graduation-cap"></i> UG/PG
+                                            </span>
+                                            <span className="meta-pill">
+                                                <i className="fas fa-clock"></i> {course.duration}
+                                            </span>
+                                            <span className="meta-pill">
+                                                <i className="fas fa-calendar-alt"></i> Full Time
+                                            </span>
                                         </div>
+
+                                        {/* Eligibility Section */}
+                                        <div className="course-detail-section">
+                                            <h4 className="detail-heading">Eligibility</h4>
+                                            <p className="detail-text">{course.eligibility}</p>
+                                        </div>
+
+                                        {/* Apply Button */}
+                                        <button
+                                            className="apply-btn-professional"
+                                            onClick={() => navigate('/college', { state: { course: course.name, fromCategoryPage: true } })}
+                                        >
+                                            Check Colleges
+                                        </button>
                                     </div>
                                 </div>
                             ))}
