@@ -27,6 +27,14 @@ const CollectionForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState('');
 
+  // Prevent background scroll when form is open
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
+
   // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
