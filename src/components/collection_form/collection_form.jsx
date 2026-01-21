@@ -21,7 +21,7 @@ const CollectionForm = () => {
 
   const location = useLocation();
   const navigate = useNavigate();
-  const { selectedColleges = [], noPreference = false, selectedCourse = '' } = location.state || {};
+  const { selectedColleges = [], noPreference = false, selectedCourse = '', collegeName = '', course = '', collegeId = '', collegeLocation = '' } = location.state || {};
 
   // State to handle submission success message
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -136,8 +136,8 @@ const CollectionForm = () => {
         highest_qualification: formData.qualification,
         year_of_passing: formData.yearOfPassing,
         aggregate_percentage: formData.aggregatePercentage,
-        course_selected: selectedCourse,
-        colleges_selected: collegesChoice,
+        course_selected: course || selectedCourse,
+        colleges_selected: collegeName || collegesChoice,
       };
 
       await axios.post("/api/submit/", payload);
@@ -232,8 +232,34 @@ const CollectionForm = () => {
 
           {renderInput('aggregatePercentage', 'Aggregate Percentage% / CGPA', 'text', 'e.g. 85% or 8.5 CGPA')}
 
+          {/* Selected Course from College Details */}
+          {course && (
+            <div className="form-group">
+              <label>Selected Course</label>
+              <input
+                type="text"
+                value={course}
+                readOnly
+                className="read-only-input"
+              />
+            </div>
+          )}
+
+          {/* Selected College from College Details */}
+          {collegeName && (
+            <div className="form-group">
+              <label>Selected College</label>
+              <input
+                type="text"
+                value={`${collegeName}${collegeLocation ? ` - ${collegeLocation}` : ''}`}
+                readOnly
+                className="read-only-input"
+              />
+            </div>
+          )}
+
           {/* Selected Course (Read-only if passed) */}
-          {selectedCourse && (
+          {selectedCourse && !course && (
             <div className="form-group">
               <label>Selected Course</label>
               <input
@@ -245,34 +271,35 @@ const CollectionForm = () => {
             </div>
           )}
 
-
           {/* Selected Colleges Field */}
-          <div className="form-group">
-            <label>Selected Colleges</label>
-            {noPreference || selectedColleges.length === 0 ? (
-              <input
-                type="text"
-                value="No College Preference"
-                readOnly
-                className="read-only-input"
-              />
-            ) : selectedColleges.length === 1 ? (
-              <input
-                type="text"
-                value={selectedColleges[0].name}
-                readOnly
-                className="read-only-input"
-              />
-            ) : (
-              <select className="college-select-dropdown">
-                {selectedColleges.map((college) => (
-                  <option key={college.id} value={college.name}>
-                    {college.name}
-                  </option>
-                ))}
-              </select>
-            )}
-          </div>
+          {!collegeName && (
+            <div className="form-group">
+              <label>Selected Colleges</label>
+              {noPreference || selectedColleges.length === 0 ? (
+                <input
+                  type="text"
+                  value="No College Preference"
+                  readOnly
+                  className="read-only-input"
+                />
+              ) : selectedColleges.length === 1 ? (
+                <input
+                  type="text"
+                  value={selectedColleges[0].name}
+                  readOnly
+                  className="read-only-input"
+                />
+              ) : (
+                <select className="college-select-dropdown">
+                  {selectedColleges.map((college) => (
+                    <option key={college.id} value={college.name}>
+                      {college.name}
+                    </option>
+                  ))}
+                </select>
+              )}
+            </div>
+          )}
 
           <button type="submit" className="submit-btn" style={{ marginTop: '20px' }}>
             Submit Details

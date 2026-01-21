@@ -1,15 +1,27 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { collegesData } from '../../data/collegesData';
 import './CollegeDetails.css';
 
 const CollegeDetails = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
     const college = collegesData.find(c => c.id === parseInt(id));
 
     if (!college) {
         return <div className="college-not-found">College not found!</div>;
     }
+
+    const handleCourseClick = (course) => {
+        navigate('/collect_form', {
+            state: {
+                collegeName: college.name,
+                course: course,
+                collegeId: college.id,
+                collegeLocation: college.location
+            }
+        });
+    };
 
     return (
         <div className="college-details-container">
@@ -45,7 +57,7 @@ const CollegeDetails = () => {
                         <h2>Courses Offered</h2>
                         <ul className="courses-list">
                             {college.courses?.map((course, index) => (
-                                <li key={index} className="course-item">
+                                <li key={index} className="course-item" onClick={() => handleCourseClick(course)}>
                                     <span className="course-icon">🎓</span> {course}
                                 </li>
                             ))}
@@ -73,18 +85,35 @@ const CollegeDetails = () => {
                             </div>
                         </div>
                     </div>
-                </div>
 
-                {/* Demo Writings Section */}
-                <div className="info-card demo-writings">
-                    <h2>Student Reviews & Demo Writings</h2>
-                    <div className="review">
-                        <p>"An amazing place to learn and grow. The campus is beautiful and the labs are well-equipped."</p>
-                        <span className="author">- Student Name</span>
-                    </div>
-                    <div className="review">
-                        <p>"Great faculty and supportive environment. Really enjoyed my time here."</p>
-                        <span className="author">- Alumni</span>
+                    <div className="info-card">
+                        <h2>Top Amenities</h2>
+                        <div className="amenities-grid">
+                            <div className="amenity-item">
+                                <span className="amenity-icon">📚</span>
+                                <span className="amenity-name">Modern Library</span>
+                            </div>
+                            <div className="amenity-item">
+                                <span className="amenity-icon">🏋️</span>
+                                <span className="amenity-name">Fitness Center</span>
+                            </div>
+                            <div className="amenity-item">
+                                <span className="amenity-icon">🍽️</span>
+                                <span className="amenity-name">Cafeteria</span>
+                            </div>
+                            <div className="amenity-item">
+                                <span className="amenity-icon">🏥</span>
+                                <span className="amenity-name">Medical Center</span>
+                            </div>
+                            <div className="amenity-item">
+                                <span className="amenity-icon">🎮</span>
+                                <span className="amenity-name">Recreation Area</span>
+                            </div>
+                            <div className="amenity-item">
+                                <span className="amenity-icon">🏠</span>
+                                <span className="amenity-name">Hostel Facilities</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

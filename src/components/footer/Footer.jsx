@@ -59,11 +59,6 @@ const Footer = () => {
               <MdEmail className="icon" />
               <a href="mailto:support@studypath.com">support@studypath.com</a>
             </li>
-            {/* <li>
-              <MdLocationOn className="icon" />
-              <span>Kochi, Kerala</span> 
-            </li>
-            */}
           </ul>
         </div>
 
@@ -73,10 +68,6 @@ const Footer = () => {
         <p>
           Copyright © {new Date().getFullYear()} Study Path. All rights reserved.
         </p>
-        <div className="legal-links">
-          <Link to="/privacy-policy">Privacy Policy</Link>
-          <Link to="/terms">Terms & Conditions</Link>
-        </div>
       </div>
     </footer>
   );

@@ -40,11 +40,7 @@ function NavBar() {
                             </li>
 
                             <li className="nav-item px-2">
-                                <Link className="nav-link fw-bold" to="/resources">How it works</Link>
-                            </li>
-                            <li className="nav-item px-2">
                                 <Link className="nav-link fw-bold" to="/about">About us</Link>
-
                             </li>
                             <li className="nav-item px-2">
                                 <Link className="nav-link fw-bold" to="/contact">Contact us</Link>
@@ -53,8 +49,6 @@ function NavBar() {
                                 <a className="text-white fw-bold nav-link" href="#" onClick={handleEnquiryClick} style={{ cursor: 'pointer' }}>ENQUIRY</a>
                             </li>
                         </ul>
-
-
                     </div>
                 </div>
             </nav>
