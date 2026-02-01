@@ -22,7 +22,7 @@ function NavBar() {
                     <a className="navbar-brand d-flex align-items-center" href="/">
                         <img
                             src="/logo2.png"
-                            alt="Your Brand"
+                            alt="Your Brand   "
                             className="navbar-logo"
                         />
                     </a>
