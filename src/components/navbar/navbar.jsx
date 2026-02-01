@@ -19,7 +19,14 @@ function NavBar() {
         <>
             <nav className="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: '#171b1dff' }}>
                 <div className="container-fluid px-lg-4">
-                    <a className="navbar-brand fw-bold fs-4" href="/">Your Brand</a>
+                    <a className="navbar-brand d-flex align-items-center" href="/">
+                        <img
+                            src="/logo2.png"
+                            alt="Your Brand"
+                            className="navbar-logo"
+                        />
+                    </a>
+
 
                     <button
                         className="navbar-toggler"
