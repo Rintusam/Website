@@ -29,7 +29,7 @@
 .contact-card {
     background-color: #ffffff;
     width: 100%;
-    max-width: 1050px;
+    max-width: 800px;
     border-radius: 20px;
     box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.35);
     overflow: hidden;
@@ -53,12 +53,7 @@
 
 /* --- Left Side: Form Section --- */
 .form-side {
-    flex: 3 1 450px;
-    padding: 60px;
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: none;
 }
 
 .form-header h2 {
@@ -213,7 +208,7 @@
 
 /* --- Right Side: Info Section --- */
 .info-side {
-    flex: 2 1 350px;
+    flex: 1 1 100%;
     background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
     color: #fff;
     padding: 60px;
@@ -283,31 +278,79 @@
     font-size: 0.95rem;
 }
 
-/* --- Quote Section --- */
-.quote-section {
-    margin-top: 40px;
-    padding-top: 30px;
+.info-small {
+    font-size: 0.85rem !important;
+    color: #64748b !important;
+    margin-top: 4px;
+}
+
+.whatsapp-link {
+    color: #60a5fa;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.whatsapp-link:hover {
+    color: #93c5fd;
+    text-decoration: underline;
+}
+
+.phone-link {
+    color: #60a5fa;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* --- Social Media Links --- */
+.social-links {
+    margin-top: 35px;
+    padding-top: 25px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.quote-section blockquote {
-    font-style: italic;
-    color: #e2e8f0;
-    line-height: 1.6;
-    font-size: 1.05rem;
-    margin: 0 0 15px 0;
-    position: relative;
+.social-links h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 15px;
 }
 
-.quote-section cite {
-    display: block;
+.social-icons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background: rgba(59, 130, 246, 0.2);
+    border: 1.5px solid rgba(59, 130, 246, 0.5);
+    border-radius: 12px;
     color: #60a5fa;
-    /* Accent color for author */
-    font-style: normal;
-    font-weight: 600;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 20px;
+}
+
+.social-icons a:hover {
+    background: rgba(59, 130, 246, 0.4);
+    border-color: #60a5fa;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(59, 130, 246, 0.2);
+}
+
+.social-icons a span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* --- Responsive Tweaks --- */
