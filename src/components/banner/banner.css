@@ -134,7 +134,7 @@
 }
 
 .medical-card {
-  background: linear-gradient(to right, transparent 30%, rgba(0, 80, 200, 0.95) 85%), url("/micon.jpeg");
+  background: linear-gradient(to right, transparent 30%, rgba(0, 80, 200, 0.95) 85%);
   background-size: cover;
   background-position: center;
   color: #f6efef;
@@ -143,7 +143,7 @@
 }
 
 .non-medical-card {
-  background: linear-gradient(to left, transparent 30%, rgba(255, 193, 7, 0.95) 90%), url("/eicon.jpeg");
+  background: linear-gradient(to left, transparent 30%, rgba(255, 193, 7, 0.95) 90%);
   background-size: cover;
   background-position: center;
   color: #1a1a1a;
@@ -170,8 +170,7 @@
 }
 
 /* Show "Explore ->" only on hover */
-.choice-card:hover .cta-link {
-  opacity: 1;
+.choice-card:hover .cta-link { opacity: 1;
   transform: translateY(0);
 }
 

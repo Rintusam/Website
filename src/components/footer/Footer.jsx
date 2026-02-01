@@ -11,12 +11,9 @@ const Footer = () => {
         
         {/* Column 1: About Study Path */}
         <div className="footer-section about">
-          <h2 className="footer-logo">Study Path</h2>
+          <h2 className="footer-logo">NeuCa</h2>
           <p>
-            Founded by two college friends with a shared vision, Study Path is dedicated to 
-            simplifying your journey to higher education. We bridge the gap between students 
-            and top institutions in Medical and Non-Medical fields, ensuring a seamless 
-            admission process.
+            NeuCa is your trusted partner in navigating educational opportunities abroad. We specialize in medical and engineering admissions, providing expert career counseling to help you achieve your academic dreams.
           </p>
           <div className="social-icons">
             <a href="#"><FaFacebookF /></a>
@@ -32,7 +29,6 @@ const Footer = () => {
           <ul>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/about">About Us</Link></li>
-            <li><Link to="/how-it-works">How It Works</Link></li>
             <li><Link to="/contact">Contact Us</Link></li>
           </ul>
         </div>
@@ -57,7 +53,7 @@ const Footer = () => {
             </li>
             <li>
               <MdEmail className="icon" />
-              <a href="mailto:support@studypath.com">support@studypath.com</a>
+              <a href="mailto:support@neuca.com">support@neuca.com</a>
             </li>
           </ul>
         </div>
@@ -66,7 +62,7 @@ const Footer = () => {
 
       <div className="footer-bottom">
         <p>
-          Copyright © {new Date().getFullYear()} Study Path. All rights reserved.
+          Copyright © {new Date().getFullYear()} NeuCa. All rights reserved.
         </p>
       </div>
     </footer>

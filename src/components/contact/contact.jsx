@@ -26,7 +26,7 @@ const Contact = () => {
                 <span className="icon">✉️</span>
                 <div>
                   <h4>Email</h4>
-                  <p>admissions@college.edu</p>
+                  <p>contact@neuca.in</p>
                   <p className="info-small">We'll respond within 24 hours</p>
                 </div>
               </div>
