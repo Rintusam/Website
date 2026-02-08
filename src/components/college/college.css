@@ -557,24 +557,6 @@
 }
 
 .modal-no-pref-btn {
-  background-color: #1565c0;
-  color: white;
-  border: none;
-  padding: 15px;
-  border-radius: 10px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s;
-  width: 100%;
-  font-family: 'Outfit', sans-serif;
-}
-
-.modal-no-pref-btn:hover {
-  background-color: #0d47a1;
-}
-
-.modal-close-btn {
   background-color: transparent;
   color: #777;
   border: 1px solid #ddd;
@@ -586,6 +568,26 @@
   transition: all 0.3s;
   width: 100%;
   font-family: 'Outfit', sans-serif;
+  
+}
+
+.modal-no-pref-btn:hover {
+  background-color: #0d47a1;
+}
+
+.modal-close-btn {
+  background-color: #1565c0;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+  width: 100%;
+  font-family: 'Outfit', sans-serif;
+
 }
 
 .modal-close-btn:hover {

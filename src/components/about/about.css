@@ -107,7 +107,70 @@
   font-size: 1rem;
 }
 
+/* Values Grid */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.value-item {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 10px;
+  border: 2px solid #e8f4f8;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.value-item:hover {
+  transform: translateY(-3px);
+  border-color: #3498db;
+}
+
+.value-item h4 {
+  color: #2c3e50;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.value-item p {
+  color: #555;
+  font-size: 0.95rem;
+  margin: 0;
+  text-align: left;
+}
+
+/* Why Choose Us List */
+.why-choose-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.why-choose-list li {
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  background: #f8f9fa;
+  border-left: 4px solid #3498db;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.7;
+  transition: background-color 0.3s ease;
+}
+
+.why-choose-list li:hover {
+  background-color: #e8f4f8;
+}
+
+.why-choose-list li strong {
+  color: #2c3e50;
+}
+
 /* Privacy Section */
+
 .privacy-note {
   background-color: #e8f4f8;
   border: 1px solid #bee5eb;
@@ -162,6 +225,25 @@
   .privacy-note {
     padding: 20px 15px;
     margin-top: 45px;
+  }
+
+  .values-grid {
+    gap: 18px;
+    grid-template-columns: 1fr;
+  }
+
+  .value-item {
+    padding: 20px 18px;
+  }
+
+  .value-item h4 {
+    font-size: 1rem;
+  }
+
+  .why-choose-list li {
+    padding: 12px 15px;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
   }
 }
 

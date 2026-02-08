@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="site-footer">
       <div className="footer-content">
-        
+
         {/* Column 1: About Study Path */}
         <div className="footer-section about">
           <h2 className="footer-logo">NeuCa</h2>
@@ -19,7 +19,6 @@ const Footer = () => {
             <a href="#"><FaFacebookF /></a>
             <a href="#"><FaInstagram /></a>
             <a href="#"><FaLinkedinIn /></a>
-            <a href="#"><FaTwitter /></a>
           </div>
         </div>
 
@@ -64,6 +63,13 @@ const Footer = () => {
         <p>
           Copyright © {new Date().getFullYear()} NeuCa. All rights reserved.
         </p>
+        <div className="legal-links">
+          <Link to="/privacy-policy">Privacy Policy</Link>
+          <span className="separator">|</span>
+          <Link to="/terms-conditions">Terms & Conditions</Link>
+          <span className="separator">|</span>
+          <Link to="/disclaimer">Disclaimer</Link>
+        </div>
       </div>
     </footer>
   );

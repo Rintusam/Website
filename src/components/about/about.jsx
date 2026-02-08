@@ -8,68 +8,98 @@ const About = () => {
 
         {/* Header / Hero */}
         <div className="about-header">
-          <h1>About Study Path</h1>
-          <p className="about-tagline">Your Future, Your Choice, Our Guidance.</p>
+          <h1>About NeuCa</h1>
+          <p className="about-tagline">Empowering Students, Simplifying Admissions, Shaping Futures.</p>
         </div>
 
-        {/* Who We Are & Mission */}
+        {/* Who We Are */}
         <div className="about-content">
           <h2>Who We Are</h2>
           <p>
-            At <strong>Study Path</strong>, we believe that finding the right college shouldn't be a struggle.
-            We are a dedicated educational platform designed to bridge the gap between ambitious students
-            and their dream institutions. We serve as a comprehensive guide for students and parents,
-            simplifying the complex journey from course selection to final admission.
+            NeuCa is a leading educational consultancy platform dedicated to connecting aspiring students with premier educational institutions across the country. We specialize in simplifying the college admission process through personalized guidance, comprehensive course information, and end-to-end support.
           </p>
-
-          <h2>Our Mission</h2>
           <p>
-            To empower students to make informed educational choices and to make the college admission
-            process accessible, transparent, and stress-free for families.
+            Founded by education professionals with first-hand experience in higher education, we understand the challenges students and families face during the admission journey. Our platform serves as a trusted bridge between students' aspirations and their educational destinations.
           </p>
         </div>
 
-        {/* What We Do (Cards) */}
+        {/* Mission & Vision */}
+        <div className="about-content">
+          <h2>Our Mission</h2>
+          <p>
+            To democratize access to quality higher education by providing students with transparent, and personalized guidance throughout the college admission process. We strive to eliminate confusion, reduce stress, and empower every student to make informed decisions about their academic future.
+          </p>
+
+          <h2>Our Vision</h2>
+          <p>
+            To become India's most trusted educational consultancy platform, recognized for our commitment to student success, institutional partnerships, and innovative approach to admission guidance.
+          </p>
+        </div>
+
+        {/* What We Do */}
         <div className="about-content">
           <h2>What We Do</h2>
-          <p>The admission process can be overwhelming. Study Path streamlines it into three simple steps:</p>
+          <p>We provide comprehensive admission support through a streamlined three-step process:</p>
 
           <div className="steps-grid">
             <div className="step-card">
               <div className="step-number">1</div>
-              <h3>Explore</h3>
-              <p>Browse through a wide range of fields and courses tailored to your specific interests and career goals.</p>
+              <h3>Explore Options</h3>
+              <p>Access detailed information on diverse courses, programs, and specializations aligned with your interests and career objectives.</p>
             </div>
 
             <div className="step-card">
               <div className="step-number">2</div>
-              <h3>Select</h3>
-              <p>View our curated list of top colleges and shortlist your preferred destinations based on your needs.</p>
+              <h3>Select Institutions</h3>
+              <p>Browse our database of colleges and universities, and shortlist institutions that match your preferences.</p>
             </div>
 
             <div className="step-card">
               <div className="step-number">3</div>
-              <h3>Secure</h3>
-              <p>Once you select a college, our team personally guides you through the entire admission process until your seat is secured.</p>
+              <h3>Secure Admission</h3>
+              <p>Receive dedicated support from our team throughout the entire admission process, from application submission to final seat confirmation.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Our Values */}
+        <div className="about-content">
+          <h2>Our Core Values</h2>
+          <div className="values-grid">
+            <div className="value-item">
+              <h4>🎯 Student-Centric Approach</h4>
+              <p>Every decision we make prioritizes student success and satisfaction.</p>
+            </div>
+            <div className="value-item">
+              <h4>🤝 Integrity & Transparency</h4>
+              <p>We maintain honest communication and transparent processes at every step.</p>
+            </div>
+            <div className="value-item">
+              <h4>🌟 Excellence in Service</h4>
+              <p>We are committed to delivering exceptional guidance and support to every student.</p>
+            </div>
+            <div className="value-item">
+              <h4>🔒 Privacy & Security</h4>
+              <p>Your personal information is protected with the highest standards of data security.</p>
             </div>
           </div>
         </div>
 
         {/* Why Choose Us */}
         <div className="about-content">
-          <h2>Why Choose Us?</h2>
-          <p>
-            Founded by two college classmates who understand the challenges of higher education first-hand,
-            Study Path is built on the principle of genuine support. We aren't just a database; we are your
-            partners in education. We handle the complexities of admission procedures so you can focus on
-            preparing for your future.
-          </p>
+          <h2>Why Choose NeuCa?</h2>
+          <ul className="why-choose-list">
+            <li><strong>Expert Guidance:</strong> Our team comprises experienced education counselors who provide personalized support.</li>
+            <li><strong>Simplified Process:</strong> We handle the complexities of documentation, applications, and follow-ups on your behalf.</li>
+            <li><strong>No Hidden Costs:</strong> Transparent pricing with no surprise fees or hidden charges.</li>
+            <li><strong>Proven Track Record:</strong> Hundreds of successful admissions and satisfied students across various programs.</li>
+            <li><strong>Continuous Support:</strong> From initial inquiry to final admission, we're with you every step of the way.</li>
+          </ul>
         </div>
 
-        {/* Privacy Note */}
+        {/* Privacy & Commitment */}
         <div className="privacy-note">
-          <strong>Privacy Assurance:</strong> We value your privacy. Your data is used strictly to assist
-          with your admission process and is shared only with the institutions necessary to secure your placement.
+          <strong>Our Commitment to You:</strong> Your trust is our priority. All personal information is handled with strict confidentiality and used solely for facilitating your admission process.
         </div>
 
       </div>

@@ -1,0 +1,248 @@
+/* Legal Pages CSS - Shared styles for Privacy Policy, Terms & Conditions, and Disclaimer */
+
+.legal-page-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    padding: 60px 20px 80px;
+}
+
+.legal-content {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    line-height: 1.7;
+    color: #333;
+}
+
+/* Headers */
+.legal-content h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    border-bottom: 4px solid #3498db;
+    padding-bottom: 15px;
+}
+
+.last-updated {
+    color: #7f8c8d;
+    font-size: 0.95rem;
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+.legal-content h2 {
+    font-size: 1.6rem;
+    color: #2c3e50;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-left: 5px solid #3498db;
+    padding-left: 15px;
+}
+
+.legal-content h3 {
+    font-size: 1.3rem;
+    color: #34495e;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.legal-content h4 {
+    font-size: 1.1rem;
+    color: #34495e;
+    margin-top: 20px;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+/* Sections */
+section {
+    margin-bottom: 35px;
+}
+
+/* Paragraphs */
+.legal-content p {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: #555;
+    text-align: justify;
+}
+
+/* Lists */
+.legal-content ul {
+    margin: 15px 0 20px 25px;
+    padding: 0;
+}
+
+.legal-content li {
+    margin-bottom: 10px;
+    color: #555;
+    line-height: 1.7;
+}
+
+.legal-content li strong {
+    color: #2c3e50;
+}
+
+/* Important Notices */
+.important-notice,
+.critical-notice {
+    background: #fff3cd;
+    border: 2px solid #ffc107;
+    border-radius: 8px;
+    padding: 25px;
+    margin: 30px 0;
+}
+
+.critical-notice {
+    background: #f8d7da;
+    border-color: #dc3545;
+}
+
+.important-notice h3,
+.critical-notice h2 {
+    color: #856404;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    border: none;
+    padding: 0;
+}
+
+.critical-notice h2 {
+    color: #721c24;
+}
+
+.important-notice p,
+.critical-notice p {
+    margin-bottom: 0;
+    color: #333;
+    font-size: 1rem;
+}
+
+/* Disclaimer Highlights */
+.disclaimer-highlight {
+    background: #e8f4f8;
+    border-left: 4px solid #3498db;
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+/* Acknowledgment Notice */
+.acknowledgment-notice {
+    background: #d4edda;
+    border: 2px solid #28a745;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.acknowledgment-notice p {
+    margin: 0;
+    color: #155724;
+    font-size: 1.05rem;
+    text-align: center;
+}
+
+/* Contact Info */
+.contact-info {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.contact-info p {
+    margin: 8px 0;
+    text-align: left;
+}
+
+.contact-info a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+    color: #2980b9;
+}
+
+/* Links */
+.legal-content a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.legal-content a:hover {
+    text-decoration: underline;
+    color: #2980b9;
+}
+
+/* Strong/Bold Text */
+.legal-content strong {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .legal-page-container {
+        padding: 40px 15px 60px;
+    }
+
+    .legal-content {
+        padding: 30px 25px;
+    }
+
+    .legal-content h1 {
+        font-size: 2rem;
+    }
+
+    .legal-content h2 {
+        font-size: 1.4rem;
+        margin-top: 30px;
+    }
+
+    .legal-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .legal-content p,
+    .legal-content li {
+        text-align: left;
+        font-size: 0.95rem;
+    }
+
+    .important-notice,
+    .critical-notice {
+        padding: 20px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .legal-content {
+        padding: 25px 20px;
+    }
+
+    .legal-content h1 {
+        font-size: 1.7rem;
+    }
+
+    .legal-content h2 {
+        font-size: 1.25rem;
+    }
+
+    .legal-content ul {
+        margin-left: 20px;
+    }
+}
