@@ -337,20 +337,20 @@
     color: #60a5fa;
     text-decoration: none;
     transition: all 0.3s ease;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .social-icons a:hover {
     background: rgba(59, 130, 246, 0.4);
     border-color: #60a5fa;
+    color: #93c5fd;
     transform: translateY(-3px);
     box-shadow: 0 8px 16px rgba(59, 130, 246, 0.2);
 }
 
-.social-icons a span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.social-icons a svg {
+    width: 18px;
+    height: 18px;
 }
 
 /* --- Responsive Tweaks --- */

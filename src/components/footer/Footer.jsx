@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
-import { MdPhone, MdEmail, MdLocationOn } from "react-icons/md";
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import { MdPhone, MdEmail } from "react-icons/md";
 
 const Footer = () => {
   return (
@@ -15,11 +14,6 @@ const Footer = () => {
           <p>
             NeuCa is your trusted partner in navigating educational opportunities abroad. We specialize in medical and engineering admissions, providing expert career counseling to help you achieve your academic dreams.
           </p>
-          <div className="social-icons">
-            <a href="#"><FaFacebookF /></a>
-            <a href="#"><FaInstagram /></a>
-            <a href="#"><FaLinkedinIn /></a>
-          </div>
         </div>
 
         {/* Column 2: Quick Links */}

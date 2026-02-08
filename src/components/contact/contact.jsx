@@ -1,5 +1,6 @@
 import React from 'react';
 import './contact.css';
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
 
 const Contact = () => {
   return (
@@ -32,7 +33,7 @@ const Contact = () => {
               </div>
 
               <div className="info-item">
-                <span className="icon">�</span>
+                <span className="icon">💬</span>
                 <div>
                   <h4>WhatsApp</h4>
                   <a href="https://wa.me/919447738796" target="_blank" rel="noopener noreferrer" className="whatsapp-link">+91 9447738796</a>
@@ -43,14 +44,17 @@ const Contact = () => {
               <div className="social-links">
                 <h4>Follow Us</h4>
                 <div className="social-icons">
-                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" title="Instagram">
-                    <span>📷</span>
-                  </a>
                   <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" title="Facebook">
-                    <span>f</span>
+                    <FaFacebookF />
+                  </a>
+                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" title="Instagram">
+                    <FaInstagram />
+                  </a>
+                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                    <FaLinkedinIn />
                   </a>
                   <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" title="YouTube">
-                    <span>▶️</span>
+                    <FaYoutube />
                   </a>
                 </div>
               </div>
