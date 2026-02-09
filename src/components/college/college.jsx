@@ -57,14 +57,12 @@ const Colleges = ({ selectedCourse: propCourse }) => {
   };
 
   const handleModalProceed = () => {
-    // sessionStorage.setItem('preferenceModalSeen', 'true'); // Removed legacy logic
     setNoPreference(true);
     setSelectedColleges([]);
     navigate('/collect_form', { state: { selectedColleges: [], noPreference: true, selectedCourse } });
   };
 
   const handleCloseModal = () => {
-    // sessionStorage.setItem('preferenceModalSeen', 'true'); // Removed legacy logic
     setShowPreferenceModal(false);
   };
 
@@ -174,7 +172,7 @@ const Colleges = ({ selectedCourse: propCourse }) => {
               <button className="modal-no-pref-btn" onClick={handleModalProceed}>
                 I have No Preference
               </button>
-              
+
             </div>
           </div>
         </div>

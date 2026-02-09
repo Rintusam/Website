@@ -79,7 +79,6 @@ const EnquiryModal = ({ show, onClose }) => {
         // Handle form submission logic here
         axios.post('/api/enquiries/', formData)
             .then(response => {
-                console.log("Enquiry submitted", response.data);
                 setIsSubmitted(true);
             })
             .catch(error => {
