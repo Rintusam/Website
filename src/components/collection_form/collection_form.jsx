@@ -12,8 +12,7 @@ const TODAY = new Date().toISOString().split('T')[0];
 const CollectionForm = () => {
   // State to hold form values
   const [formData, setFormData] = useState({
-    firstName: '', lastName: '', dob: '', gender: '', mobile: '', email: '',
-    qualification: '', yearOfPassing: '', aggregatePercentage: '',
+    fullName: '', gender: '', mobile: '',
   });
 
   // State to hold error messages
@@ -71,22 +70,15 @@ const CollectionForm = () => {
   const validateForm = () => {
     let newErrors = {};
     let isValid = true;
-    const { firstName, lastName, dob, gender, mobile, email, qualification, yearOfPassing, aggregatePercentage } = formData;
+    const { fullName, gender, mobile } = formData;
 
-    if (!firstName.trim()) newErrors.firstName = 'First name is required.';
-    if (!lastName.trim()) newErrors.lastName = 'Last name is required.';
-    if (!dob) newErrors.dob = 'Date of Birth is required.';
+    if (!fullName.trim()) newErrors.fullName = 'Full name is required.';
+    else if (fullName.trim().length < 2) newErrors.fullName = 'Please enter a valid full name.';
+
     if (!gender) newErrors.gender = 'Gender is required.';
 
     if (!mobile.trim()) newErrors.mobile = 'Mobile number is required.';
     else if (!PHONE_REGEX.test(mobile.replace(/[\s-]/g, ''))) newErrors.mobile = 'Please enter a valid 10-digit mobile number.';
-
-    if (!email.trim()) newErrors.email = 'Email is required.';
-    else if (!EMAIL_REGEX.test(email)) newErrors.email = 'Please enter a valid email format.';
-
-    if (!qualification) newErrors.qualification = 'Highest qualification is required.';
-    if (!yearOfPassing) newErrors.yearOfPassing = 'Year of passing is required.';
-    if (!aggregatePercentage.trim()) newErrors.aggregatePercentage = 'Aggregate Percentage/CGPA is required.';
 
     if (Object.keys(newErrors).length > 0) isValid = false;
     setErrors(newErrors);
@@ -127,15 +119,9 @@ const CollectionForm = () => {
         : selectedColleges.map(c => c.name).join(", ");
 
       const payload = {
-        first_name: formData.firstName,
-        last_name: formData.lastName,
-        dob: formData.dob,
+        full_name: formData.fullName,
         gender: formData.gender,
-        email: formData.email,
         phone_number: formData.mobile,
-        highest_qualification: formData.qualification,
-        year_of_passing: formData.yearOfPassing,
-        aggregate_percentage: formData.aggregatePercentage,
         course_selected: course || selectedCourse,
         colleges_selected: collegeName || collegesChoice,
       };
@@ -144,15 +130,9 @@ const CollectionForm = () => {
 
       setIsSubmitted(true);
       setFormData({
-        firstName: '',
-        lastName: '',
-        dob: '',
+        fullName: '',
         gender: '',
         mobile: '',
-        email: '',
-        qualification: '',
-        yearOfPassing: '',
-        aggregatePercentage: '',
       });
 
       window.scrollTo(0, 0);
@@ -210,27 +190,12 @@ const CollectionForm = () => {
 
         <form onSubmit={handleSubmit} noValidate>
 
-          <div className="form-row">
-            {renderInput('firstName', 'First Name', 'text', 'John')}
-            {renderInput('lastName', 'Last Name', 'text', 'Doe')}
-          </div>
+          {renderInput('fullName', 'Full Name', 'text', 'Enter your full name')}
 
           <div className="form-row">
-            {renderInput('dob', 'Date of Birth', 'date')}
             {renderInput('gender', 'Gender', 'select', '', ['Male', 'Female', 'Others'])}
-          </div>
-
-          <div className="form-row">
             {renderInput('mobile', 'Mobile Number', 'tel', '10 digit mobile number')}
-            {renderInput('email', 'Email Address', 'email', 'john.doe@example.com')}
           </div>
-
-          <div className="form-row">
-            {renderInput('qualification', 'Highest Qualification', 'select', '', ['10th Standard', '12th Standard', 'Diploma', "Bachelor's Degree", "Master's Degree", "Others"])}
-            {renderInput('yearOfPassing', 'Year of Passing', 'select', '', YEARS)}
-          </div>
-
-          {renderInput('aggregatePercentage', 'Aggregate Percentage% / CGPA', 'text', 'e.g. 85% or 8.5 CGPA')}
 
           {/* Selected Course from College Details */}
           {course && (
