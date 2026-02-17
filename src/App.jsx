@@ -6,6 +6,8 @@ import HomePage from './pages/homePage.jsx';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Medical_page from './pages/medical_page.jsx';
 import Non_medical_page from './pages/non_medical_page.jsx';
+import Medical_PG_Page from './pages/Medical_PG_Page.jsx';
+import Non_Medical_PG_Page from './pages/Non_Medical_PG_Page.jsx';
 import College_detail from './pages/college_select.jsx';
 import Contact_page from './pages/Contact_page.jsx';
 import About_page from './pages/About_page.jsx';
@@ -33,6 +35,8 @@ function App() {
         <Route path='/' element={<HomePage />} />
         <Route path='/medical' element={<Medical_page />} />
         <Route path='/non-medical' element={<Non_medical_page />} />
+        <Route path='/medical-pg' element={<Medical_PG_Page />} />
+        <Route path='/non-medical-pg' element={<Non_Medical_PG_Page />} />
         <Route path='/college' element={<College_detail />} />
         <Route path='/contact' element={<Contact_page />} />
         <Route path='/about' element={<About_page />} />

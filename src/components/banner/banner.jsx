@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Banner.css";
-import { Link } from "react-router-dom";
+import ProgramSelectionModal from "../program_selection_modal/ProgramSelectionModal";
 // Ensure you have react-icons installed: npm install react-icons
 import { FaStethoscope, FaCogs, FaArrowRight } from "react-icons/fa";
 
 function Banner() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedField, setSelectedField] = useState(null);
+
+  const handleCardClick = (fieldType) => {
+    setSelectedField(fieldType);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedField(null);
+  };
+
   return (
     <div className="banner-section">
       {/* Dark overlay to make text readable regardless of background image */}
@@ -32,7 +45,11 @@ function Banner() {
 
               {/* Medical Option */}
               <div className="col-md-6">
-                <Link to="/medical" className="choice-card medical-card">
+                <div
+                  className="choice-card medical-card"
+                  onClick={() => handleCardClick('medical')}
+                  style={{ cursor: 'pointer' }}
+                >
                   <div className="card-content">
                     <div className="icon-circle">
                       <FaStethoscope />
@@ -41,12 +58,16 @@ function Banner() {
                     <p>MBBS, BDS, Nursing & more</p>
                     <span className="cta-link">Explore <FaArrowRight className="ms-1" /></span>
                   </div>
-                </Link>
+                </div>
               </div>
 
               {/* Non-Medical Option */}
               <div className="col-md-6">
-                <Link to="/non-medical" className="choice-card non-medical-card">
+                <div
+                  className="choice-card non-medical-card"
+                  onClick={() => handleCardClick('non-medical')}
+                  style={{ cursor: 'pointer' }}
+                >
                   <div className="card-content">
                     <div className="icon-circle">
                       <FaCogs />
@@ -55,13 +76,20 @@ function Banner() {
                     <p>Engineering, Management, Arts</p>
                     <span className="cta-link">Explore <FaArrowRight className="ms-1" /></span>
                   </div>
-                </Link>
+                </div>
               </div>
 
             </div>
           </div>
         </div>
       </div>
+
+      {/* Program Selection Modal */}
+      <ProgramSelectionModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        fieldType={selectedField}
+      />
     </div>
   );
 }
