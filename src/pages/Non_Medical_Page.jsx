@@ -10,12 +10,11 @@ function Non_medical_page() {
 
 
     const items = [
-        { title: "Engineering(B.Tech)", image: "/engineering.jpeg" },
+        { title: "Engineering (B.Tech/B.E)", image: "/engineering.jpeg" },
         { title: "Bachelor Degree(B.Sc)", image: "/bsc.jpeg" },
         { title: "B-Arch", image: "/barch.jpg" },
         { title: "Hotel Management", image: "/hotel.jpg" },
         { title: "BBA", image: "/bba.jpg" },
-        { title: "MBA", image: "/mba.jpg" },
 
     ];
 

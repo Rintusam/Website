@@ -9,10 +9,9 @@ function Medical_PG_Page() {
     const description = "Take your medical expertise to the next level with our postgraduate programs. Explore specialized fields and advanced medical education.";
 
     const items = [
-        { title: "MD (Doctor of Medicine)", image: "/w.jpg" },
-        { title: "MS (Master of Surgery)", image: "/w.jpg" },
         { title: "M.Sc Nursing", image: "/w.jpg" },
-        { title: "Master of Pharmacy (M.Pharm)", image: "/w.jpg" },
+        { title: "M.Pharm", image: "/w.jpg" },
+        { title: "Ph.D.(P.B)", image: "/w.jpg" },
         { title: "Master of Physiotherapy (MPT)", image: "/w.jpg" },
         { title: "M.Sc Medical Microbiology", image: "/w.jpg" },
         { title: "M.Sc Clinical Psychology", image: "/w.jpg" },

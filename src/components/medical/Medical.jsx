@@ -4,33 +4,29 @@ import "./Medical.css";
 
 // Simplified course data - only department names are needed for the new design
 const COURSES_DATA = {
+
+    //--- Medical Undergraduate Courses --- 
+
     "BSC Nursing": [
         { name: "BSC Nursing" }
-    ],
+        ],
     "General Nursing": [
         { name: "General Nursing (GNM)" }
     ],
     "Bachelor of Pharmacy (B.Pharm)": [
         { name: "Bachelor of Pharmacy" }
     ],
-    "MBBS (Medicine)": [
-        { name: "MBBS (Medicine)" }
-    ],
-    "Bachelor of Physiotherapy(BPT)": [
-        { name: "Bachelors of Physiotherapy" }
-    ],
-    "B.Sc Cardiovascular Technology": [
-        { name: "B.Sc Cardiovascular Technology" }
-    ],
-    "B.Sc Radiology & Imaging Technology": [
-        { name: "B.Sc Radiology & Imaging Technology" }
-    ],
-    "Engineering(B.Tech)": [
+
+
+
+    //--- Non-Medical Undergraduate Courses ---
+    "Engineering (B.Tech/B.E)": [
         { name: "Aeronautical Engineering" },
         { name: "Agricultural Engineering" },
         { name: "Artificial Intelligence and Data Science" },
         { name: "Civil Engineering" },
         { name: "Civil Engineering with Computer Applications" },
+        { name: "Computer Science and Business Systems" },
         { name: "Computer Science and Engineering" },
         { name: "Computer Science and Engineering(Artificial Intelligence & Machine Learning)" },
         { name: "Computer Science and Engineering(Cyber Security)" },
@@ -72,6 +68,29 @@ const COURSES_DATA = {
         { name: "Operations Management" },
         { name: "International Business" }
     ],
+
+
+    //--- Non Medical Postgraduate Courses ---
+
+    "M.Tech/M.E": [
+        { name: "Aeronautical Engineering" },
+        { name: "Artificial Intelligence and Data Science" },
+        { name: "CAD/CAM" },
+        { name: "Communication Engineering & Signal Processing" },
+        { name: "Communication Systems" },
+        { name: "Computer Science and Engineering" },
+        { name: "Cyber Security" },
+        { name: "Energy Systems" },
+        { name: "Structural Engineering" },
+        { name: "VLSi Design" },
+
+    ],
+
+    "Ph.D in Engineering": [
+        { name: "Aeronautical Engineering" },
+        { name: "Mechanical Engineering" },
+    ],
+
     "MBA": [
         { name: "MBA in Marketing Management" },
         { name: "MBA in Finance" },
@@ -81,7 +100,24 @@ const COURSES_DATA = {
         { name: "MBA in Business Analytics" },
         { name: "MBA in Logistics & Supply Chain Management" },
         { name: "MBA in Information Technology" }
-    ]
+    ],
+
+
+    //--- Medical Postgraduate Courses ---
+
+    "M.Sc Nursing": [
+        { name: "Community Health Nursing" },
+        { name: "Critical Care Nursing" },
+    ],
+
+    "M.Pharm": [
+        { name: "Pharmaceutics" },
+        { name: "Pharmacognosy" },
+        { name: "Pharmacy Practice" },
+        { name: "Pharmaceutical Regulatory Affairs" },
+    ],
+
+
 };
 
 function Medical({ items, title, description }) {
@@ -95,6 +131,13 @@ function Medical({ items, title, description }) {
     };
 
     const handleCardClick = (item) => {
+        const courses = getCourses(item.title);
+        // If only one course, skip popup and navigate directly
+        if (courses.length <= 1) {
+            const courseName = courses.length === 1 ? courses[0].name : item.title;
+            navigate('/college', { state: { course: courseName, fromCategoryPage: true } });
+            return;
+        }
         setSelectedItem(item);
         setShowOffcanvas(true);
     };

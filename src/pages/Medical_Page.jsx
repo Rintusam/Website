@@ -12,11 +12,9 @@ function Medical_page() {
     const items = [
         { title: "BSC Nursing", image: "/nursing.jpg" },
         { title: "General Nursing", image: "/gnursing.jpeg" },
-        { title: "Bachelor of Pharmacy (B.Pharm)", image: "/bpharm.jpeg" },
-        { title: "MBBS (Medicine)", image: "/doctor.jpg" },
-        { title: "Bachelor of Physiotherapy(BPT)", image: "/physiotherapy.jpg" },
-        { title: "B.Sc Cardiovascular Technology", image: "/cardiology.jpeg" },
-        { title: "B.Sc Radiology & Imaging Technology", image: "/radiology.jpg" },
+        { title: "B.Pharm", image: "/bpharm.jpeg" },
+        { title: "Pharm.D", image: "/physiotherapy.jpg" },
+        { title: "D.Pharm", image: "/cardiology.jpeg" },
     ];
 
 

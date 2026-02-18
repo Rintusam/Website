@@ -10,10 +10,11 @@ function Non_Medical_PG_Page() {
 
 
     const items = [
-        { title: "M.Tech (Master of Technology)", image: "/w.jpg" },
+        { title: "M.Tech/M.E", image: "/w.jpg" },
+        { title: "Ph.D in Engineering", image: "/w.jpg" },
         { title: "M.Sc (Master of Science)", image: "/w.jpg" },
-        { title: "M.Arch (Master of Architecture)", image: "/w.jpg" },
-        { title: "MBA (Master of Business Administration)", image: "/w.jpg" },
+        { title: "M.Arch", image: "/w.jpg" },
+        { title: "MBA", image: "/w.jpg" },
         { title: "MCA (Master of Computer Applications)", image: "/w.jpg" },
         { title: "M.Sc Data Science", image: "/w.jpg" },
         { title: "Master of Hotel Management", image: "/w.jpg" },
