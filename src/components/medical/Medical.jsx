@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./Medical.css";
 
@@ -8,13 +8,22 @@ const COURSES_DATA = {
     //--- Medical Undergraduate Courses --- 
 
     "BSC Nursing": [
-        { name: "BSC Nursing" }
-        ],
-    "General Nursing": [
-        { name: "General Nursing (GNM)" }
+        { name: "B.Sc Nursing" },
+        { name: "General Nursing (GNM)" },
     ],
-    "Bachelor of Pharmacy (B.Pharm)": [
-        { name: "Bachelor of Pharmacy" }
+    
+    "Pharmacy": [
+        { name: "B.Pharm (Bachelor of Pharmacy)" },
+        { name: "D.Pharm (Diploma in Pharmacy)" },
+        { name: "Pharm.D (Doctor of Pharmacy)" },
+    ],
+
+    "Paramedical": [
+        { name: "B.Sc in Cardiac Technology" },
+        { name: "B.Sc in Dialysis Technology" },
+        { name: "B.Sc in Operation Theatre & Anesthesia Technology" },
+        { name: "B.Sc in Physsician Assistant" },
+        { name: "B.Sc in Radiology & Imaging Technology" },
     ],
 
 
@@ -42,31 +51,59 @@ const COURSES_DATA = {
 
     ],
 
-    "Bachelor Degree(B.Sc)": [
-        { name: "B.Sc Computer Science" },
-        { name: "B.Sc Biotechnology" },
-        { name: "B.Sc Forensic Science" },
-        { name: "B.Sc Costume Design and Fashion" },
-        { name: "B.Sc Digital and Cyber Forensic Science" },
-        { name: "B.Sc Artificial Intelligence & Machine Learning" }
+    "Architecture": [
+        { name: "B.Arch (Bachelor of Architecture)" },
+        { name: "D.Arch (Diploma in Architecture)" },
+        { name: "B.Des (Interior Design)" },
     ],
+
+    "Bachelor Degree(B.Sc)": [
+        { name: "B.Sc Artificial Intelligence and Machine Learning" },
+        { name: "B.Sc Artificial Intelligence Honours" },
+        { name: "B.Sc Computer Science Honours" },
+        { name: "B.Sc Computer Science with Cloud Computing" },
+        { name: "B.Sc Computer Science with Data Science" },
+        { name: "B.Sc Information Technology with Robotic Process Automation" },
+        { name: "B.Sc Internet of Things with AI" }, 
+    ],
+
+    "B.Com": [
+        { name: "Accounting and Finance" },
+        { name: "Banking GST practitioner" },
+        { name: "Business Analytics" },
+        { name: "Computer Applications" },
+        { name: "Computer Applications Honours" },
+        { name: "Cooperation Honours" },
+        { name: "Finance Honours" },
+        { name: "Information Technology" },
+        { name: "P.A Income Tax Practitioner" },
+    ],
+
+    "B.C.A": [
+        { name: "BCA (Bachelor of Computer Applications)" },
+        { name: "BCA Honours" },
+        { name: "BCA with Business Analytics" },
+        
+    ],  
+
     "B-Arch": [
         { name: "Architectural Design" },
         { name: "Urban Planning" },
         { name: "Interior Architecture" },
         { name: "Landscape Architecture" }
     ],
+
     "Hotel Management": [
         { name: "Bachelor of Hotel Management(BHM)" },
         { name: "B.sc Hospitality and Hotel" },
         { name: "Bachelor in Hotel Management and Catering Technology(BHMCT)" }
     ],
-    "BBA": [
-        { name: "Marketing Management" },
-        { name: "Financial Management" },
-        { name: "Human Resource Management" },
-        { name: "Operations Management" },
-        { name: "International Business" }
+    "B.B.A": [
+        { name: "Aviation with IATA" },
+        { name: "BBA Honours" },
+        { name: "CA with Digital Marketing & Data Analytics" },
+        { name: "IB with Commodity Trading & Data Analytics" },
+        { name: "Logistics & Supply Chain Management" }
     ],
 
 
@@ -91,16 +128,16 @@ const COURSES_DATA = {
         { name: "Mechanical Engineering" },
     ],
 
-    "MBA": [
-        { name: "MBA in Marketing Management" },
-        { name: "MBA in Finance" },
-        { name: "MBA in Human Resource Management" },
-        { name: "MBA in Operations Management" },
-        { name: "MBA in International Business" },
-        { name: "MBA in Business Analytics" },
-        { name: "MBA in Logistics & Supply Chain Management" },
-        { name: "MBA in Information Technology" }
+    "M.B.A": [
+        { name: "Finance" },
+        { name: "Health Care Management" },
+        { name: "Human Resources Management" },
+        { name: "Logistics & Supply Chain Management" },
+        { name: "Marketing Operations" },
+        { name: "Systems Management" },
     ],
+
+
 
 
     //--- Medical Postgraduate Courses ---
@@ -140,13 +177,33 @@ function Medical({ items, title, description }) {
         }
         setSelectedItem(item);
         setShowOffcanvas(true);
+        // Push a dummy history entry so device back button closes popup
+        window.history.pushState({ offcanvasOpen: true }, '');
     };
 
-    const handleClose = () => {
+    const handleClose = useCallback(() => {
         setShowOffcanvas(false);
         // Small delay to clear data after animation finishes
         setTimeout(() => setSelectedItem(null), 300);
-    };
+    }, []);
+
+    // Close popup manually (X button, backdrop) — also pops the dummy history entry
+    const handleManualClose = useCallback(() => {
+        if (showOffcanvas) {
+            window.history.back(); // This triggers popstate which calls handleClose
+        }
+    }, [showOffcanvas]);
+
+    // Listen for device back button to close popup
+    useEffect(() => {
+        const onPopState = (e) => {
+            if (showOffcanvas) {
+                handleClose();
+            }
+        };
+        window.addEventListener('popstate', onPopState);
+        return () => window.removeEventListener('popstate', onPopState);
+    }, [showOffcanvas, handleClose]);
 
     return (
         <div className="medical-page">
@@ -194,7 +251,7 @@ function Medical({ items, title, description }) {
                     <button
                         type="button"
                         className="btn-close btn-close-white"
-                        onClick={handleClose}
+                        onClick={handleManualClose}
                         aria-label="Close"
                     ></button>
                 </div>
@@ -221,7 +278,7 @@ function Medical({ items, title, description }) {
             {showOffcanvas && (
                 <div
                     className="offcanvas-backdrop fade show"
-                    onClick={handleClose}
+                    onClick={handleManualClose}
                     style={{ zIndex: 1040 }}
                 ></div>
             )}

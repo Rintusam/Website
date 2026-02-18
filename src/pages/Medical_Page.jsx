@@ -10,11 +10,11 @@ function Medical_page() {
     const description = "Embark on a rewarding journey in healthcare. Select to discover programs, colleges, and admission details.";
 
     const items = [
-        { title: "BSC Nursing", image: "/nursing.jpg" },
-        { title: "General Nursing", image: "/gnursing.jpeg" },
-        { title: "B.Pharm", image: "/bpharm.jpeg" },
-        { title: "Pharm.D", image: "/physiotherapy.jpg" },
-        { title: "D.Pharm", image: "/cardiology.jpeg" },
+        { title: "Nursing", image: "/nursing.jpg" },
+        { title: "Pharmacy", image: "/bpharm.jpeg" },
+        { title: "Paramedical", image: "/gnursing.jpeg" },
+        { title: "Bachelor of Physiotherapy(BPT)", image: "/physiotherapy.jpg" },
+       
     ];
 
 

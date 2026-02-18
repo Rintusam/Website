@@ -14,7 +14,7 @@ function Non_Medical_PG_Page() {
         { title: "Ph.D in Engineering", image: "/w.jpg" },
         { title: "M.Sc (Master of Science)", image: "/w.jpg" },
         { title: "M.Arch", image: "/w.jpg" },
-        { title: "MBA", image: "/w.jpg" },
+        { title: "M.B.A", image: "/w.jpg" },
         { title: "MCA (Master of Computer Applications)", image: "/w.jpg" },
         { title: "M.Sc Data Science", image: "/w.jpg" },
         { title: "Master of Hotel Management", image: "/w.jpg" },
