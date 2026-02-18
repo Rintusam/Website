@@ -7,11 +7,11 @@ const COURSES_DATA = {
 
     //--- Medical Undergraduate Courses --- 
 
-    "BSC Nursing": [
+    "Nursing": [
         { name: "B.Sc Nursing" },
         { name: "General Nursing (GNM)" },
     ],
-    
+
     "Pharmacy": [
         { name: "B.Pharm (Bachelor of Pharmacy)" },
         { name: "D.Pharm (Diploma in Pharmacy)" },
@@ -26,10 +26,18 @@ const COURSES_DATA = {
         { name: "B.Sc in Radiology & Imaging Technology" },
     ],
 
+    "B.Sc(Bachelor of Science)": [
+        { name: "B.Sc in Biotechnology with Drug Designing" },
+        { name: "B.Sc in Computational Molecular Biology Honours" },
+        { name: "B.Sc in Food Science and Nutrition with Sports Nutrition" },
+        { name: "B.Sc in Forensic Science with Forensic Psychology" },
+        { name: "B.Sc in Microbiology with Microbial Quality Control and Testing" },
+        { name: "B.Sc in Psychology with Art Therapy" },
+    ],
 
 
     //--- Non-Medical Undergraduate Courses ---
-    "Engineering (B.Tech/B.E)": [
+    "B.Tech/B.E (Engineering)": [
         { name: "Aeronautical Engineering" },
         { name: "Agricultural Engineering" },
         { name: "Artificial Intelligence and Data Science" },
@@ -64,7 +72,7 @@ const COURSES_DATA = {
         { name: "B.Sc Computer Science with Cloud Computing" },
         { name: "B.Sc Computer Science with Data Science" },
         { name: "B.Sc Information Technology with Robotic Process Automation" },
-        { name: "B.Sc Internet of Things with AI" }, 
+        { name: "B.Sc Internet of Things with AI" },
     ],
 
     "B.Com": [
@@ -83,8 +91,8 @@ const COURSES_DATA = {
         { name: "BCA (Bachelor of Computer Applications)" },
         { name: "BCA Honours" },
         { name: "BCA with Business Analytics" },
-        
-    ],  
+
+    ],
 
     "B-Arch": [
         { name: "Architectural Design" },
@@ -93,10 +101,10 @@ const COURSES_DATA = {
         { name: "Landscape Architecture" }
     ],
 
-    "Hotel Management": [
-        { name: "Bachelor of Hotel Management(BHM)" },
-        { name: "B.sc Hospitality and Hotel" },
-        { name: "Bachelor in Hotel Management and Catering Technology(BHMCT)" }
+    "Management & Services": [
+        { name: "B.Sc Catering Science & Hotel Management with Carving" },
+        { name: "B.Sc Airline and Airport Management" },
+
     ],
     "B.B.A": [
         { name: "Aviation with IATA" },
@@ -104,6 +112,27 @@ const COURSES_DATA = {
         { name: "CA with Digital Marketing & Data Analytics" },
         { name: "IB with Commodity Trading & Data Analytics" },
         { name: "Logistics & Supply Chain Management" }
+    ],
+
+    "BA": [
+        { name: "Criminology with Forensic Psychology" },
+        { name: "English Language and Literature Honours" },
+        { name: "English Literature with Cognitive Science" },
+        { name: "Human Resource Management Honours" },
+
+    ],
+
+    "B.Voc": [
+        { name: "Fashion Technology" },
+        { name: "Logistics Management" },
+        { name: "Optometry and Ophthalmological Techniques" },
+        
+    ],
+
+    "Law": [
+        { name: "LL.B" },
+        { name: "B.B.A. LL.B (Hons.)" },
+        { name: "B.Com LL.B (Hons.)" },
     ],
 
 
@@ -137,6 +166,19 @@ const COURSES_DATA = {
         { name: "Systems Management" },
     ],
 
+    "M.Com": [
+        { name: "Finance & Control with Digital Finance" },
+
+    ],
+
+    "M.Sc": [
+        { name: "M.Sc Data Science" },
+    ],
+
+    "M.A": [
+        { name: "Criminology with Corporate Security Management" },
+    ],
+
 
 
 
@@ -154,6 +196,20 @@ const COURSES_DATA = {
         { name: "Pharmaceutical Regulatory Affairs" },
     ],
 
+    "Ph.D in Pharmacy": [
+        { name: "Pharmaceutics" },
+        { name: "Pharmacognosy" },
+        { name: "Pharmacy Practice" },
+        { name: "Pharmaceutical Regulatory Affairs" },
+    ],
+
+    "M.Sc (Master of Science)": [
+        { name: "M.Sc in Biotechnology with Stem Cell & Gene Therapy" },
+        { name: "M.Sc in Computational Molecular Biology Honours" },
+        { name: "M.Sc in Food Science and Nutrition with Food Safety Audit" },
+        { name: "M.Sc in Forensic Science with DNA Fingerprinting" },
+        { name: "M.Sc in Microbiology with Gene Editing" },
+    ],
 
 };
 
@@ -169,10 +225,9 @@ function Medical({ items, title, description }) {
 
     const handleCardClick = (item) => {
         const courses = getCourses(item.title);
-        // If only one course, skip popup and navigate directly
-        if (courses.length <= 1) {
-            const courseName = courses.length === 1 ? courses[0].name : item.title;
-            navigate('/college', { state: { course: courseName, fromCategoryPage: true } });
+        // If no data in COURSES_DATA, skip popup and navigate directly
+        if (courses.length === 0) {
+            navigate('/college', { state: { course: item.title, fromCategoryPage: true } });
             return;
         }
         setSelectedItem(item);

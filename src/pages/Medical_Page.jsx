@@ -11,17 +11,17 @@ function Medical_page() {
 
     const items = [
         { title: "Nursing", image: "/nursing.jpg" },
-        { title: "Pharmacy", image: "/bpharm.jpeg" },
-        { title: "Paramedical", image: "/gnursing.jpeg" },
+        { title: "Pharmacy", image: "/pharmacy.jpg" },
+        { title: "Paramedical", image: "/paramedical.jpg" },
         { title: "Bachelor of Physiotherapy(BPT)", image: "/physiotherapy.jpg" },
-       
+        { title: "B.Sc(Bachelor of Science)", image: "/bscMedical.jpg" }
     ];
 
 
     return (
         <div>
             <NavBar />
-            <Medical items={items} title = {title } description={description}/>
+            <Medical items={items} title={title} description={description} />
             <Footer />
         </div>
     )
