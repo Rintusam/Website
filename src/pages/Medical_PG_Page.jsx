@@ -11,7 +11,7 @@ function Medical_PG_Page() {
     const items = [
         { title: "M.Sc Nursing", image: "/mscnurse.jpg" },
         { title: "M.Pharm", image: "/Mpharm.jpg" },
-        { title: "Pharm.D.(P.B)", image: "/pharmD(pb).jpg" },
+        { title: "Pharm.D (Post Baccalaureate)", image: "/pharmD(pb).jpg" },
         { title: "Ph.D in Pharmacy", image: "/phdpharmacy.jpg" },
         { title: "M.Sc (Master of Science)", image: "/MscMed.jpg" },
     ];

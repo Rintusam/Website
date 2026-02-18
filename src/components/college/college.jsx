@@ -31,7 +31,8 @@ const Colleges = ({ selectedCourse: propCourse }) => {
   }, [location.state, navigate]);
 
   const filteredColleges = collegesData.filter(college => {
-    const matchesCity = filter === 'All' || college.location === filter;
+    const matchesCity = filter === 'All' ||
+      (filter === 'Kerala' ? (college.location !== 'Coimbatore' && college.location !== 'Bangalore') : college.location === filter);
     const matchesCourse = selectedCourse ? college.courses?.includes(selectedCourse) : true;
     const matchesSearch = college.name.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCity && matchesCourse && matchesSearch;
@@ -82,7 +83,7 @@ const Colleges = ({ selectedCourse: propCourse }) => {
       <div className="filter-wrapper">
         <div className="filter-container">
           <span className="filter-label">Filter by City:</span>
-          {['All', 'Kochi', 'Coimbatore', 'Bangalore'].map(city => (
+          {['All', 'Kerala', 'Coimbatore', 'Bangalore'].map(city => (
             <button key={city} className={`filter-btn ${filter === city ? 'active' : ''}`} onClick={() => setFilter(city)}>
               {city}
             </button>

@@ -35,23 +35,22 @@ const COURSES_DATA = {
         { name: "B.Sc in Psychology with Art Therapy" },
     ],
 
-
     //--- Non-Medical Undergraduate Courses ---
     "B.Tech/B.E (Engineering)": [
         { name: "Aeronautical Engineering" },
-        { name: "Agricultural Engineering" },
+        { name: "Agriculture Engineering" },
         { name: "Artificial Intelligence and Data Science" },
         { name: "Civil Engineering" },
         { name: "Civil Engineering with Computer Applications" },
         { name: "Computer Science and Business Systems" },
         { name: "Computer Science and Engineering" },
-        { name: "Computer Science and Engineering(Artificial Intelligence & Machine Learning)" },
+        { name: "Computer Science and Engineering(Artificial Intelligence and Machine Learning)" },
         { name: "Computer Science and Engineering(Cyber Security)" },
         { name: "Computer Science and Engineering(Data Science)" },
         { name: "Computer and Communication Engineering" },
         { name: "Electrical and Computer Engineering" },
         { name: "Electrical and Electronics Engineering" },
-        { name: "Electronics & Communication Engineering" },
+        { name: "Electronics and Communication Engineering" },
         { name: "Food Technology" },
         { name: "Information Technology" },
         { name: "Mechanical Engineering" },
@@ -67,6 +66,7 @@ const COURSES_DATA = {
 
     "Bachelor Degree(B.Sc)": [
         { name: "B.Sc Artificial Intelligence and Machine Learning" },
+        { name: "B.Sc Airline and Airport Management Honours" },
         { name: "B.Sc Artificial Intelligence Honours" },
         { name: "B.Sc Computer Science Honours" },
         { name: "B.Sc Computer Science with Cloud Computing" },
@@ -94,13 +94,6 @@ const COURSES_DATA = {
 
     ],
 
-    "B-Arch": [
-        { name: "Architectural Design" },
-        { name: "Urban Planning" },
-        { name: "Interior Architecture" },
-        { name: "Landscape Architecture" }
-    ],
-
     "Management & Services": [
         { name: "B.Sc Catering Science & Hotel Management with Carving" },
         { name: "B.Sc Airline and Airport Management" },
@@ -126,57 +119,56 @@ const COURSES_DATA = {
         { name: "Fashion Technology" },
         { name: "Logistics Management" },
         { name: "Optometry and Ophthalmological Techniques" },
-        
+
     ],
 
     "Law": [
         { name: "LL.B" },
-        { name: "B.B.A. LL.B (Hons.)" },
+        { name: "BBA.LL.B (Hons.)" },
         { name: "B.Com LL.B (Hons.)" },
     ],
-
 
     //--- Non Medical Postgraduate Courses ---
 
     "M.Tech/M.E": [
-        { name: "Aeronautical Engineering" },
-        { name: "Artificial Intelligence and Data Science" },
-        { name: "CAD/CAM" },
-        { name: "Communication Engineering & Signal Processing" },
-        { name: "Communication Systems" },
-        { name: "Computer Science and Engineering" },
-        { name: "Cyber Security" },
-        { name: "Energy Systems" },
-        { name: "Structural Engineering" },
-        { name: "VLSi Design" },
+        { name: "M.Tech in Aeronautical Engineering" },
+        { name: "M.Tech in Artificial Intelligence and Data Science" },
+        { name: "M.Tech in CAD/CAM" },
+        { name: "M.Tech in Communication Engineering & Signal Processing" },
+        { name: "M.Tech in Communication Systems" },
+        { name: "M.Tech in Computer Science and Engineering" },
+        { name: "M.Tech in Cyber Security" },
+        { name: "M.Tech in Energy Systems" },
+        { name: "M.Tech in Structural Engineering" },
+        { name: "M.Tech in VLSI Design" },
 
     ],
 
     "Ph.D in Engineering": [
-        { name: "Aeronautical Engineering" },
-        { name: "Mechanical Engineering" },
+        { name: "Ph.D in Aeronautical Engineering" },
+        { name: "Ph.D in Mechanical Engineering" },
     ],
 
     "M.B.A": [
-        { name: "Finance" },
-        { name: "Health Care Management" },
-        { name: "Human Resources Management" },
-        { name: "Logistics & Supply Chain Management" },
-        { name: "Marketing Operations" },
-        { name: "Systems Management" },
+        { name: "M.B.A in Finance" },
+        { name: "M.B.A in Health Care Management" },
+        { name: "M.B.A in Human Resources Management" },
+        { name: "M.B.A in Logistics & Supply Chain Management" },
+        { name: "M.B.A in Marketing Operations" },
+        { name: "M.B.A in Systems Management" },
     ],
 
     "M.Com": [
-        { name: "Finance & Control with Digital Finance" },
+        { name: "M.Com in Finance & Control with Digital Finance" },
 
     ],
 
     "M.Sc": [
-        { name: "M.Sc Data Science" },
+        { name: "M.Sc in Data Science" },
     ],
 
     "M.A": [
-        { name: "Criminology with Corporate Security Management" },
+        { name: "M.A in Criminology with Corporate Security Management" },
     ],
 
 
@@ -185,22 +177,22 @@ const COURSES_DATA = {
     //--- Medical Postgraduate Courses ---
 
     "M.Sc Nursing": [
-        { name: "Community Health Nursing" },
-        { name: "Critical Care Nursing" },
+        { name: "M.Sc in Community Health Nursing" },
+        { name: "M.Sc in Critical Care Nursing" },
     ],
 
     "M.Pharm": [
-        { name: "Pharmaceutics" },
-        { name: "Pharmacognosy" },
-        { name: "Pharmacy Practice" },
-        { name: "Pharmaceutical Regulatory Affairs" },
+        { name: "M.Pharm in Pharmaceutics" },
+        { name: "M.Pharm in Pharmacognosy" },
+        { name: "M.Pharm in Pharmacy Practice" },
+        { name: "M.Pharm in Pharmaceutical Regulatory Affairs" },
     ],
 
     "Ph.D in Pharmacy": [
-        { name: "Pharmaceutics" },
-        { name: "Pharmacognosy" },
-        { name: "Pharmacy Practice" },
-        { name: "Pharmaceutical Regulatory Affairs" },
+        { name: "Ph.D in Pharmaceutics" },
+        { name: "Ph.D in Pharmacognosy" },
+        { name: "Ph.D in Pharmacy Practice" },
+        { name: "Ph.D in Pharmaceutical Regulatory Affairs" },
     ],
 
     "M.Sc (Master of Science)": [
@@ -218,6 +210,10 @@ function Medical({ items, title, description }) {
     const [showOffcanvas, setShowOffcanvas] = useState(false);
     const navigate = useNavigate();
 
+    // Refs to avoid stale closures in event listeners
+    const isPopupOpenRef = React.useRef(false);
+    const hasDummyHistoryRef = React.useRef(false);
+
     // Retrieve courses based on the item title
     const getCourses = (itemTitle) => {
         return COURSES_DATA[itemTitle] || [];
@@ -225,40 +221,61 @@ function Medical({ items, title, description }) {
 
     const handleCardClick = (item) => {
         const courses = getCourses(item.title);
-        // If no data in COURSES_DATA, skip popup and navigate directly
         if (courses.length === 0) {
             navigate('/college', { state: { course: item.title, fromCategoryPage: true } });
             return;
         }
+
+        // Only push ONE dummy history entry (never stack them)
+        if (!hasDummyHistoryRef.current) {
+            window.history.pushState({ offcanvasOpen: true }, '');
+            hasDummyHistoryRef.current = true;
+        }
+
         setSelectedItem(item);
         setShowOffcanvas(true);
-        // Push a dummy history entry so device back button closes popup
-        window.history.pushState({ offcanvasOpen: true }, '');
+        isPopupOpenRef.current = true;
     };
 
     const handleClose = useCallback(() => {
         setShowOffcanvas(false);
-        // Small delay to clear data after animation finishes
+        isPopupOpenRef.current = false;
+        hasDummyHistoryRef.current = false;
         setTimeout(() => setSelectedItem(null), 300);
     }, []);
 
-    // Close popup manually (X button, backdrop) — also pops the dummy history entry
+    // Close popup via X button or backdrop — also consumes the dummy history entry
     const handleManualClose = useCallback(() => {
-        if (showOffcanvas) {
-            window.history.back(); // This triggers popstate which calls handleClose
+        if (isPopupOpenRef.current) {
+            window.history.back(); // Triggers popstate → handleClose
         }
-    }, [showOffcanvas]);
+    }, []);
 
-    // Listen for device back button to close popup
+    // Listen for device back button
+    // When user selects a department, clean up dummy entry before navigating
+    const handleDepartmentSelect = useCallback((courseName) => {
+        setShowOffcanvas(false);
+        isPopupOpenRef.current = false;
+
+        // Use replace: true to consume the dummy history entry
+        // instead of pushing on top of it
+        if (hasDummyHistoryRef.current) {
+            hasDummyHistoryRef.current = false;
+            navigate('/college', { state: { course: courseName, fromCategoryPage: true }, replace: true });
+        } else {
+            navigate('/college', { state: { course: courseName, fromCategoryPage: true } });
+        }
+    }, [navigate]);
+
     useEffect(() => {
-        const onPopState = (e) => {
-            if (showOffcanvas) {
+        const onPopState = () => {
+            if (isPopupOpenRef.current) {
                 handleClose();
             }
         };
         window.addEventListener('popstate', onPopState);
         return () => window.removeEventListener('popstate', onPopState);
-    }, [showOffcanvas, handleClose]);
+    }, [handleClose]);
 
     return (
         <div className="medical-page">
@@ -318,7 +335,7 @@ function Medical({ items, title, description }) {
                                 <div
                                     className="department-chip"
                                     key={idx}
-                                    onClick={() => navigate('/college', { state: { course: course.name, fromCategoryPage: true } })}
+                                    onClick={() => handleDepartmentSelect(course.name)}
                                 >
                                     <span className="department-name">{course.name}</span>
                                     <i className="fas fa-arrow-right department-arrow"></i>

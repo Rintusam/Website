@@ -1,24 +1,142 @@
 export const collegesData = [
-    { id: 1, name: "AZS college ", location: "Bangalore", imgUrl: "w.jpg", courses: ["Computer Science Engineering", "B.Sc Nursing", "Electronics & Communication"] },
-    { id: 2, name: "ABBS college", location: "Coimbatore", imgUrl: "mba.jpg", courses: ["Computer Science Engineering"] },
-    { id: 3, name: "Palakkad College", location: "Bangalore", imgUrl: "bba.jpg", courses: ["Computer Science Engineering"] },
-    { id: 4, name: "BRS College", location: "Bangalore", imgUrl: "bba.jpg", courses: ["Mechanical Engineering"] },
-    { id: 5, name: "XRA College", location: "Bangalore", imgUrl: "mba.jpg", courses: ["Electronics & Communication"] },
-    { id: 6, name: "BHA College", location: "Bangalore", imgUrl: "bba.jpg", courses: ["Civil Engineering"] },
-    { id: 7, name: "ABC College", location: "Bangalore", imgUrl: "bba.jpg", courses: ["Marketing Management"] },
-    { id: 8, name: "XYZ Institute", location: "Bangalore", imgUrl: "bba.jpg", courses: ["Financial Management"] },
-    { id: 9, name: "Premier College", location: "Bangalore", imgUrl: "bba.jpg", courses: ["Bachelor of Pharmacy"] },
-    { id: 10, name: "Health Institute", location: "Bangalore", imgUrl: "bba.jpg", courses: ["MBBS (Medicine)"] },
-    { id: 11, name: "Coimbatore Institute", location: "Coimbatore", imgUrl: "bba.jpg", courses: ["Human Resource Management"] },
-    { id: 12, name: "Kochi Tech", location: "Kochi", imgUrl: "bba.jpg", courses: ["Mechanical Engineering"] },
-    { id: 13, name: "Kochi Business School", location: "Kochi", imgUrl: "bba.jpg", courses: ["Operations Management"] },
-    { id: 14, name: "Hospitality Grand", location: "Bangalore", imgUrl: "bba.jpg", courses: ["Bachelor of Hotel Management(BHM)"] },
-    { id: 15, name: "Hotel Management Academy", location: "Bangalore", imgUrl: "bba.jpg", courses: ["Bachelor of Hotel Management(BHM)"] },
-    { id: 16, name: "Culinary Institute", location: "Bangalore", imgUrl: "bba.jpg", courses: ["B.sc Hospitality and Hotel"] },
-    { id: 17, name: "Professional Hotel School", location: "Coimbatore", imgUrl: "bba.jpg", courses: ["Bachelor in Hotel Management and Catering Technology(BHMCT)"] },
-    { id: 18, name: "Hospitality Plus", location: "Coimbatore", imgUrl: "bba.jpg", courses: ["Bachelor of Hotel Management(BHM)"] },
-    { id: 19, name: "Kochi Hotel Institute", location: "Kochi", imgUrl: "bba.jpg", courses: ["B.sc Hospitality and Hotel"] },
-    { id: 20, name: "BSC Nursing Academy", location: "Bangalore", imgUrl: "bba.jpg", courses: ["BSC Nursing"] },
-    { id: 21, name: "Nursing Care Institute", location: "Bangalore", imgUrl: "bba.jpg", courses: ["General Nursing"] },
-    { id: 22, name: "Physiotherapy Center", location: "Bangalore", imgUrl: "bba.jpg", courses: ["Bachelors of Physiotherapy"] }
+
+    // ─── 1. Nehru College of Engineering ───
+    {
+        id: 1,
+        name: "NEHRU COLLEGE OF ENGINEERING & RESEARCH CENTRE",
+        location: "Pampady,Thrissur",
+        imgUrl: "w.jpg",
+        courses: [
+            //B.Tech
+            "Computer Science and Engineering",
+            "Computer Science and Engineering(Artificial Intelligence and Machine Learning)",
+            "Mechatronics Engineering",
+            "Mechanical Engineering",
+            "Electrical and Computer Engineering",
+            "Electronics and Communication Engineering",
+            //M.Tech
+            "M.Tech in Computer Science and Engineering",
+            "M.Tech in Cyber Security",
+            "M.Tech in Energy Systems",
+            "M.Tech in VLSI Design",
+
+        ],
+    },
+
+    // ─── 2. Jawaharlal College of Engineering ───
+    {
+        id: 2,
+        name: "JAWAHARLAL COLLEGE OF ENGINEERING & TECHNOLOGY",
+        location: "Lakkidi,Palakkad",
+        imgUrl: "mba.jpg",
+        courses: [
+            //B.Tech
+            "Aeronautical Engineering",
+            "Civil Engineering with Computer Applications",
+            "Agriculture Engineering",
+            "Mechanical Engineering",
+            "Electronics and Communication Engineering",
+            "Computer Science and Engineering",
+            "Computer Science and Engineering(Cyber Security)",
+            "Computer Science and Engineering(Data Science)",
+            //M.Tech
+            "M.Tech in Communication Engineering & Signal Processing",
+
+        ],
+    },
+
+    // ─── 3. PK Das College of Nursing ───
+    {
+        id: 3,
+        name: "PK DAS COLLEGE OF NURSING",
+        location: "Ottapalam,Palakkad",
+        imgUrl: "bba.jpg",
+        courses: [
+            //NURSING
+            "B.Sc Nursing",
+            //M.Sc Nursing
+            "M.Sc in Community Health Nursing",
+            "M.Sc in Critical Care Nursing",
+
+        ],
+    },
+
+    // ─── 4. Nehru College of Pharmacy ───
+    {
+        id: 4,
+        name: "NEHRU COLLEGE OF PHARMACY",
+        location: "Pampady,Thrissur",
+        imgUrl: "bba.jpg",
+        courses: [
+            "B.Pharm",
+            "D.Pharm",
+            "Pharm.D",
+            "Pharm.D (Post Baccalaureate)",
+            //M.Pharm
+            "M.Pharm in Pharmaceutics",
+            "M.Pharm in Pharmacognosy",
+            "M.Pharm in Pharmacy Practice",
+            "M.Pharm in Pharmaceutical Regulatory Affairs",
+            //Ph.D in Pharmacy
+            "Ph.D in Pharmaceutics",
+            "Ph.D in Pharmacognosy",
+            "Ph.D in Pharmacy Practice",
+        ],
+
+    },
+
+    // ─── 5. PK Das Liberal College ───
+    {
+        id: 5,
+        name: "PK DAS LIBERAL COLLEGE OF ARTS & SCIENCE",
+        location: "Lakkidi,Palakkad",
+        imgUrl: "bba.jpg",
+        courses: [
+            //B.Com
+            "Finance Honours",
+            "Computer Application Honours",
+            "Cooperation Honours",
+
+            //BBA
+            "BBA Honours",
+
+            //BCA
+            "BCA Honours",
+            
+            //BA
+            "English Language and Literature Honours",
+            "Human Resource Management Honours",
+
+            //B.Sc
+            "B.Sc Computer Science Honours",
+            "B.Sc Artificial Intelligence Honours",
+            "B.Sc Airline and Airport Management Honours",
+        ],
+    },
+
+    // ─── 6. Nehru Academy of Law ───
+    {
+        id: 6,
+        name: "NEHRU ACADEMY OF LAW",
+        location: "Lakkidi,Palakkad",
+        imgUrl: "bba.jpg",
+        courses: [
+            "LL.B",
+            "BBA.LL.B (Hons.)",
+            "B.Com LL.B (Hons.)",
+        ],
+    },
+
+    // ─── 7. Nehru College of Architecture ───
+    {
+        id: 7,
+        name: "NEHRU COLLEGE OF ARCHITECTURE",
+        location: "Lakkidi,Palakkad",
+        imgUrl: "bba.jpg",
+        courses: [
+            "B.Arch (Bachelor of Architecture)",
+            "D.Arch (Diploma in Architecture)",
+        ],
+    },
+
 ];
