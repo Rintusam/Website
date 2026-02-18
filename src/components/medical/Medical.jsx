@@ -65,8 +65,8 @@ const COURSES_DATA = {
     ],
 
     "Bachelor Degree(B.Sc)": [
-        { name: "B.Sc Artificial Intelligence and Machine Learning" },
         { name: "B.Sc Airline and Airport Management Honours" },
+        { name: "B.Sc Artificial Intelligence and Machine Learning" },
         { name: "B.Sc Artificial Intelligence Honours" },
         { name: "B.Sc Computer Science Honours" },
         { name: "B.Sc Computer Science with Cloud Computing" },

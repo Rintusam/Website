@@ -68,9 +68,9 @@ export const collegesData = [
         location: "Pampady,Thrissur",
         imgUrl: "bba.jpg",
         courses: [
-            "B.Pharm",
-            "D.Pharm",
-            "Pharm.D",
+            "B.Pharm (Bachelor of Pharmacy)",
+            "D.Pharm (Diploma in Pharmacy)",
+            "Pharm.D (Doctor of Pharmacy)",
             "Pharm.D (Post Baccalaureate)",
             //M.Pharm
             "M.Pharm in Pharmaceutics",
@@ -94,7 +94,7 @@ export const collegesData = [
         courses: [
             //B.Com
             "Finance Honours",
-            "Computer Application Honours",
+            "Computer Applications Honours",
             "Cooperation Honours",
 
             //BBA
