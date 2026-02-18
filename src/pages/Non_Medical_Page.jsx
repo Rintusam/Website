@@ -16,10 +16,10 @@ function Non_medical_page() {
         { title: "Management & Services", image: "/management.jpg" },
         { title: "B.B.A", image: "/bba.jpg" },
         { title: "B.Com", image: "/bcom.jpg" },
-        { title: "BA", image: "/bca.jpg" },
-        { title: "B.Voc", image: "/bvoc.jpg" },
-        { title: "B.C.A", image: "/w.jpg" },
-        { title: "Law", image: "/w.jpg" },
+        { title: "BA", image: "/ba.jpg" },
+        { title: "B.Voc", image: "bvoc.jpg" },
+        { title: "B.C.A", image: "/bca.jpg" },
+        { title: "Law", image: "/law.jpg" },
     ];
 
 
