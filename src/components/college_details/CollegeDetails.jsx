@@ -35,10 +35,6 @@ const CollegeDetails = () => {
                     <div className="college-overlay">
                         <h1>{college.name}</h1>
                         <p className="college-location">{college.location}</p>
-                        <div className="college-badges">
-                            {college.tags?.map((tag, i) => <span key={i} className="badge">{tag}</span>)}
-                            <span className="rating-badge">★ {college.rating}</span>
-                        </div>
                     </div>
                 </div>
 
@@ -67,10 +63,7 @@ const CollegeDetails = () => {
                     <div className="info-card">
                         <h2>Key Highlights</h2>
                         <div className="highlights-grid">
-                            <div className="highlight-item">
-                                <span className="label">Annual Fees</span>
-                                <span className="value">{college.fees}</span>
-                            </div>
+
                             <div className="highlight-item">
                                 <span className="label">Placement</span>
                                 <span className="value">95% Success Rate</span>

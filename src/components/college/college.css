@@ -145,48 +145,11 @@
   flex-grow: 1;
 }
 
-.tags {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 12px;
-}
-
-.tag {
-  background-color: #1565c0;
-  color: white;
-  font-size: 0.75rem;
-  padding: 4px 10px;
-  border-radius: 4px;
-  font-weight: 500;
-}
-
 .card-details h3 {
   font-size: 1.25rem;
   margin: 0 0 10px;
   color: #111;
   font-weight: 700;
-}
-
-.rating-row {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  margin-bottom: 5px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: #444;
-}
-
-.stars {
-  color: #ffc107;
-  /* Yellow */
-}
-
-.fees-row {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 20px;
 }
 
 .view-details-btn {
@@ -568,7 +531,7 @@
   transition: all 0.3s;
   width: 100%;
   font-family: 'Outfit', sans-serif;
-  
+
 }
 
 .modal-no-pref-btn:hover {

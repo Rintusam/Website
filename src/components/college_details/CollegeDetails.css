@@ -67,27 +67,7 @@
     line-height: 1.4;
 }
 
-.college-badges {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
 
-.badge {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(5px);
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-}
-
-.rating-badge {
-    background: #ffc107;
-    color: #000;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-weight: bold;
-}
 
 .details-main-info {
     display: grid;

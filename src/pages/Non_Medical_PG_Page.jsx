@@ -10,12 +10,12 @@ function Non_Medical_PG_Page() {
 
 
     const items = [
-        { title: "M.Tech/M.E", image: "/w.jpg" },
-        { title: "Ph.D in Engineering", image: "/w.jpg" },
-        { title: "M.Sc", image: "/w.jpg" },
-        { title: "M.B.A", image: "/w.jpg" },
-        { title: "M.Com", image: "/w.jpg" },
-        { title: "M.A", image: "/w.jpg" },
+        { title: "M.Tech/M.E", image: "/mtech.jpg" },
+        { title: "Ph.D in Engineering", image: "/phdengineering.jpg" },
+        { title: "M.Sc", image: "/msc.jpg" },
+        { title: "M.B.A", image: "/mba.jpg" },
+        { title: "M.Com", image: "/mcom.jpg" },
+        { title: "M.A", image: "/ma.jpg" },
     
         ];
         
