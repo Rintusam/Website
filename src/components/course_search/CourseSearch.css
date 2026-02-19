@@ -1,0 +1,284 @@
+/* ============================================================
+   CourseSearch Component Styles
+   ============================================================ */
+
+/* ── Top-right banner positioning container ─────────────────── */
+.banner-search-corner {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    z-index: 10;
+    width: 240px;
+}
+
+/* Inside the banner-corner, the wrapper should fill its parent */
+.banner-search-corner .course-search-wrapper {
+    margin: 0;
+    max-width: 100%;
+}
+
+/* Dropdown opens downward, aligned to the right edge */
+.banner-search-corner .course-search-dropdown {
+    left: auto;
+    right: 0;
+}
+
+.course-search-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 680px;
+    margin: 32px auto 0;
+    z-index: 10;
+}
+
+/* ── Search Bar ─────────────────────────────────────────────── */
+.course-search-bar {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.97);
+    border-radius: 50px;
+    padding: 0 14px;
+    height: 42px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.course-search-bar:focus-within {
+    box-shadow: 0 12px 40px rgba(79, 172, 254, 0.45);
+    transform: translateY(-2px);
+}
+
+.search-icon-left {
+    color: #4facfe;
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-right: 8px;
+}
+
+.course-search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 0.82rem;
+    color: #1a1a2e;
+    font-family: inherit;
+    font-weight: 500;
+}
+
+.course-search-input::placeholder {
+    color: #9ca3af;
+    font-weight: 400;
+}
+
+.search-clear-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #9ca3af;
+    font-size: 14px;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+    transition: color 0.2s ease, background 0.2s ease;
+    flex-shrink: 0;
+    margin-left: 8px;
+}
+
+.search-clear-btn:hover {
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+}
+
+/* ── Dropdown ───────────────────────────────────────────────── */
+.course-search-dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    max-height: 380px;
+    overflow-y: auto;
+    animation: dropdownFadeIn 0.2s ease;
+    border: 1px solid rgba(79, 172, 254, 0.2);
+}
+
+@keyframes dropdownFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scrollbar styling */
+.course-search-dropdown::-webkit-scrollbar {
+    width: 6px;
+}
+
+.course-search-dropdown::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 0 16px 16px 0;
+}
+
+.course-search-dropdown::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+}
+
+.course-search-dropdown::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* ── Group Headers (Courses / Colleges) ────────────────────── */
+.search-group-header {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 16px 5px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    background: #f8fafc;
+}
+
+.search-group-header--border {
+    border-top: 1px solid #e5e7eb;
+    margin-top: 2px;
+    padding-top: 10px;
+}
+
+.group-header-icon {
+    font-size: 11px;
+    color: #4facfe;
+}
+
+/* ── Results List ───────────────────────────────────────────── */
+.search-results-list {
+    list-style: none;
+    margin: 0;
+    padding: 2px 0 6px;
+}
+
+.search-result-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 9px 18px;
+    cursor: default;
+    border-bottom: 1px solid #f8fafc;
+    transition: background 0.15s ease;
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+/* Clickable items show a pointer cursor */
+.search-result-item--clickable {
+    cursor: pointer;
+}
+
+.search-result-item:hover {
+    background: #f0f7ff;
+}
+
+/* Course name — clean, prominent */
+.result-course-text {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #1a1a2e;
+    line-height: 1.3;
+}
+
+/* College name — bold */
+.result-college-text {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #1a1a2e;
+    line-height: 1.3;
+}
+
+/* College location — subtle below */
+.result-college-location {
+    font-size: 0.73rem;
+    color: #9ca3af;
+    padding-left: 2px;
+}
+
+/* ── No Results ─────────────────────────────────────────────── */
+.search-no-results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 24px;
+    color: #6b7280;
+    text-align: center;
+}
+
+.no-results-icon {
+    font-size: 36px;
+    color: #d1d5db;
+    margin-bottom: 10px;
+}
+
+.search-no-results p {
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.search-no-results strong {
+    color: #4facfe;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 600px) {
+    .course-search-bar {
+        height: 50px;
+        padding: 0 14px;
+    }
+
+    .course-search-input {
+        font-size: 0.9rem;
+    }
+
+    .course-search-dropdown {
+        max-height: 300px;
+    }
+
+    .search-result-item {
+        padding: 10px 14px;
+    }
+
+    /* On small screens, shrink the corner widget and nudge inward */
+    .banner-search-corner {
+        width: calc(100% - 32px);
+        right: 16px;
+        top: 12px;
+    }
+
+    /* Shorter bar — creates breathing room from banner text below */
+    .banner-search-corner .course-search-bar {
+        height: 34px;
+        padding: 0 10px;
+    }
+
+    .banner-search-corner .course-search-input {
+        font-size: 0.76rem;
+    }
+
+    .banner-search-corner .search-icon-left {
+        font-size: 12px;
+        margin-right: 6px;
+    }
+}

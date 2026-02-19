@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Banner.css";
 import ProgramSelectionModal from "../program_selection_modal/ProgramSelectionModal";
+import CourseSearch from "../course_search/CourseSearch";
 // Ensure you have react-icons installed: npm install react-icons
 import { FaStethoscope, FaCogs, FaArrowRight } from "react-icons/fa";
 
@@ -22,6 +23,11 @@ function Banner() {
     <div className="banner-section">
       {/* Dark overlay to make text readable regardless of background image */}
       <div className="banner-overlay"></div>
+
+      {/* Course Search — top-right corner of banner */}
+      <div className="banner-search-corner">
+        <CourseSearch />
+      </div>
 
       <div className="container position-relative z-2">
         <div className="row justify-content-center text-center">
