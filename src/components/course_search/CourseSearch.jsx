@@ -17,6 +17,7 @@ function CourseSearch() {
     const [courseResults, setCourseResults] = useState([]); // unique course names
     const [collegeResults, setCollegeResults] = useState([]); // unique college names
     const [isOpen, setIsOpen] = useState(false);
+    const [isFixed, setIsFixed] = useState(false);
     const wrapperRef = useRef(null);
 
     // Pre-computed data
@@ -81,6 +82,13 @@ function CourseSearch() {
         navigate('/college');
     };
 
+    // Stick to top-right when user scrolls past the banner
+    useEffect(() => {
+        const handleScroll = () => setIsFixed(window.scrollY > 80);
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     // Close on outside click
     useEffect(() => {
         const handleClickOutside = (e) => {
@@ -95,7 +103,7 @@ function CourseSearch() {
     const hasResults = courseResults.length > 0 || collegeResults.length > 0;
 
     return (
-        <div className="course-search-wrapper" ref={wrapperRef}>
+        <div className={`course-search-wrapper${isFixed ? ' course-search-wrapper--fixed' : ''}`} ref={wrapperRef}>
             {/* Search Input */}
             <div className="course-search-bar">
                 <FaSearch className="search-icon-left" />

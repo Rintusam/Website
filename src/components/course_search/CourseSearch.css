@@ -31,6 +31,41 @@
     z-index: 10;
 }
 
+/* ── Fixed (sticky) state when scrolled past the banner ─────── */
+.course-search-wrapper--fixed {
+    position: fixed;
+    top: 14px;
+    right: 24px;
+    width: 240px;
+    max-width: 240px;
+    margin: 0;
+    z-index: 1050;
+    animation: slideDown 0.25s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* On mobile, full-width sticky bar */
+@media (max-width: 600px) {
+    .course-search-wrapper--fixed {
+        right: 12px;
+        left: 12px;
+        width: auto;
+        max-width: calc(100% - 24px);
+        top: 10px;
+    }
+}
+
 /* ── Search Bar ─────────────────────────────────────────────── */
 .course-search-bar {
     display: flex;
