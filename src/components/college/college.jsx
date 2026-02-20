@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './college.css';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { collegesData } from '../../data/collegesData';
 
 
@@ -22,7 +22,6 @@ const Colleges = ({ selectedCourse: propCourse }) => {
   // Consume the flag immediately so it doesn't persist on back navigation
   useEffect(() => {
     if (location.state?.fromCategoryPage) {
-      // Replace the current history entry with the flag removed
       navigate('.', {
         replace: true,
         state: { ...location.state, fromCategoryPage: false }
@@ -40,7 +39,7 @@ const Colleges = ({ selectedCourse: propCourse }) => {
 
   const toggleSelection = (college) => {
     setSelectedColleges((prev) => {
-      setNoPreference(false); // Uncheck "No Preference" if a college is selected
+      setNoPreference(false);
       const isSelected = prev.some((c) => c.id === college.id);
       if (isSelected) {
         return prev.filter((c) => c.id !== college.id);
@@ -53,7 +52,7 @@ const Colleges = ({ selectedCourse: propCourse }) => {
   const handleNoPreference = () => {
     setNoPreference(!noPreference);
     if (!noPreference) {
-      setSelectedColleges([]); // Clear specific selections if No Preference is chosen
+      setSelectedColleges([]);
     }
   };
 
@@ -99,38 +98,38 @@ const Colleges = ({ selectedCourse: propCourse }) => {
             className="search-input"
           />
         </div>
-
       </div>
 
-      <div className="colleges-grid-container">
+      {/* College List */}
+      <div className="colleges-list-container">
         {filteredColleges.length > 0 ? (
-          <div className="colleges-grid">
-            {filteredColleges.map((college) => (
-              <div key={college.id} className="college-card">
-                <div className="card-image-container">
-                  <img src={college.imgUrl} alt={college.name} />
-                  <span className="location-badge">{college.location}</span>
-                </div>
-                <div className="card-details">
-
-                  <h3>{college.name}</h3>
-
-                  <div className="card-actions">
-                    <Link to={`/college-details/${college.id}`} className="view-details-btn">View Details</Link>
-                    <button
-                      className={`select-btn ${selectedColleges.some(c => c.id === college.id) ? 'selected' : ''}`}
-                      onClick={() => toggleSelection(college)}
-                    >
-                      {selectedColleges.some(c => c.id === college.id) ? 'Selected' : 'Select'}
-                    </button>
+          <ul className="colleges-list">
+            {filteredColleges.map((college) => {
+              const isSelected = selectedColleges.some(c => c.id === college.id);
+              return (
+                <li
+                  key={college.id}
+                  className={`college-list-item ${isSelected ? 'college-list-item--selected' : ''}`}
+                  onClick={() => toggleSelection(college)}
+                >
+                  <input
+                    type="checkbox"
+                    className="college-checkbox"
+                    checked={isSelected}
+                    onChange={() => toggleSelection(college)}
+                    onClick={(e) => e.stopPropagation()}
+                  />
+                  <div className="college-list-info">
+                    <span className="college-list-name">{college.name}</span>
+                    <span className="college-list-location">{college.location}</span>
                   </div>
-                </div>
-              </div>
-            ))}
-          </div>
+                </li>
+              );
+            })}
+          </ul>
         ) : (
           <div className="no-results">
-            <h3>No colleges found in this location. 😢</h3>
+            <h3>No colleges found. 😢</h3>
           </div>
         )}
 
@@ -173,7 +172,6 @@ const Colleges = ({ selectedCourse: propCourse }) => {
               <button className="modal-no-pref-btn" onClick={handleModalProceed}>
                 I have No Preference
               </button>
-
             </div>
           </div>
         </div>
