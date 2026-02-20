@@ -8,6 +8,12 @@ import Medical_page from './pages/medical_page.jsx';
 import Non_medical_page from './pages/non_medical_page.jsx';
 import Medical_PG_Page from './pages/Medical_PG_Page.jsx';
 import Non_Medical_PG_Page from './pages/Non_Medical_PG_Page.jsx';
+import Science_UG_Page from './pages/Science_UG_Page.jsx';
+import Science_PG_Page from './pages/Science_PG_Page.jsx';
+import Commerce_UG_Page from './pages/Commerce_UG_Page.jsx';
+import Commerce_PG_Page from './pages/Commerce_PG_Page.jsx';
+import Arts_UG_Page from './pages/Arts_UG_Page.jsx';
+import Arts_PG_Page from './pages/Arts_PG_Page.jsx';
 import College_detail from './pages/college_select.jsx';
 import Contact_page from './pages/Contact_page.jsx';
 import About_page from './pages/About_page.jsx';
@@ -33,6 +39,14 @@ function App() {
     <div className='app' >
       <Routes>
         <Route path='/' element={<HomePage />} />
+        {/* Stream routes — Science / Commerce / Arts */}
+        <Route path='/science' element={<Science_UG_Page />} />
+        <Route path='/science-pg' element={<Science_PG_Page />} />
+        <Route path='/commerce' element={<Commerce_UG_Page />} />
+        <Route path='/commerce-pg' element={<Commerce_PG_Page />} />
+        <Route path='/arts' element={<Arts_UG_Page />} />
+        <Route path='/arts-pg' element={<Arts_PG_Page />} />
+        {/* Legacy routes — kept to avoid breaking bookmarks */}
         <Route path='/medical' element={<Medical_page />} />
         <Route path='/non-medical' element={<Non_medical_page />} />
         <Route path='/medical-pg' element={<Medical_PG_Page />} />

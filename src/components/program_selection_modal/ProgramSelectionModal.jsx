@@ -9,17 +9,22 @@ function ProgramSelectionModal({ isOpen, onClose, fieldType }) {
     if (!isOpen) return null;
 
     const handleProgramSelect = (programType) => {
-        if (programType === 'ug') {
-            // Navigate to existing UG pages
-            navigate(fieldType === 'medical' ? '/medical' : '/non-medical');
-        } else {
-            // Navigate to new PG pages
-            navigate(fieldType === 'medical' ? '/medical-pg' : '/non-medical-pg');
-        }
+        const routes = {
+            science: { ug: '/science', pg: '/science-pg' },
+            commerce: { ug: '/commerce', pg: '/commerce-pg' },
+            arts: { ug: '/arts', pg: '/arts-pg' },
+            // keep old routes so existing links still work
+            medical: { ug: '/medical', pg: '/medical-pg' },
+            'non-medical': { ug: '/non-medical', pg: '/non-medical-pg' },
+        };
+        const path = routes[fieldType]?.[programType];
+        if (path) navigate(path);
         onClose();
     };
 
-    const fieldTitle = fieldType === 'medical' ? 'Medical' : 'Non-Medical';
+    const fieldTitle = fieldType
+        ? fieldType.charAt(0).toUpperCase() + fieldType.slice(1).replace('-', ' ')
+        : '';
 
     return (
         <div className="program-modal-overlay" onClick={onClose}>

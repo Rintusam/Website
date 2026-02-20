@@ -65,35 +65,21 @@
   overflow: hidden;
 }
 
-.medical-card:hover {
+.science-card:hover,
+.commerce-card:hover,
+.arts-card:hover {
   transform: translateY(-10px);
-  /* Lifts up on hover */
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
-
-.non-medical-card:hover {
-  transform: translateY(-10px);
-  /* Lifts up on hover */
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-}
-
 
 .card-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  text-align: center;
   gap: 10px;
   height: 100%;
-}
-
-.medical-card .card-content {
-  align-items: flex-end;
-  text-align: right;
-}
-
-.non-medical-card .card-content {
-  align-items: flex-start;
-  text-align: left;
 }
 
 /* Icons inside cards */
@@ -115,40 +101,43 @@
   background: white;
 }
 
-/* Specific Colors for Medical vs Non-Medical */
-/* Specific Colors for Medical vs Non-Medical */
-.medical-card .icon-circle {
-  color: #0d6efd;
-  /* Blue for Medical */
+/* Science — Blue */
+.science-card {
+  background: linear-gradient(135deg, rgba(13, 110, 253, 0.92) 0%, rgba(0, 50, 160, 0.95) 100%);
+  color: #f0f6ff;
+  border: 3px solid rgba(100, 170, 255, 0.5);
 }
 
-.non-medical-card .icon-circle {
-  color: #3a3733;
-  /* Orange/Yellow for Non-Medical */
+.science-card .icon-circle {
+  color: #0d6efd;
+}
+
+/* Commerce — Green */
+.commerce-card {
+  background: linear-gradient(135deg, rgba(25, 160, 100, 0.92) 0%, rgba(10, 100, 60, 0.95) 100%);
+  color: #f0fff6;
+  border: 3px solid rgba(100, 220, 160, 0.5);
+}
+
+.commerce-card .icon-circle {
+  color: #19a064;
+}
+
+/* Arts — Orange-Pink */
+.arts-card {
+  background: linear-gradient(135deg, rgba(220, 90, 40, 0.92) 0%, rgba(160, 40, 80, 0.95) 100%);
+  color: #fff4f0;
+  border: 3px solid rgba(255, 160, 120, 0.5);
+}
+
+.arts-card .icon-circle {
+  color: #dc5a28;
 }
 
 .choice-card h3 {
   font-size: 1.5rem;
   font-weight: 900;
   margin: 0;
-}
-
-.medical-card {
-  background: linear-gradient(to right, transparent 30%, rgba(0, 80, 200, 0.95) 85%), url("/micon.jpeg");
-  background-size: cover;
-  background-position: center;
-  color: #f6efef;
-  border: 9px solid #0050c8;
-  /* Blue Border */
-}
-
-.non-medical-card {
-  background: linear-gradient(to left, transparent 30%, rgba(255, 193, 7, 0.95) 90%), url("/eicon.jpeg");
-  background-size: cover;
-  background-position: center;
-  color: #1a1a1a;
-  border: 9px solid #ffc107;
-  /* Orange Border */
 }
 
 .choice-card p {
@@ -269,6 +258,7 @@
     gap: 20px !important;
   }
 
+  .col-md-4,
   .col-md-6 {
     width: 100%;
     max-width: 100%;

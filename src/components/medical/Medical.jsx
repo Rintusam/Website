@@ -26,7 +26,7 @@ const COURSES_DATA = {
         { name: "B.Sc in Radiology & Imaging Technology" },
     ],
 
-    "B.Sc(Bachelor of Science)": [
+    "B.Sc(Medical)": [
         { name: "B.Sc in Biotechnology with Drug Designing" },
         { name: "B.Sc in Computational Molecular Biology Honours" },
         { name: "B.Sc in Food Science and Nutrition with Sports Nutrition" },
@@ -39,20 +39,15 @@ const COURSES_DATA = {
     "B.Tech/B.E (Engineering)": [
         { name: "Aeronautical Engineering" },
         { name: "Agriculture Engineering" },
-        { name: "Artificial Intelligence and Data Science" },
         { name: "Civil Engineering" },
         { name: "Civil Engineering with Computer Applications" },
-        { name: "Computer Science and Business Systems" },
         { name: "Computer Science and Engineering" },
         { name: "Computer Science and Engineering(Artificial Intelligence and Machine Learning)" },
         { name: "Computer Science and Engineering(Cyber Security)" },
         { name: "Computer Science and Engineering(Data Science)" },
-        { name: "Computer and Communication Engineering" },
         { name: "Electrical and Computer Engineering" },
         { name: "Electrical and Electronics Engineering" },
         { name: "Electronics and Communication Engineering" },
-        { name: "Food Technology" },
-        { name: "Information Technology" },
         { name: "Mechanical Engineering" },
         { name: "Mechatronics Engineering" },
 
@@ -61,10 +56,9 @@ const COURSES_DATA = {
     "Architecture": [
         { name: "B.Arch (Bachelor of Architecture)" },
         { name: "D.Arch (Diploma in Architecture)" },
-        { name: "B.Des (Interior Design)" },
     ],
 
-    "Bachelor Degree(B.Sc)": [
+    "B.Sc": [
         { name: "B.Sc Airline and Airport Management Honours" },
         { name: "B.Sc Artificial Intelligence and Machine Learning" },
         { name: "B.Sc Artificial Intelligence Honours" },

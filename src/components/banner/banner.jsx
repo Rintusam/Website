@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import "./Banner.css";
 import ProgramSelectionModal from "../program_selection_modal/ProgramSelectionModal";
 import CourseSearch from "../course_search/CourseSearch";
-// Ensure you have react-icons installed: npm install react-icons
-import { FaStethoscope, FaCogs, FaArrowRight } from "react-icons/fa";
+import { FaFlask, FaChartLine, FaPalette, FaArrowRight } from "react-icons/fa";
 
 function Banner() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -46,40 +45,58 @@ function Banner() {
               </p>
             </div>
 
-            {/* The Choice Cards */}
+            {/* Stream Choice Cards */}
             <div className="row g-4 justify-content-center">
 
-              {/* Medical Option */}
-              <div className="col-md-6">
+              {/* Science */}
+              <div className="col-md-4">
                 <div
-                  className="choice-card medical-card"
-                  onClick={() => handleCardClick('medical')}
+                  className="choice-card science-card"
+                  onClick={() => handleCardClick('science')}
                   style={{ cursor: 'pointer' }}
                 >
                   <div className="card-content">
                     <div className="icon-circle">
-                      <FaStethoscope />
+                      <FaFlask />
                     </div>
-                    <h3>Medical Fields</h3>
-                    <p>MBBS, BDS, Nursing & more</p>
+                    <h3>Science</h3>
+                    <p>Engineering, Nursing, Pharmacy & more</p>
                     <span className="cta-link">Explore <FaArrowRight className="ms-1" /></span>
                   </div>
                 </div>
               </div>
 
-              {/* Non-Medical Option */}
-              <div className="col-md-6">
+              {/* Commerce */}
+              <div className="col-md-4">
                 <div
-                  className="choice-card non-medical-card"
-                  onClick={() => handleCardClick('non-medical')}
+                  className="choice-card commerce-card"
+                  onClick={() => handleCardClick('commerce')}
                   style={{ cursor: 'pointer' }}
                 >
                   <div className="card-content">
                     <div className="icon-circle">
-                      <FaCogs />
+                      <FaChartLine />
                     </div>
-                    <h3>Non-Medical Fields</h3>
-                    <p>Engineering, Management, Arts</p>
+                    <h3>Commerce</h3>
+                    <p>B.Com, BBA, BCA, MBA & more</p>
+                    <span className="cta-link">Explore <FaArrowRight className="ms-1" /></span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Arts */}
+              <div className="col-md-4">
+                <div
+                  className="choice-card arts-card"
+                  onClick={() => handleCardClick('arts')}
+                  style={{ cursor: 'pointer' }}
+                >
+                  <div className="card-content">
+                    <div className="icon-circle">
+                      <FaPalette />
+                    </div>
+                    <h3>Arts</h3>
+                    <p>Law, Humanities, Literature & more</p>
                     <span className="cta-link">Explore <FaArrowRight className="ms-1" /></span>
                   </div>
                 </div>
