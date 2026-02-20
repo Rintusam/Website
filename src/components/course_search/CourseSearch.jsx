@@ -42,22 +42,23 @@ function CourseSearch() {
 
     const handleSearch = useCallback((value) => {
         setQuery(value);
-        if (value.trim().length < 2) {
+        if (value.trim().length < 1) {
             setCourseResults([]);
             setCollegeResults([]);
             setIsOpen(false);
             return;
         }
-        const q = value.toLowerCase();
+        // Strip dots from query so "bsc" matches "B.Sc", "mtech" matches "M.Tech"
+        const q = value.toLowerCase().replace(/\./g, '');
 
-        // Match unique courses
+        // Match unique courses (also strip dots from stored name before comparing)
         const matchedCourses = uniqueCourses.current.filter((item) =>
-            item.courseName.toLowerCase().includes(q)
+            item.courseName.toLowerCase().replace(/\./g, '').includes(q)
         );
 
-        // Match colleges by name
+        // Match colleges by name (also strip dots)
         const matchedColleges = uniqueColleges.current.filter((item) =>
-            item.collegeName.toLowerCase().includes(q)
+            item.collegeName.toLowerCase().replace(/\./g, '').includes(q)
         );
 
         setCourseResults(matchedCourses);
