@@ -103,8 +103,8 @@
 
 /* Science — Blue */
 .science-card {
-  background: linear-gradient(135deg, rgba(13, 110, 253, 0.92) 0%, rgba(0, 50, 160, 0.95) 100%);
-  color: #f0f6ff;
+  background-image: url("/science.jpg");
+  color: #000000;
   border: 3px solid rgba(100, 170, 255, 0.5);
 }
 
@@ -114,8 +114,8 @@
 
 /* Commerce — Green */
 .commerce-card {
-  background: linear-gradient(135deg, rgba(25, 160, 100, 0.92) 0%, rgba(10, 100, 60, 0.95) 100%);
-  color: #f0fff6;
+  background-image: url("/commerce.jpg");  
+  color: #000000;
   border: 3px solid rgba(100, 220, 160, 0.5);
 }
 
@@ -126,7 +126,7 @@
 /* Arts — Orange-Pink */
 .arts-card {
   background: linear-gradient(135deg, rgba(220, 90, 40, 0.92) 0%, rgba(160, 40, 80, 0.95) 100%);
-  color: #fff4f0;
+  color: #000000;
   border: 3px solid rgba(255, 160, 120, 0.5);
 }
 
