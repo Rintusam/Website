@@ -5,7 +5,6 @@ export const collegesData = [
         id: 1,
         name: "NEHRU COLLEGE OF ENGINEERING & RESEARCH CENTRE",
         location: "Pampady,Thrissur",
-        imgUrl: "w.jpg",
         courses: [
             //B.Tech
             "Computer Science and Engineering",
@@ -28,7 +27,6 @@ export const collegesData = [
         id: 2,
         name: "JAWAHARLAL COLLEGE OF ENGINEERING & TECHNOLOGY",
         location: "Lakkidi,Palakkad",
-        imgUrl: "mba.jpg",
         courses: [
             //B.Tech
             "Aeronautical Engineering",
@@ -50,7 +48,6 @@ export const collegesData = [
         id: 3,
         name: "PK DAS COLLEGE OF NURSING",
         location: "Ottapalam,Palakkad",
-        imgUrl: "bba.jpg",
         courses: [
             //NURSING
             "B.Sc Nursing",
@@ -66,7 +63,6 @@ export const collegesData = [
         id: 4,
         name: "NEHRU COLLEGE OF PHARMACY",
         location: "Pampady,Thrissur",
-        imgUrl: "bba.jpg",
         courses: [
             "B.Pharm (Bachelor of Pharmacy)",
             "D.Pharm (Diploma in Pharmacy)",
@@ -90,7 +86,6 @@ export const collegesData = [
         id: 5,
         name: "PK DAS LIBERAL COLLEGE OF ARTS & SCIENCE",
         location: "Lakkidi,Palakkad",
-        imgUrl: "bba.jpg",
         courses: [
             //B.Com
             "Finance Honours",
@@ -119,7 +114,6 @@ export const collegesData = [
         id: 6,
         name: "NEHRU ACADEMY OF LAW",
         location: "Lakkidi,Palakkad",
-        imgUrl: "bba.jpg",
         courses: [
             "LL.B",
             "BBA.LL.B (Hons.)",
@@ -132,10 +126,38 @@ export const collegesData = [
         id: 7,
         name: "NEHRU COLLEGE OF ARCHITECTURE",
         location: "Lakkidi,Palakkad",
-        imgUrl: "bba.jpg",
         courses: [
             "B.Arch (Bachelor of Architecture)",
             "D.Arch (Diploma in Architecture)",
+        ],
+    },
+
+    // ─── 8. Dhanalakshmi Srinivasan College of Engineering ───
+    {
+        id: 8,
+        name: "DHANALAKSHMI SRINIVASAN COLLEGE OF ENGINEERING",
+        location: "Coimbatore",
+        courses: [
+            //B.Tech
+            "Agriculture Engineering",
+            "Artificial Intelligence and Data Science",
+            "Biomedical Engineering",
+            "Biotechnology",
+            "Computer Science and Engineering",
+            "Computer Science and Engineering(Cyber Security)",
+            "Electronics and Communication Engineering",
+            "Electrical and Electronics Engineering",
+            "Food Technology",
+            "Information Technology",
+            "Mechanical Engineering",
+
+            //MBA
+            "MBA",
+
+            //pharmacy
+            "B.Pharm (Bachelor of Pharmacy)",
+            "D.Pharm (Diploma in Pharmacy)",
+
         ],
     },
 

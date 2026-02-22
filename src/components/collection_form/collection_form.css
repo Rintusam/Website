@@ -5,7 +5,7 @@
   font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
   background:
     linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%),
-    url('/w.jpg') center/cover no-repeat fixed;
+    url('/home.jpg') center/cover no-repeat fixed;
   display: flex;
   justify-content: center;
   align-items: flex-start;

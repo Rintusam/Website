@@ -39,6 +39,9 @@ const COURSES_DATA = {
     "B.Tech/B.E (Engineering)": [
         { name: "Aeronautical Engineering" },
         { name: "Agriculture Engineering" },
+        { name: "Artificial Intelligence and Data Science" },
+        { name: "Biomedical Engineering" },
+        { name: "Biotechnology" },
         { name: "Civil Engineering" },
         { name: "Civil Engineering with Computer Applications" },
         { name: "Computer Science and Engineering" },
@@ -48,6 +51,8 @@ const COURSES_DATA = {
         { name: "Electrical and Computer Engineering" },
         { name: "Electrical and Electronics Engineering" },
         { name: "Electronics and Communication Engineering" },
+        { name: "Food Technology" },
+        { name: "Information Technology" },
         { name: "Mechanical Engineering" },
         { name: "Mechatronics Engineering" },
 
