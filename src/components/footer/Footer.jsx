@@ -46,10 +46,11 @@ const Footer = () => {
             </li>
             <li>
               <MdEmail className="icon" />
-              <a href="mailto:contact@neuca.com">contact@neuca.com</a>
+              <a href="mailto:contact@neuca.com">contact@neuca.in</a>
             </li>
           </ul>
         </div>
+
 
       </div>
 

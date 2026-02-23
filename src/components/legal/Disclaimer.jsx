@@ -6,28 +6,29 @@ const Disclaimer = () => {
         <div className="legal-page-container">
             <div className="legal-content">
                 <h1>Disclaimer</h1>
-                <p className="last-updated">Last Updated: February 8, 2026</p>
+                <p className="last-updated">Last Updated: February 23, 2026</p>
 
                 <div className="critical-notice">
                     <h2>⚠️ IMPORTANT NOTICE</h2>
                     <p>
-                        <strong>NeuCa is an educational consultancy and facilitation service. We DO NOT guarantee, promise, or assure admission to any college, university, or educational institution.</strong>
+                        <strong>NeuCa is an admission assistance and educational consultancy service. We DO NOT guarantee, promise, or assure admission to any college, university, or educational institution. We are facilitators, not admission authorities.</strong>
                     </p>
                 </div>
 
                 <section>
                     <h2>1. Nature of Services</h2>
                     <p>
-                        NeuCa provides educational consultancy, guidance, and facilitation services to students seeking admission to colleges and universities. Our role is strictly limited to:
+                        NeuCa provides admission assistance, educational guidance, and consultancy services to students seeking admission to colleges and universities across Science, Commerce, and Arts streams (UG and PG programs). Our role is strictly limited to:
                     </p>
                     <ul>
                         <li>Providing information about courses, colleges, and admission processes</li>
-                        <li>Offering guidance based on student qualifications and preferences</li>
+                        <li>Offering guidance based on student qualifications, stream, and preferences</li>
                         <li>Assisting with application procedures and documentation</li>
                         <li>Facilitating communication between students and educational institutions</li>
+                        <li>Following up with colleges on behalf of students</li>
                     </ul>
                     <p>
-                        <strong>We are consultants and facilitators, not admission authorities.</strong> We do not make admission decisions, and we have no control over the admission process of any educational institution.
+                        <strong>We are admission assistance consultants and facilitators, not admission authorities.</strong> We do not make admission decisions, and we have no control over the admission process of any educational institution.
                     </p>
                 </section>
 
@@ -43,9 +44,10 @@ const Disclaimer = () => {
                         <li>Verification and acceptance of documents by the institution</li>
                         <li>Student's academic performance and qualifications</li>
                         <li>Institution's internal policies and procedures</li>
+                        <li>Government and regulatory authority directives</li>
                     </ul>
                     <p>
-                        Even if we assist you with the application process, <strong>final admission decisions rest solely with the respective educational institutions.</strong>
+                        Even if we assist you with the application process, <strong>final admission decisions rest solely with the respective educational institutions.</strong> Our guidance and assistance do not influence or alter these decisions.
                     </p>
                 </section>
 
@@ -61,9 +63,10 @@ const Disclaimer = () => {
                         <li>Eligibility criteria and admission requirements</li>
                         <li>College rankings, ratings, and accreditations</li>
                         <li>Campus facilities, infrastructure, and amenities</li>
+                        <li>Seat availability and quota information</li>
                     </ul>
                     <p>
-                        <strong>Educational institutions may change their policies, fees, courses, or procedures without prior notice to us.</strong> We are not responsible for any changes made by institutions.
+                        <strong>Educational institutions may change their policies, fees, courses, or procedures at any time without prior notice to us.</strong> We are not responsible for any such changes made by institutions.
                     </p>
                     <p className="disclaimer-highlight">
                         Users are strongly advised to verify all critical information directly with the educational institutions before making any commitments or decisions.
@@ -89,42 +92,42 @@ const Disclaimer = () => {
                 <section>
                     <h2>5. Institutional Independence</h2>
                     <p>
-                        Unless explicitly stated otherwise:
+                        Unless explicitly stated in writing:
                     </p>
                     <ul>
                         <li>NeuCa is NOT affiliated with, endorsed by, or acting as an agent of any educational institution</li>
                         <li>We do not represent colleges or universities in any official capacity</li>
                         <li>We have no authority to make commitments on behalf of institutions</li>
-                        <li>We are independent consultants providing facilitation services</li>
+                        <li>We are independent admission assistance consultants providing facilitation services</li>
                     </ul>
                     <p>
-                        Any references to colleges, universities, or educational programs are for informational purposes only and do not imply endorsement, partnership, or authorization.
+                        Any references to colleges, universities, or educational programs on our platform are for informational purposes only and do not imply endorsement, partnership, or official authorization.
                     </p>
                 </section>
 
                 <section>
-                    <h2>6. Eligibility and Qualification</h2>
+                    <h2>6. Student Eligibility and Document Responsibility</h2>
                     <p>
                         <strong>Students are solely responsible for:</strong>
                     </p>
                     <ul>
-                        <li>Meeting the eligibility criteria of educational institutions</li>
-                        <li>Ensuring the authenticity and accuracy of submitted documents</li>
+                        <li>Meeting the eligibility criteria set by educational institutions</li>
+                        <li>Ensuring the authenticity and accuracy of all submitted documents</li>
                         <li>Maintaining required academic standards</li>
-                        <li>Complying with all institutional requirements</li>
+                        <li>Complying with all institutional and regulatory requirements</li>
                     </ul>
                     <p>
-                        We do not verify the eligibility of students or the authenticity of documents. If you do not meet an institution's eligibility criteria, your application may be rejected regardless of our assistance.
+                        We do not verify the eligibility of students or the authenticity of documents provided to us. If you do not meet an institution's eligibility criteria, your application may be rejected regardless of our assistance.
                     </p>
                     <p className="disclaimer-highlight">
-                        Providing false information or forged documents may result in application rejection, admission cancellation, or legal consequences.
+                        Providing false information or forged documents may result in application rejection, admission cancellation, or legal consequences under applicable law.
                     </p>
                 </section>
 
                 <section>
                     <h2>7. Service Fees vs. Institutional Fees</h2>
                     <p>
-                        <strong>Our service fees (if applicable) are for consultancy and facilitation only.</strong> They are separate from and in addition to:
+                        <strong>Our service fees (if applicable) are for admission assistance, consultancy, and facilitation only.</strong> They are separate from and in addition to:
                     </p>
                     <ul>
                         <li>College/university application fees</li>
@@ -132,7 +135,7 @@ const Disclaimer = () => {
                         <li>Examination fees, registration fees, or other academic costs</li>
                     </ul>
                     <p>
-                        <strong>Payment of our service fees does not guarantee admission.</strong> We provide professional guidance and support; admission outcomes depend on institutional decisions.
+                        <strong>Payment of our service fees does not guarantee admission.</strong> We provide professional guidance and support; admission outcomes depend entirely on institutional decisions.
                     </p>
                 </section>
 
@@ -152,7 +155,7 @@ const Disclaimer = () => {
                         <li><strong>Technical issues</strong> affecting website access or form submissions</li>
                     </ul>
                     <p>
-                        Our liability, if any, shall be limited to the amount of service fees paid to us.
+                        Our liability, if any, shall be limited to the amount of service fees paid to us by the student.
                     </p>
                 </section>
 
@@ -163,8 +166,8 @@ const Disclaimer = () => {
                     </p>
                     <ul>
                         <li>The website will be uninterrupted, timely, secure, or error-free</li>
-                        <li>Information provided will meet your requirements</li>
-                        <li>Defects or errors will be corrected</li>
+                        <li>Information provided will meet your specific requirements</li>
+                        <li>All defects or errors will be corrected</li>
                         <li>The website or servers are free from viruses or harmful components</li>
                     </ul>
                 </section>
@@ -187,11 +190,11 @@ const Disclaimer = () => {
                 <section>
                     <h2>11. Professional Advice</h2>
                     <p>
-                        Information provided by NeuCa is for general guidance purposes only and should not be considered as professional, legal, or financial advice. For specific concerns:
+                        Information provided by NeuCa is for general admission guidance purposes only and should not be considered as professional, legal, or financial advice. For specific concerns:
                     </p>
                     <ul>
-                        <li>Consult directly with educational institutions for admission queries</li>
-                        <li>Seek legal advice for visa, immigration, or regulatory matters</li>
+                        <li>Consult directly with educational institutions for official admission information</li>
+                        <li>Seek legal advice for regulatory, scholarship, or immigration matters</li>
                         <li>Obtain financial advice for education loans or funding options</li>
                     </ul>
                 </section>
@@ -204,16 +207,17 @@ const Disclaimer = () => {
                 </section>
 
                 <section>
-                    <h2>13. User Responsibility</h2>
+                    <h2>13. User Acknowledgment</h2>
                     <p className="disclaimer-highlight">
                         <strong>By using NeuCa's services, you acknowledge and agree that:</strong>
                     </p>
                     <ul>
-                        <li>You have read and understood this Disclaimer</li>
+                        <li>You have read and understood this Disclaimer in full</li>
                         <li>You accept that we do not guarantee admission outcomes</li>
-                        <li>You will verify all information independently</li>
-                        <li>You understand the risks and limitations of our services</li>
+                        <li>You will verify all important information independently with institutions</li>
+                        <li>You understand the limitations of our admission assistance services</li>
                         <li>You will not hold NeuCa liable for admission-related outcomes</li>
+                        <li>You are solely responsible for ensuring your eligibility and document authenticity</li>
                     </ul>
                 </section>
 
@@ -225,7 +229,6 @@ const Disclaimer = () => {
                     <div className="contact-info">
                         <p><strong>NeuCa</strong></p>
                         <p>Email: <a href="mailto:contact@neuca.in">contact@neuca.in</a></p>
-                        <p>Phone: <a href="tel:+919876543210">+91 9876543210</a></p>
                         <p>WhatsApp: <a href="https://wa.me/919447738796">+91 9447738796</a></p>
                     </div>
                 </section>
