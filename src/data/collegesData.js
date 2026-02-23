@@ -20,10 +20,10 @@ export const collegesData = [
                 "Electronics and Communication Engineering",
             ],
             "M.Tech": [
-                "Computer Science and Engineering",
-                "Cyber Security",
-                "Energy Systems",
-                "VLSI Design",
+                "M.Tech in Computer Science and Engineering",
+                "M.Tech in Cyber Security",
+                "M.Tech in Energy Systems",
+                "M.Tech in VLSI Design",
             ],
         },
     },
@@ -50,7 +50,7 @@ export const collegesData = [
                 "Computer Science and Engineering (Data Science)",
             ],
             "M.Tech": [
-                "Communication Engineering & Signal Processing",
+                "M.Tech in Communication Engineering & Signal Processing",
             ],
         },
     },
@@ -70,8 +70,8 @@ export const collegesData = [
                 "B.Sc Nursing",
             ],
             "M.Sc Nursing": [
-                "Community Health Nursing",
-                "Critical Care Nursing",
+                "M.Sc in Community Health Nursing",
+                "M.Sc in Critical Care Nursing",
             ],
         },
     },
@@ -88,25 +88,25 @@ export const collegesData = [
         amenities: ["Pharmacy Labs", "Library", "Hostel", "Cafeteria", "Wi-Fi Campus", "Research Centre", "Seminar Hall", "Medical Centre"],
         courses: {
             "B.Pharm": [
-                "Bachelor of Pharmacy",
+                "B.Pharm (Bachelor of Pharmacy)",
             ],
             "D.Pharm": [
-                "Diploma in Pharmacy",
+                "D.Pharm (Diploma in Pharmacy)",
             ],
             "Pharm.D": [
-                "Doctor of Pharmacy",
-                "Doctor of Pharmacy (Post Baccalaureate)",
+                "Pharm.D (Doctor of Pharmacy)",
+                "Pharm.D (Post Baccalaureate)",//masters
             ],
             "M.Pharm": [
-                "Pharmaceutics",
-                "Pharmacognosy",
-                "Pharmacy Practice",
-                "Pharmaceutical Regulatory Affairs",
+                "M.Pharm in Pharmaceutics",
+                "M.Pharm in Pharmacognosy",
+                "M.Pharm in Pharmacy Practice",
+                "M.Pharm in Pharmaceutical Regulatory Affairs",
             ],
             "Ph.D": [
-                "Pharmaceutics",
-                "Pharmacognosy",
-                "Pharmacy Practice",
+                "Ph.D in Pharmaceutics",
+                "Ph.D in Pharmacognosy",
+                "Ph.D in Pharmacy Practice",
             ],
         },
     },
@@ -126,16 +126,19 @@ export const collegesData = [
                 "Finance Honours",
                 "Cooperation Honours",
             ],
-            "BBA / BCA": [
+
+            "B.B.A": [
                 "BBA Honours",
-                "BCA Honours",
-                "Computer Applications Honours",
-                "Human Resource Management Honours",
             ],
+
+            "B.C.A": [
+                "BCA Honours",
+            ],
+
             "B.Sc": [
-                "Computer Science Honours",
-                "Artificial Intelligence Honours",
-                "Airline and Airport Management Honours",
+                "B.Sc Computer Science Honours",
+                "B.Sc Artificial Intelligence Honours",
+                "B.Sc Airline and Airport Management Honours",
             ],
             "B.A": [
                 "English Language and Literature Honours",
@@ -158,7 +161,7 @@ export const collegesData = [
                 "Bachelor of Laws",
             ],
             "Integrated Law": [
-                "BBA LL.B (Hons.)",
+                "BBA.LL.B (Hons.)",
                 "B.Com LL.B (Hons.)",
             ],
         },
@@ -176,10 +179,11 @@ export const collegesData = [
         amenities: ["Design Studios", "Library", "Hostel", "Model Making Lab", "Computer Lab", "Cafeteria", "Wi-Fi Campus", "Exhibition Hall"],
         courses: {
             "B.Arch": [
-                "Bachelor of Architecture",
+                "B.Arch (Bachelor of Architecture)",
+                
             ],
             "D.Arch": [
-                "Diploma in Architecture",
+                "D.Arch (Diploma in Architecture)",
             ],
         },
     },
@@ -209,13 +213,14 @@ export const collegesData = [
                 "Mechanical Engineering",
             ],
             "MBA": [
-                "Master of Business Administration",
+                "M.B.A (Master of Business Administration)",
+
             ],
             "B.Pharm": [
-                "Bachelor of Pharmacy",
+                "B.Pharm (Bachelor of Pharmacy)",
             ],
             "D.Pharm": [
-                "Diploma in Pharmacy",
+                "D.Pharm (Diploma in Pharmacy)",
             ],
         },
     },

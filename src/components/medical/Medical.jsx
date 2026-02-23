@@ -45,9 +45,9 @@ const COURSES_DATA = {
         { name: "Civil Engineering" },
         { name: "Civil Engineering with Computer Applications" },
         { name: "Computer Science and Engineering" },
-        { name: "Computer Science and Engineering(Artificial Intelligence and Machine Learning)" },
-        { name: "Computer Science and Engineering(Cyber Security)" },
-        { name: "Computer Science and Engineering(Data Science)" },
+        { name: "Computer Science and Engineering (Artificial Intelligence and Machine Learning)" },
+        { name: "Computer Science and Engineering (Cyber Security)" },
+        { name: "Computer Science and Engineering (Data Science)" },
         { name: "Electrical and Computer Engineering" },
         { name: "Electrical and Electronics Engineering" },
         { name: "Electronics and Communication Engineering" },
@@ -99,8 +99,8 @@ const COURSES_DATA = {
 
     ],
     "B.B.A": [
-        { name: "Aviation with IATA" },
         { name: "BBA Honours" },
+        { name: "Aviation with IATA" },
         { name: "CA with Digital Marketing & Data Analytics" },
         { name: "IB with Commodity Trading & Data Analytics" },
         { name: "Logistics & Supply Chain Management" }
@@ -149,6 +149,7 @@ const COURSES_DATA = {
     ],
 
     "M.B.A": [
+        { name: "M.B.A (Master of Business Administration)" },
         { name: "M.B.A in Finance" },
         { name: "M.B.A in Health Care Management" },
         { name: "M.B.A in Human Resources Management" },
