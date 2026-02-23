@@ -32,7 +32,10 @@ const Colleges = ({ selectedCourse: propCourse }) => {
   const filteredColleges = collegesData.filter(college => {
     const matchesCity = filter === 'All' ||
       (filter === 'Kerala' ? (college.location !== 'Coimbatore' && college.location !== 'Bangalore') : college.location === filter);
-    const matchesCourse = selectedCourse ? college.courses?.includes(selectedCourse) : true;
+    const allCourses = Array.isArray(college.courses)
+      ? college.courses
+      : Object.values(college.courses || {}).flat();
+    const matchesCourse = selectedCourse ? allCourses.includes(selectedCourse) : true;
     const matchesSearch = college.name.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCity && matchesCourse && matchesSearch;
   });

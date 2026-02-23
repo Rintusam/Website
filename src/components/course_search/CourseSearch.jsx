@@ -25,10 +25,13 @@ function CourseSearch() {
     const uniqueColleges = useRef([]); // [{ collegeName, location }]
 
     useEffect(() => {
-        // Deduplicate courses across all colleges
+        // Deduplicate courses across all colleges (handle new categorised object format)
         const courseSet = new Set();
         collegesData.forEach((college) => {
-            college.courses.forEach((course) => courseSet.add(course));
+            const allCourses = Array.isArray(college.courses)
+                ? college.courses
+                : Object.values(college.courses || {}).flat();
+            allCourses.forEach((course) => courseSet.add(course));
         });
         uniqueCourses.current = Array.from(courseSet).map((name) => ({ courseName: name }));
 
