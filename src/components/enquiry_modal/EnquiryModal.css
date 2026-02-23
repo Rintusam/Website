@@ -23,43 +23,21 @@
 }
 
 .enquiry-modal-content {
-    background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+    background: linear-gradient(145deg, #ffffff 0%, #f4f7ff 100%);
     padding: 50px 40px;
     border-radius: 24px;
     width: 100%;
     max-width: 900px;
     position: relative;
+    border: 4px solid #2563eb;
     box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.3),
-        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+        0 0 40px rgba(37, 99, 235, 0.35),
+        0 0 80px rgba(37, 99, 235, 0.15),
+        0 20px 60px rgba(0, 0, 0, 0.25);
     transform: translateY(-30px) scale(0.95);
     animation: slideIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
     transition: all 0.3s ease;
     overflow: hidden;
-}
-
-.enquiry-modal-content::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 6px;
-    background: linear-gradient(90deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
-    background-size: 200% 100%;
-    animation: gradientShift 3s ease infinite;
-}
-
-@keyframes gradientShift {
-
-    0%,
-    100% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
 }
 
 .enquiry-modal-content.success-mode {
@@ -153,6 +131,56 @@
     display: flex;
     flex-direction: column;
     position: relative;
+}
+
+/* Icon wrapper for inputs */
+.input-icon-wrapper {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.input-icon-wrapper .field-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #2563eb;
+    pointer-events: none;
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+    z-index: 1;
+}
+
+.input-icon-wrapper .form-input {
+    width: 100%;
+    padding-left: 44px !important;
+    box-sizing: border-box;
+}
+
+/* Textarea icon wrapper */
+.textarea-icon-wrapper {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.textarea-icon-wrapper .field-icon {
+    position: absolute;
+    left: 14px;
+    top: 15px;
+    color: #2563eb;
+    pointer-events: none;
+    width: 17px;
+    height: 17px;
+    z-index: 1;
+}
+
+.textarea-icon-wrapper .form-textarea {
+    width: 100%;
+    padding-left: 44px !important;
+    box-sizing: border-box;
 }
 
 .form-input,
