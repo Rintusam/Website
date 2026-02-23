@@ -80,23 +80,43 @@ const Colleges = ({ selectedCourse: propCourse }) => {
       </div>
 
       <div className="filter-wrapper">
-        <div className="filter-container">
-          <span className="filter-label">Filter by City:</span>
-          {['All', 'Kerala', 'Coimbatore', 'Bangalore'].map(city => (
-            <button key={city} className={`filter-btn ${filter === city ? 'active' : ''}`} onClick={() => setFilter(city)}>
-              {city}
-            </button>
-          ))}
-        </div>
+        <div className="filter-bar">
+          {/* Left: pin icon + label + city buttons */}
+          <div className="filter-bar-left">
+            <span className="filter-pin-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#888" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+            </span>
+            <span className="filter-label">Filter by</span>
+            {['All', 'Kerala', 'Coimbatore', 'Bangalore'].map((city, idx) => (
+              <React.Fragment key={city}>
+                {idx > 0 && <span className="filter-divider" />}
+                <button
+                  className={`filter-btn ${filter === city ? 'active' : ''}`}
+                  onClick={() => setFilter(city)}
+                >
+                  {city}
+                </button>
+              </React.Fragment>
+            ))}
+          </div>
 
-        <div className="search-container">
-          <input
-            type="text"
-            placeholder="Search colleges..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="search-input"
-          />
+          {/* Right: search box */}
+          <div className="filter-search-box">
+            <svg className="search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#aaa" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+            <input
+              type="text"
+              placeholder="Search colleges..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="filter-search-input"
+            />
+          </div>
         </div>
       </div>
 
@@ -109,9 +129,10 @@ const Colleges = ({ selectedCourse: propCourse }) => {
               return (
                 <li
                   key={college.id}
-                  className={`college-list-item ${isSelected ? 'college-list-item--selected' : ''}`}
+                  className={`college-card ${isSelected ? 'college-card--selected' : ''}`}
                   onClick={() => toggleSelection(college)}
                 >
+                  {/* Checkbox */}
                   <input
                     type="checkbox"
                     className="college-checkbox"
@@ -119,9 +140,39 @@ const Colleges = ({ selectedCourse: propCourse }) => {
                     onChange={() => toggleSelection(college)}
                     onClick={(e) => e.stopPropagation()}
                   />
-                  <div className="college-list-info">
-                    <span className="college-list-name">{college.name}</span>
-                    <span className="college-list-location">{college.location}</span>
+
+                  {/* Building illustration */}
+                  <div className="college-card-image">
+                    <img src="/college_building.png" alt="college building" />
+                  </div>
+
+                  {/* Info */}
+                  <div className="college-card-info">
+                    <span className="college-card-name">{college.name.toUpperCase()}</span>
+                    <span className="college-card-badge">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                      </svg>
+                      {college.location}
+                    </span>
+                  </div>
+
+                  {/* Shield icon */}
+                  <div className={`college-card-shield ${isSelected ? 'shield--selected' : ''}`}>
+                    <svg width="32" height="36" viewBox="0 0 32 36" fill="none">
+                      <path d="M16 2L3 7v10c0 8.6 5.5 16.6 13 19 7.5-2.4 13-10.4 13-19V7L16 2z"
+                        fill={isSelected ? '#e8a000' : '#f0c040'}
+                        stroke={isSelected ? '#c47800' : '#d4a000'}
+                        strokeWidth="1.5"
+                      />
+                      {isSelected && (
+                        <path d="M10 18l4 4 8-8" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                      )}
+                      {!isSelected && (
+                        <path d="M10 18l4 4 8-8" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.7" />
+                      )}
+                    </svg>
                   </div>
                 </li>
               );
@@ -133,14 +184,15 @@ const Colleges = ({ selectedCourse: propCourse }) => {
           </div>
         )}
 
+        {/* No Preference */}
         <div className="no-preference-container">
-          <label className={`no-preference-label ${noPreference ? 'active' : ''}`}>
+          <label className={`no-preference-card ${noPreference ? 'active' : ''}`}>
             <input
               type="checkbox"
               checked={noPreference}
               onChange={handleNoPreference}
             />
-            No College Preference
+            <span>No College Preference</span>
           </label>
         </div>
       </div>
