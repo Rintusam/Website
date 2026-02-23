@@ -19,6 +19,7 @@ import Contact_page from './pages/Contact_page.jsx';
 import About_page from './pages/About_page.jsx';
 import Collect_Details from './pages/Collect_Details.jsx';
 import CollegeDetailsPage from './pages/CollegeDetailsPage.jsx';
+import FindCollegesPage from './pages/FindCollegesPage.jsx';
 import WhatsAppButton from './components/whatsapp_button/WhatsAppButton.jsx';
 import FloatingEnquiry from './components/floating_enquiry/FloatingEnquiry.jsx';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage.jsx';
@@ -56,6 +57,7 @@ function App() {
         <Route path='/about' element={<About_page />} />
         <Route path='/collect_form' element={<Collect_Details />} />
         <Route path='/college-details/:id' element={<CollegeDetailsPage />} />
+        <Route path='/find-colleges' element={<FindCollegesPage />} />
         <Route path='/privacy-policy' element={<PrivacyPolicyPage />} />
         <Route path='/terms-conditions' element={<TermsConditionsPage />} />
         <Route path='/disclaimer' element={<DisclaimerPage />} />

@@ -30,7 +30,7 @@ function Banner() {
         <CourseSearch />
         <button
           className="banner-find-colleges-btn"
-          onClick={() => navigate('/college')}
+          onClick={() => navigate('/find-colleges')}
         >
           <FaUniversity />
           Find Colleges
