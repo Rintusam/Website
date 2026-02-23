@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import "./Banner.css";
 import ProgramSelectionModal from "../program_selection_modal/ProgramSelectionModal";
 import CourseSearch from "../course_search/CourseSearch";
-import { FaFlask, FaChartLine, FaPalette, FaArrowRight } from "react-icons/fa";
+import { FaFlask, FaChartLine, FaPalette, FaArrowRight, FaUniversity, FaChevronDown } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 function Banner() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedField, setSelectedField] = useState(null);
+  const navigate = useNavigate();
 
   const handleCardClick = (fieldType) => {
     setSelectedField(fieldType);
@@ -23,9 +25,17 @@ function Banner() {
       {/* Dark overlay to make text readable regardless of background image */}
       <div className="banner-overlay"></div>
 
-      {/* Course Search — top-right corner of banner */}
+      {/* Course Search + Find Colleges — top-right corner of banner */}
       <div className="banner-search-corner">
         <CourseSearch />
+        <button
+          className="banner-find-colleges-btn"
+          onClick={() => navigate('/college')}
+        >
+          <FaUniversity />
+          Find Colleges
+          <FaChevronDown className="banner-find-colleges-arrow" />
+        </button>
       </div>
 
       <div className="container position-relative z-2">

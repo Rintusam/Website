@@ -276,6 +276,30 @@
   transform: scale(1.08);
 }
 
+/* View Details button */
+.college-view-details-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+  background: #1a6ef5;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-family: 'Outfit', sans-serif;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  width: fit-content;
+}
+
+.college-view-details-btn:hover {
+  background: #1558cc;
+  transform: translateY(-1px);
+}
+
 /* --- No Results --- */
 .no-results {
   text-align: center;
