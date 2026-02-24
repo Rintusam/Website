@@ -19,10 +19,12 @@ const FindCollegesPage = () => {
     const navigate = useNavigate();
     const [search, setSearch] = useState('');
 
-    const filtered = collegesData.filter(c =>
-        c.name.toLowerCase().includes(search.toLowerCase()) ||
-        c.location.toLowerCase().includes(search.toLowerCase())
-    );
+    const filtered = search.length >= 1
+        ? collegesData.filter(c =>
+            c.name.toLowerCase().includes(search.toLowerCase()) ||
+            c.location.toLowerCase().includes(search.toLowerCase())
+        )
+        : collegesData;
 
     // helper: total course count from object or array
     const getCourseCount = (courses) => {

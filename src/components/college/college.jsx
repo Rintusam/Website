@@ -222,10 +222,10 @@ const Colleges = ({ selectedCourse: propCourse }) => {
             <p>If you don't have a specific preference, we can help you find the best options.</p>
             <div className="modal-actions">
               <button className="modal-close-btn" onClick={handleCloseModal}>
-                I'll Choose a College
+                 Choose a College
               </button>
               <button className="modal-no-pref-btn" onClick={handleModalProceed}>
-                I have No Preference
+                No Preference
               </button>
             </div>
           </div>
