@@ -71,8 +71,6 @@ const FindCollegesPage = () => {
                     <div className="fc-grid">
                         {filtered.map(college => {
                             const totalCourses = getCourseCount(college.courses);
-                            const isCategories = college.courses && !Array.isArray(college.courses);
-                            const categoryNames = isCategories ? Object.keys(college.courses) : [];
 
                             return (
                                 <div key={college.id} className="fc-card">
